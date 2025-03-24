@@ -33,6 +33,32 @@ export default {
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+        teal: {
+          50: '#F0FDFA',
+          100: '#CCFBF1',
+          200: '#99F6E4',
+          300: '#5EEAD4',
+          400: '#2DD4BF',
+          500: '#14B8A6',
+          600: '#0D9488',
+          700: '#0F766E',
+          800: '#115E59',
+          900: '#134E4A',
+          950: '#042f2e',
+        },
+        cyan: {
+          50: '#ECFEFF',
+          100: '#CFFAFE',
+          200: '#A5F3FC',
+          300: '#67E8F9',
+          400: '#22D3EE',
+          500: '#06B6D4',
+          600: '#0891B2',
+          700: '#0E7490',
+          800: '#155E75',
+          900: '#164E63',
+          950: '#083344',
+        },
         cloud: {
           50: '#F0F7FF',
           100: '#E0EFFF',
@@ -125,6 +151,16 @@ export default {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' }
         },
+        'pulse-glow': {
+          '0%, 100%': { 
+            opacity: '0.6',
+            transform: 'scale(1)'
+          },
+          '50%': { 
+            opacity: '1', 
+            transform: 'scale(1.05)'
+          }
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -135,6 +171,7 @@ export default {
         'slide-in-right': 'slide-in-right 0.4s ease-out forwards',
         'blur-in': 'blur-in 0.6s ease-out forwards',
         'float': 'float 6s ease-in-out infinite',
+        'pulse-glow': 'pulse-glow 4s ease-in-out infinite',
       }
     }
   },

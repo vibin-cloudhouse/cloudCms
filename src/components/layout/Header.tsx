@@ -31,9 +31,9 @@ const Header = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <img 
-                src="/lovable-uploads/364865ac-6f23-478f-8edf-1750c969df74.png" 
+                src="/lovable-uploads/b6663b6d-31b3-4893-9cba-9af864ba5896.png" 
                 alt="CloudStick" 
-                className="h-9 mr-2" 
+                className="h-10 mr-2" 
               />
             </Link>
           </div>
@@ -46,13 +46,13 @@ const Header = () => {
               </button>
               <div className="absolute left-0 mt-2 w-48 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 pointer-events-none group-hover:pointer-events-auto">
                 <div className="glass-card p-4 space-y-2">
-                  <Link to="/features/security" className="block px-4 py-2 text-slate-700 hover:text-cloud-600 rounded-lg hover:bg-slate-50 transition-colors">
+                  <Link to="/features/security" className="block px-4 py-2 text-slate-700 hover:text-teal-600 rounded-lg hover:bg-slate-50 transition-colors">
                     Security
                   </Link>
-                  <Link to="/features/sync" className="block px-4 py-2 text-slate-700 hover:text-cloud-600 rounded-lg hover:bg-slate-50 transition-colors">
+                  <Link to="/features/sync" className="block px-4 py-2 text-slate-700 hover:text-teal-600 rounded-lg hover:bg-slate-50 transition-colors">
                     File Sync
                   </Link>
-                  <Link to="/features/sharing" className="block px-4 py-2 text-slate-700 hover:text-cloud-600 rounded-lg hover:bg-slate-50 transition-colors">
+                  <Link to="/features/sharing" className="block px-4 py-2 text-slate-700 hover:text-teal-600 rounded-lg hover:bg-slate-50 transition-colors">
                     File Sharing
                   </Link>
                 </div>
@@ -74,12 +74,12 @@ const Header = () => {
 
           <div className="hidden md:flex items-center space-x-4">
             <Link to="/login">
-              <Button variant="outline" className="rounded-xl px-6">
+              <Button variant="outline" className="rounded-xl px-6 border-teal-200 text-teal-700 hover:bg-teal-50">
                 Login
               </Button>
             </Link>
             <Link to="/signup">
-              <Button className="bg-gradient-to-r from-blue-600 to-indigo-500 hover:from-blue-700 hover:to-indigo-600 text-white font-medium rounded-xl px-6 py-3 transition-all duration-200 transform hover:-translate-y-0.5 shadow-md">
+              <Button className="gradient-btn">
                 Get Started
               </Button>
             </Link>
@@ -134,12 +134,12 @@ const Header = () => {
             </Link>
             <div className="pt-4 flex flex-col space-y-3">
               <Link to="/login">
-                <Button variant="outline" className="w-full rounded-xl">
+                <Button variant="outline" className="w-full rounded-xl border-teal-200 text-teal-700 hover:bg-teal-50">
                   Login
                 </Button>
               </Link>
               <Link to="/signup">
-                <Button className="w-full bg-gradient-to-r from-blue-600 to-indigo-500 hover:from-blue-700 hover:to-indigo-600 text-white">
+                <Button className="w-full gradient-btn">
                   Get Started
                 </Button>
               </Link>

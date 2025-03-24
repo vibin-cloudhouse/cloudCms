@@ -12,7 +12,11 @@ import {
   Zap, 
   HardDrive, 
   ArrowRight, 
-  CheckCircle 
+  CheckCircle,
+  Server,
+  Key,
+  FileCheck,
+  Code
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/layout/Header";
@@ -73,9 +77,10 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-blue-50 z-[-1]"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-50 to-teal-50 z-[-1]"></div>
         <div className="gradient-blob w-96 h-96 top-20 right-0"></div>
         <div className="gradient-blob w-96 h-96 bottom-20 left-0"></div>
+        <div className="gradient-glow w-[600px] h-[600px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -118,29 +123,35 @@ const Index = () => {
                 </Button>
               </Link>
               <Link to="/features">
-                <Button variant="outline" className="text-lg px-8 py-6 rounded-xl">
+                <Button variant="outline" className="text-lg px-8 py-6 rounded-xl border-teal-200 text-teal-700 hover:bg-teal-50">
                   See All Features
                 </Button>
               </Link>
             </motion.div>
-          </motion.div>
-          
-          <motion.div 
-            className="mt-16 md:mt-24 relative max-w-5xl mx-auto"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            <div className="glass-card relative z-10 shadow-2xl overflow-hidden rounded-2xl border border-white/30">
-              <div className="absolute inset-0 bg-gradient-to-tr from-slate-50/50 to-white/30 backdrop-blur-sm"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                alt="CloudStick Dashboard" 
-                className="w-full h-auto relative z-20 rounded-lg transform hover:scale-[1.02] transition-transform duration-700"
-              />
-            </div>
-            <div className="absolute -top-8 -left-8 w-24 h-24 bg-blue-300 rounded-full filter blur-xl opacity-70"></div>
-            <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-indigo-300 rounded-full filter blur-xl opacity-60"></div>
+
+            <motion.div 
+              className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-slate-600"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+            >
+              <div className="flex items-center">
+                <Shield className="w-5 h-5 text-teal-600 mr-2" />
+                <span>Military-grade Encryption</span>
+              </div>
+              <div className="flex items-center">
+                <Server className="w-5 h-5 text-teal-600 mr-2" />
+                <span>99.9% Uptime</span>
+              </div>
+              <div className="flex items-center">
+                <Key className="w-5 h-5 text-teal-600 mr-2" />
+                <span>Zero-knowledge Privacy</span>
+              </div>
+              <div className="flex items-center">
+                <FileCheck className="w-5 h-5 text-teal-600 mr-2" />
+                <span>Unlimited File Versioning</span>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
