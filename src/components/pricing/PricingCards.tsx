@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -51,7 +50,8 @@ const PricingCards = () => {
             <span className="text-4xl font-bold">$9.99</span>
             <span className="text-slate-500 dark:text-slate-400">/month</span>
           </div>
-          <p className="text-slate-600 dark:text-slate-300 text-sm mb-6">Great for individuals</p>
+          <p className="text-slate-600 dark:text-slate-300 text-sm mb-2">Great for individuals</p>
+          <p className="text-teal-600 dark:text-teal-400 text-sm font-medium mb-6">10-day free trial</p>
         </div>
         
         <ul className="space-y-3 mb-8">
@@ -79,7 +79,7 @@ const PricingCards = () => {
         
         <Link to="/signup" className="block text-center">
           <button className="w-full py-3 px-6 bg-gradient-to-r from-teal-600 to-cyan-500 text-white rounded-xl hover:opacity-90 transition-opacity">
-            Get Started
+            Start Free Trial
           </button>
         </Link>
       </div>
@@ -96,7 +96,8 @@ const PricingCards = () => {
             <span className="text-4xl font-bold">$19.99</span>
             <span className="text-slate-500 dark:text-slate-400">/month</span>
           </div>
-          <p className="text-slate-600 dark:text-slate-300 text-sm mb-6">Perfect for professionals</p>
+          <p className="text-slate-600 dark:text-slate-300 text-sm mb-2">Perfect for professionals</p>
+          <p className="text-teal-600 dark:text-teal-400 text-sm font-medium mb-6">10-day free trial</p>
         </div>
         
         <ul className="space-y-3 mb-8">
@@ -128,7 +129,7 @@ const PricingCards = () => {
         
         <Link to="/signup" className="block text-center">
           <button className="w-full py-3 px-6 bg-gradient-to-r from-teal-600 to-cyan-500 text-white rounded-xl hover:opacity-90 transition-opacity shadow-md">
-            Get Started
+            Start Free Trial
           </button>
         </Link>
       </div>
@@ -141,7 +142,8 @@ const PricingCards = () => {
             <span className="text-4xl font-bold">$49.99</span>
             <span className="text-slate-500 dark:text-slate-400">/month</span>
           </div>
-          <p className="text-slate-600 dark:text-slate-300 text-sm mb-6">For teams and organizations</p>
+          <p className="text-slate-600 dark:text-slate-300 text-sm mb-2">For teams and organizations</p>
+          <p className="text-teal-600 dark:text-teal-400 text-sm font-medium mb-6">10-day free trial</p>
         </div>
         
         <ul className="space-y-3 mb-8">
