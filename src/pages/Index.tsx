@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -76,13 +77,13 @@ const Index = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="min-h-screen pt-28 pb-16 flex items-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/90 to-teal-50/90 dark:from-slate-900/95 dark:to-slate-800/95 z-[-1] transition-colors duration-300"></div>
+      <section className="min-h-screen flex items-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/80 to-teal-50/80 dark:from-slate-900/90 dark:to-slate-800/90 z-[-1] transition-colors duration-300"></div>
         <div className="gradient-blob w-[40rem] h-[40rem] top-[-10rem] right-[-10rem] opacity-40"></div>
         <div className="gradient-blob w-[30rem] h-[30rem] bottom-[-5rem] left-[-5rem] opacity-30"></div>
         <div className="gradient-glow w-[60rem] h-[60rem] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30"></div>
         
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24">
           <motion.div 
             className="text-center max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
