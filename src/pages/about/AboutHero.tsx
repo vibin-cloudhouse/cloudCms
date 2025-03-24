@@ -16,7 +16,7 @@ const AboutHero: React.FC = () => {
         </p>
         <div className="p-4 bg-teal-50 dark:bg-teal-900/30 rounded-lg border border-teal-100 dark:border-teal-800 inline-flex items-center gap-2">
           <p className="text-teal-700 dark:text-teal-300 font-medium">
-            We are proudly part of <span className="font-bold">CloudHouse</span>
+            We are proudly part of <a href="https://cloudhousetechnologies.com/" target="_blank" rel="noopener noreferrer" className="font-bold hover:underline">CloudHouse</a>
           </p>
           <ArrowRight className="w-4 h-4 text-teal-600 dark:text-teal-400" />
         </div>
