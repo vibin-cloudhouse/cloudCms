@@ -19,18 +19,6 @@ const AboutHero: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-700">
-        <img 
-          src="https://images.unsplash.com/photo-1483058712412-e9573fc25ebb?auto=format&fit=crop&w=1200&q=80" 
-          alt="CloudHouse Office" 
-          className="w-full aspect-video object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 p-6 text-white">
-          <p className="font-semibold text-lg">Our Headquarters</p>
-          <p className="text-sm opacity-90">Where innovation meets reliability</p>
-        </div>
-      </div>
     </div>
   );
 };
