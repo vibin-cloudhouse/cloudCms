@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 interface HeaderProps {
   children?: React.ReactNode;
@@ -11,7 +12,11 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
     <header className="fixed w-full top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 transition-colors duration-300">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center">
-          <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-teal-500 text-transparent bg-clip-text">CloudStick</span>
+          <img 
+            src="/lovable-uploads/1e9c8d72-fd3e-426d-aff4-3f96e3314af1.png" 
+            alt="CloudStick Logo" 
+            className="h-12" 
+          />
         </Link>
         <div className="flex items-center space-x-6">
           <nav className="hidden md:flex items-center space-x-6">
@@ -26,6 +31,7 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
                 Sign up
               </button>
             </Link>
+            <ThemeToggle />
           </div>
           {children}
         </div>

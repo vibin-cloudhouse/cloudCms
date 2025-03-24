@@ -11,6 +11,7 @@ type ThemeContextType = {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+  // Default to light mode instead of using system preference
   const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
@@ -18,9 +19,8 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     
     if (savedTheme) {
       setTheme(savedTheme);
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setTheme("dark");
     }
+    // Removed the system preference check to ensure light mode by default
   }, []);
 
   useEffect(() => {
