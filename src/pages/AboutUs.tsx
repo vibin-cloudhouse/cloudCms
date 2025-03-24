@@ -3,14 +3,20 @@ import React from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Database, Server, AppWindow, Globe } from "lucide-react";
 
 interface TeamMember {
   id: number;
   name: string;
   title: string;
   photo: string;
-  bio: string;
+}
+
+interface StatCounter {
+  value: number;
+  label: string;
+  icon: React.ReactNode;
 }
 
 const teamMembers: TeamMember[] = [
@@ -18,29 +24,120 @@ const teamMembers: TeamMember[] = [
     id: 1,
     name: "Sarah Johnson",
     title: "CEO & Co-founder",
-    photo: "/lovable-uploads/364865ac-6f23-478f-8edf-1750c969df74.png",
-    bio: "Sarah leads our vision and strategy with over 15 years of experience in cloud security."
+    photo: "/lovable-uploads/364865ac-6f23-478f-8edf-1750c969df74.png"
   },
   {
     id: 2,
     name: "Michael Chen",
     title: "CTO",
-    photo: "",
-    bio: "Michael oversees our technical architecture and ensures CloudStick remains at the cutting edge of cloud technology."
+    photo: ""
   },
   {
     id: 3,
     name: "Elena Rodriguez",
     title: "VP of Product",
-    photo: "",
-    bio: "Elena shapes our product roadmap and ensures CloudStick meets the evolving needs of our customers."
+    photo: ""
   },
   {
     id: 4,
     name: "David Kim",
     title: "Head of Security",
-    photo: "",
-    bio: "David brings expertise from his background in cybersecurity to keep your data safe and secure."
+    photo: ""
+  },
+  {
+    id: 5,
+    name: "Priya Patel",
+    title: "Lead Developer",
+    photo: ""
+  },
+  {
+    id: 6,
+    name: "James Wilson",
+    title: "DevOps Engineer",
+    photo: ""
+  },
+  {
+    id: 7,
+    name: "Olivia Martinez",
+    title: "UX Designer",
+    photo: ""
+  },
+  {
+    id: 8,
+    name: "Alex Thompson",
+    title: "Cloud Architect",
+    photo: ""
+  },
+  {
+    id: 9,
+    name: "Sophia Lee",
+    title: "Marketing Director",
+    photo: ""
+  },
+  {
+    id: 10,
+    name: "Nathan Brown",
+    title: "Customer Success Lead",
+    photo: ""
+  },
+  {
+    id: 11,
+    name: "Emma Johnson",
+    title: "Data Scientist",
+    photo: ""
+  },
+  {
+    id: 12,
+    name: "Carlos Diaz",
+    title: "Security Specialist",
+    photo: ""
+  },
+  {
+    id: 13,
+    name: "Aisha Khan",
+    title: "QA Engineer",
+    photo: ""
+  },
+  {
+    id: 14,
+    name: "Ryan Park",
+    title: "Frontend Developer",
+    photo: ""
+  },
+  {
+    id: 15,
+    name: "Lily Zhang",
+    title: "Backend Developer",
+    photo: ""
+  },
+  {
+    id: 16,
+    name: "Jordan Miller",
+    title: "Sales Director",
+    photo: ""
+  }
+];
+
+const statCounters: StatCounter[] = [
+  {
+    value: 5782,
+    label: "Servers Connected",
+    icon: <Server className="h-8 w-8 text-teal-600" />
+  },
+  {
+    value: 3149,
+    label: "Databases Managed",
+    icon: <Database className="h-8 w-8 text-teal-600" />
+  },
+  {
+    value: 8634,
+    label: "Applications Secured",
+    icon: <AppWindow className="h-8 w-8 text-teal-600" />
+  },
+  {
+    value: 2957,
+    label: "Domains Protected",
+    icon: <Globe className="h-8 w-8 text-teal-600" />
   }
 ];
 
@@ -66,6 +163,25 @@ const AboutUs: React.FC = () => {
             </div>
           </div>
 
+          {/* Stats Section */}
+          <div className="max-w-6xl mx-auto mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {statCounters.map((stat, index) => (
+                <div key={index} className="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md border border-slate-200 dark:border-slate-700 text-center">
+                  <div className="flex justify-center mb-4">
+                    {stat.icon}
+                  </div>
+                  <div className="text-4xl font-bold text-slate-900 dark:text-white mb-2">
+                    {stat.value.toLocaleString()}
+                  </div>
+                  <div className="text-teal-600 dark:text-teal-400 font-medium">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="max-w-4xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">Our Story</h2>
             <p className="text-slate-600 mb-4">
@@ -87,12 +203,12 @@ const AboutUs: React.FC = () => {
 
           <div>
             <h2 className="text-3xl font-bold text-slate-900 mb-10 text-center">Our Team</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {teamMembers.map((member) => (
                 <Card key={member.id} className="overflow-hidden border border-slate-200 hover:shadow-md transition-shadow">
                   <CardHeader className="p-6 pb-2">
                     <div className="flex justify-center mb-4">
-                      <Avatar className="h-24 w-24">
+                      <Avatar className="h-20 w-20">
                         {member.photo ? (
                           <AvatarImage src={member.photo} alt={member.name} />
                         ) : (
@@ -103,13 +219,10 @@ const AboutUs: React.FC = () => {
                       </Avatar>
                     </div>
                     <CardTitle className="text-center text-xl">{member.name}</CardTitle>
-                    <CardDescription className="text-center text-teal-600 font-medium">
+                    <p className="text-center text-teal-600 font-medium mt-1">
                       {member.title}
-                    </CardDescription>
+                    </p>
                   </CardHeader>
-                  <CardContent className="p-6 pt-2">
-                    <p className="text-slate-600 text-sm">{member.bio}</p>
-                  </CardContent>
                 </Card>
               ))}
             </div>
