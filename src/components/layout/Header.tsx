@@ -20,8 +20,10 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
         </Link>
         <div className="flex items-center space-x-6">
           <nav className="hidden md:flex items-center space-x-6">
+            {/* Rearranged menu items by priority */}
             <Link to="/features" className="text-slate-700 hover:text-teal-600 dark:text-slate-200 dark:hover:text-teal-400 transition-colors">Features</Link>
             <Link to="/pricing" className="text-slate-700 hover:text-teal-600 dark:text-slate-200 dark:hover:text-teal-400 transition-colors">Pricing</Link>
+            <Link to="/blog" className="text-slate-700 hover:text-teal-600 dark:text-slate-200 dark:hover:text-teal-400 transition-colors">Blog</Link>
             <Link to="/about" className="text-slate-700 hover:text-teal-600 dark:text-slate-200 dark:hover:text-teal-400 transition-colors">About Us</Link>
             <Link to="/docs" className="text-slate-700 hover:text-teal-600 dark:text-slate-200 dark:hover:text-teal-400 transition-colors">Docs</Link>
             <Link to="/kb" className="text-slate-700 hover:text-teal-600 dark:text-slate-200 dark:hover:text-teal-400 transition-colors">Knowledge Base</Link>
