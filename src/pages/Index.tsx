@@ -367,16 +367,17 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Free Plan */}
             <div className="pricing-card animate-float dark:bg-slate-700 dark:border-slate-600">
               <div className="mb-4">
-                <h3 className="text-lg font-medium text-slate-500 dark:text-slate-300">Starter</h3>
+                <h3 className="text-lg font-medium text-slate-500 dark:text-slate-300">Free</h3>
                 <div className="mt-2 flex items-baseline">
-                  <span className="text-4xl font-bold text-slate-900 dark:text-white">Free</span>
-                  <span className="ml-2 text-slate-500 dark:text-slate-400">forever</span>
+                  <span className="text-4xl font-bold text-slate-900 dark:text-white">$0</span>
+                  <span className="ml-2 text-slate-500 dark:text-slate-400">/forever</span>
                 </div>
                 <p className="mt-4 text-slate-600 dark:text-slate-300">
-                  Perfect for individuals with a few servers to manage.
+                  Perfect for individuals and small personal projects.
                 </p>
               </div>
               <ul className="mt-6 space-y-4">
@@ -390,11 +391,7 @@ const Index = () => {
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700 dark:text-slate-300">Web SSH terminal</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700 dark:text-slate-300">Email alerts</span>
+                  <span className="text-slate-700 dark:text-slate-300">Email support</span>
                 </li>
               </ul>
               <div className="mt-8">
@@ -406,6 +403,46 @@ const Index = () => {
               </div>
             </div>
             
+            {/* Basic Plan */}
+            <div className="pricing-card animate-float dark:bg-slate-700 dark:border-slate-600" style={{animationDelay: "0.1s"}}>
+              <div className="mb-4">
+                <h3 className="text-lg font-medium text-slate-500 dark:text-slate-300">Basic</h3>
+                <div className="mt-2 flex items-baseline">
+                  <span className="text-4xl font-bold text-slate-900 dark:text-white">$19.99</span>
+                  <span className="ml-2 text-slate-500 dark:text-slate-400">/month</span>
+                </div>
+                <p className="mt-4 text-slate-600 dark:text-slate-300">
+                  For startups and growing projects with more needs.
+                </p>
+              </div>
+              <ul className="mt-6 space-y-4">
+                <li className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700 dark:text-slate-300">Up to 10 servers</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700 dark:text-slate-300">Standard monitoring</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700 dark:text-slate-300">Web SSH terminal</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700 dark:text-slate-300">Priority email support</span>
+                </li>
+              </ul>
+              <div className="mt-8">
+                <Link to="/signup" className="block w-full">
+                  <Button variant="outline" className="w-full rounded-xl dark:border-teal-800 dark:text-teal-400 dark:hover:bg-teal-900/30">
+                    Get Started
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            
+            {/* Pro Plan */}
             <div className="pricing-card featured animate-float dark:bg-gradient-to-br dark:from-slate-700 dark:to-slate-800 dark:border-teal-900" style={{animationDelay: "0.2s"}}>
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <span className="bg-gradient-to-r from-teal-600 to-cyan-600 text-white text-xs font-bold px-4 py-1 rounded-full">MOST POPULAR</span>
@@ -413,7 +450,7 @@ const Index = () => {
               <div className="mb-4">
                 <h3 className="text-lg font-medium text-teal-700 dark:text-teal-400">Pro</h3>
                 <div className="mt-2 flex items-baseline">
-                  <span className="text-4xl font-bold text-slate-900 dark:text-white">$29.99</span>
+                  <span className="text-4xl font-bold text-slate-900 dark:text-white">$49.99</span>
                   <span className="ml-2 text-slate-500 dark:text-slate-400">/month</span>
                 </div>
                 <p className="mt-4 text-slate-600 dark:text-slate-300">
@@ -423,7 +460,7 @@ const Index = () => {
               <ul className="mt-6 space-y-4">
                 <li className="flex items-start">
                   <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700 dark:text-slate-300">Up to 15 servers</span>
+                  <span className="text-slate-700 dark:text-slate-300">Up to 25 servers</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
@@ -451,9 +488,10 @@ const Index = () => {
               </div>
             </div>
             
+            {/* Business Plan */}
             <div className="pricing-card animate-float dark:bg-slate-700 dark:border-slate-600" style={{animationDelay: "0.4s"}}>
               <div className="mb-4">
-                <h3 className="text-lg font-medium text-slate-500 dark:text-slate-300">Enterprise</h3>
+                <h3 className="text-lg font-medium text-slate-500 dark:text-slate-300">Business</h3>
                 <div className="mt-2 flex items-baseline">
                   <span className="text-4xl font-bold text-slate-900 dark:text-white">$99.99</span>
                   <span className="ml-2 text-slate-500 dark:text-slate-400">/month</span>
@@ -496,7 +534,7 @@ const Index = () => {
           
           <div className="mt-12 text-center">
             <Link to="/pricing" className="text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 font-medium inline-flex items-center">
-              See all pricing details <ArrowRight className="ml-1 w-4 h-4" />
+              View full pricing details and comparison <ArrowRight className="ml-1 w-4 h-4" />
             </Link>
           </div>
         </div>
