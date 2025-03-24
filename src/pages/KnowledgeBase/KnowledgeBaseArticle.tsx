@@ -34,19 +34,19 @@ const KnowledgeBaseArticle: React.FC = () => {
           <Breadcrumb className="mb-6">
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbLink as={Link} to="/">Home</BreadcrumbLink>
+                <Link to="/" className="transition-colors hover:text-foreground">Home</Link>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink as={Link} to="/kb">Knowledge Base</BreadcrumbLink>
+                <Link to="/kb" className="transition-colors hover:text-foreground">Knowledge Base</Link>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink as={Link} to={`/kb/${category.slug}`}>{category.name}</BreadcrumbLink>
+                <Link to={`/kb/${category.slug}`} className="transition-colors hover:text-foreground">{category.name}</Link>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink>{article.title}</BreadcrumbLink>
+                <span className="font-normal text-foreground">{article.title}</span>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>

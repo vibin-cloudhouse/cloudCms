@@ -39,15 +39,15 @@ const KnowledgeBaseCategory: React.FC = () => {
           <Breadcrumb className="mb-6">
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbLink as={Link} to="/">Home</BreadcrumbLink>
+                <Link to="/" className="transition-colors hover:text-foreground">Home</Link>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink as={Link} to="/kb">Knowledge Base</BreadcrumbLink>
+                <Link to="/kb" className="transition-colors hover:text-foreground">Knowledge Base</Link>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink>{category.name}</BreadcrumbLink>
+                <span className="font-normal text-foreground">{category.name}</span>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
