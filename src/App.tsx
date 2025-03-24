@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/hooks/useTheme";
 import Index from "./pages/Index";
 import Pricing from "./pages/Pricing";
-import AboutUs from "./pages/AboutUs";
+import AboutUs from "./pages/about";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
