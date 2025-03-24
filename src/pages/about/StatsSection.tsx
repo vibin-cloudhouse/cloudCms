@@ -34,16 +34,20 @@ const statCounters: StatCounterData[] = [
 
 const StatsSection: React.FC = () => {
   return (
-    <div className="max-w-6xl mx-auto mb-16">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {statCounters.map((stat, index) => (
-          <StatCounter 
-            key={index}
-            value={stat.value}
-            label={stat.label}
-            icon={stat.icon}
-          />
-        ))}
+    <div className="relative">
+      <div className="gradient-blob w-96 h-96 opacity-10 -right-20 top-20"></div>
+      <h2 className="text-3xl font-bold gradient-heading mb-16 text-center">Our Impact in Numbers</h2>
+      <div className="max-w-6xl mx-auto mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {statCounters.map((stat, index) => (
+            <StatCounter 
+              key={index}
+              value={stat.value}
+              label={stat.label}
+              icon={stat.icon}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

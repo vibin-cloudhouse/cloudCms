@@ -14,15 +14,15 @@ const AboutUs: React.FC = () => {
     <>
       <Header />
       <main className="pt-24 pb-16">
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-32">
             <AboutHero />
-            <StatsSection />
             <VisionSection />
             <StorySection />
+            <StatsSection />
             <TeamSection teamMembers={teamMembers} />
           </div>
-        </section>
+        </div>
       </main>
       <Footer />
     </>
