@@ -13,6 +13,7 @@ import BlogDetail from "./pages/Blog/BlogDetail";
 import KnowledgeBase from "./pages/KnowledgeBase";
 import KnowledgeBaseCategory from "./pages/KnowledgeBase/KnowledgeBaseCategory";
 import KnowledgeBaseArticle from "./pages/KnowledgeBase/KnowledgeBaseArticle";
+import Docs from "./pages/Docs";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,6 +34,7 @@ const App = () => (
             <Route path="/kb" element={<KnowledgeBase />} />
             <Route path="/kb/:category" element={<KnowledgeBaseCategory />} />
             <Route path="/kb/:category/:slug" element={<KnowledgeBaseArticle />} />
+            <Route path="/docs" element={<Docs />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
