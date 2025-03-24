@@ -3,18 +3,20 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { 
-  Server, 
   Shield, 
-  Database, 
-  Monitor, 
-  Settings, 
-  Cloud,
-  HardDriveDownload,
-  Network,
-  Cpu,
-  PowerSquare,
-  Terminal,
-  Gauge
+  Shuffle, 
+  Share2, 
+  CloudOff, 
+  Lock, 
+  Globe, 
+  Zap, 
+  HardDrive, 
+  ArrowRight, 
+  CheckCircle,
+  Server,
+  Key,
+  FileCheck,
+  Code
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/layout/Header";
@@ -75,9 +77,10 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 to-blue-950 z-[-1]"></div>
-        <div className="gradient-blob w-96 h-96 top-20 right-0 opacity-10"></div>
-        <div className="gradient-blob w-96 h-96 bottom-20 left-0 opacity-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-50 to-teal-50 z-[-1]"></div>
+        <div className="gradient-blob w-96 h-96 top-20 right-0"></div>
+        <div className="gradient-blob w-96 h-96 bottom-20 left-0"></div>
+        <div className="gradient-glow w-[600px] h-[600px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -87,24 +90,25 @@ const Index = () => {
             transition={{ duration: 0.6 }}
           >
             <motion.h1 
-              className="text-4xl md:text-6xl font-display font-bold text-white mb-6"
+              className="text-4xl md:text-6xl font-display font-bold text-slate-900 mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Powerful Server Management <br />
-              <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                Made Simple
+              Secure Cloud Storage <br />
+              <span className="gradient-heading">
+                For Your Peace of Mind
               </span>
             </motion.h1>
             
             <motion.p 
-              className="text-lg md:text-xl text-slate-300 mb-8"
+              className="text-lg md:text-xl text-slate-600 mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              Monitor, manage, and optimize your cloud infrastructure with enterprise-grade tools and real-time analytics.
+              Access, share, and protect your files from anywhere with military-grade encryption 
+              and seamless synchronization across all your devices.
             </motion.p>
             
             <motion.div 
@@ -115,37 +119,37 @@ const Index = () => {
             >
               <Link to="/signup">
                 <Button className="gradient-btn text-lg px-8 py-6">
-                  Start Free Trial
+                  Get Started Free
                 </Button>
               </Link>
-              <Link to="/demo">
-                <Button variant="outline" className="text-lg px-8 py-6 rounded-xl border-blue-700 text-white hover:bg-blue-900/50">
-                  Request Demo
+              <Link to="/features">
+                <Button variant="outline" className="text-lg px-8 py-6 rounded-xl border-teal-200 text-teal-700 hover:bg-teal-50">
+                  See All Features
                 </Button>
               </Link>
             </motion.div>
 
             <motion.div 
-              className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-slate-400"
+              className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-slate-600"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
               <div className="flex items-center">
-                <Monitor className="w-5 h-5 text-blue-400 mr-2" />
-                <span>Real-time Monitoring</span>
+                <Shield className="w-5 h-5 text-teal-600 mr-2" />
+                <span>Military-grade Encryption</span>
               </div>
               <div className="flex items-center">
-                <Shield className="w-5 h-5 text-blue-400 mr-2" />
-                <span>Advanced Security</span>
+                <Server className="w-5 h-5 text-teal-600 mr-2" />
+                <span>99.9% Uptime</span>
               </div>
               <div className="flex items-center">
-                <Terminal className="w-5 h-5 text-blue-400 mr-2" />
-                <span>Command Center</span>
+                <Key className="w-5 h-5 text-teal-600 mr-2" />
+                <span>Zero-knowledge Privacy</span>
               </div>
               <div className="flex items-center">
-                <Gauge className="w-5 h-5 text-blue-400 mr-2" />
-                <span>Performance Analytics</span>
+                <FileCheck className="w-5 h-5 text-teal-600 mr-2" />
+                <span>Unlimited File Versioning</span>
               </div>
             </motion.div>
           </motion.div>
@@ -153,260 +157,441 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 md:py-32 bg-slate-900 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 md:py-32 bg-white relative" ref={sectionRef}>
+        <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-blue-50 to-white"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div 
             className="text-center max-w-3xl mx-auto mb-16 md:mb-24"
             variants={containerVariants}
             initial="hidden"
             animate={isVisible ? "visible" : "hidden"}
           >
+            <motion.div variants={itemVariants}>
+              <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-blue-700 bg-blue-50 rounded-full">
+                Powerful Features
+              </span>
+            </motion.div>
             <motion.h2 
-              className="text-3xl md:text-4xl font-display font-bold text-white mb-6"
+              className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-6"
               variants={itemVariants}
             >
-              Complete Server Management Solution
+              Everything You Need for Secure File Management
             </motion.h2>
             <motion.p 
-              className="text-lg text-slate-300"
+              className="text-lg text-slate-600"
               variants={itemVariants}
             >
-              Everything you need to manage and optimize your cloud infrastructure in one platform.
+              CloudStick combines the best security practices with intuitive design to give you a seamless experience.
             </motion.p>
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div 
-              className="glass-card bg-slate-800/50 border-slate-700"
+              className="feature-card"
               variants={itemVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <Server className="w-12 h-12 text-blue-400 mb-4" />
-              <h3 className="text-xl font-semibold text-white mb-3">Server Monitoring</h3>
-              <p className="text-slate-300 mb-4">
-                Real-time monitoring of server health, resources, and performance metrics with automated alerts.
+              <Shield className="w-12 h-12 text-blue-600 mb-4" />
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">Military-Grade Encryption</h3>
+              <p className="text-slate-600 mb-4">
+                Your files are protected with AES-256 encryption, the same standard used by governments to secure classified information.
               </p>
+              <Link to="/features/security" className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors font-medium">
+                Learn more <ArrowRight className="ml-1 w-4 h-4" />
+              </Link>
             </motion.div>
             
             <motion.div 
-              className="glass-card bg-slate-800/50 border-slate-700"
+              className="feature-card"
               variants={itemVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <Database className="w-12 h-12 text-blue-400 mb-4" />
-              <h3 className="text-xl font-semibold text-white mb-3">Database Management</h3>
-              <p className="text-slate-300 mb-4">
-                Streamlined database operations, backups, and performance optimization tools.
+              <Shuffle className="w-12 h-12 text-blue-600 mb-4" />
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">Seamless Synchronization</h3>
+              <p className="text-slate-600 mb-4">
+                Automatically sync your files across all your devices. Work on a file on your laptop and continue on your mobile device.
               </p>
+              <Link to="/features/sync" className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors font-medium">
+                Learn more <ArrowRight className="ml-1 w-4 h-4" />
+              </Link>
             </motion.div>
             
             <motion.div 
-              className="glass-card bg-slate-800/50 border-slate-700"
+              className="feature-card"
               variants={itemVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <Network className="w-12 h-12 text-blue-400 mb-4" />
-              <h3 className="text-xl font-semibold text-white mb-3">Network Analytics</h3>
-              <p className="text-slate-300 mb-4">
-                Comprehensive network monitoring, traffic analysis, and bandwidth optimization.
+              <Share2 className="w-12 h-12 text-blue-600 mb-4" />
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">Secure File Sharing</h3>
+              <p className="text-slate-600 mb-4">
+                Share files with custom permissions, password protection, and expiration dates. Control who sees your data.
               </p>
-            </motion.div>
-
-            <motion.div 
-              className="glass-card bg-slate-800/50 border-slate-700"
-              variants={itemVariants}
-            >
-              <PowerSquare className="w-12 h-12 text-blue-400 mb-4" />
-              <h3 className="text-xl font-semibold text-white mb-3">Power Management</h3>
-              <p className="text-slate-300 mb-4">
-                Efficient power consumption monitoring and automation for cost optimization.
-              </p>
+              <Link to="/features/sharing" className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors font-medium">
+                Learn more <ArrowRight className="ml-1 w-4 h-4" />
+              </Link>
             </motion.div>
             
             <motion.div 
-              className="glass-card bg-slate-800/50 border-slate-700"
+              className="feature-card"
               variants={itemVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
             >
-              <Settings className="w-12 h-12 text-blue-400 mb-4" />
-              <h3 className="text-xl font-semibold text-white mb-3">Server Configuration</h3>
-              <p className="text-slate-300 mb-4">
-                Easy-to-use interface for server setup, maintenance, and configuration management.
+              <CloudOff className="w-12 h-12 text-blue-600 mb-4" />
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">Offline Access</h3>
+              <p className="text-slate-600 mb-4">
+                Access your important files even without an internet connection. CloudStick keeps your selected files available offline.
               </p>
+              <Link to="/features/offline" className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors font-medium">
+                Learn more <ArrowRight className="ml-1 w-4 h-4" />
+              </Link>
             </motion.div>
             
             <motion.div 
-              className="glass-card bg-slate-800/50 border-slate-700"
+              className="feature-card"
               variants={itemVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
             >
-              <Cpu className="w-12 h-12 text-blue-400 mb-4" />
-              <h3 className="text-xl font-semibold text-white mb-3">Resource Allocation</h3>
-              <p className="text-slate-300 mb-4">
-                Smart resource distribution and scaling based on workload demands.
+              <Lock className="w-12 h-12 text-blue-600 mb-4" />
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">Zero-Knowledge Privacy</h3>
+              <p className="text-slate-600 mb-4">
+                We can't read your files or see your passwords. Your privacy is guaranteed through zero-knowledge architecture.
               </p>
+              <Link to="/features/privacy" className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors font-medium">
+                Learn more <ArrowRight className="ml-1 w-4 h-4" />
+              </Link>
+            </motion.div>
+            
+            <motion.div 
+              className="feature-card"
+              variants={itemVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+            >
+              <Globe className="w-12 h-12 text-blue-600 mb-4" />
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">Cross-Platform Support</h3>
+              <p className="text-slate-600 mb-4">
+                CloudStick works seamlessly on Windows, macOS, Linux, iOS, and Android. Your files, everywhere you need them.
+              </p>
+              <Link to="/download" className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors font-medium">
+                Download apps <ArrowRight className="ml-1 w-4 h-4" />
+              </Link>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* How It Works Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-slate-900 to-blue-950">
+      <section className="py-20 md:py-32 bg-gradient-to-b from-white to-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
-              Get Started in Minutes
+            <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-blue-700 bg-blue-50 rounded-full">
+              Simple Process
+            </span>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-6">
+              How CloudStick Works
             </h2>
-            <p className="text-lg text-slate-300">
-              Simple setup process to start managing your servers effectively.
+            <p className="text-lg text-slate-600">
+              Securing your files has never been easier. Get started in minutes with our intuitive platform.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
-            <div className="glass-card bg-slate-800/50 border-slate-700 relative">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-full flex items-center justify-center font-bold text-xl mb-6">1</div>
-              <h3 className="text-xl font-semibold text-white mb-3">Connect Your Servers</h3>
-              <p className="text-slate-300">
-                Add your servers with our secure connection protocol. Support for all major cloud providers.
+            <div className="glass-card p-8 relative">
+              <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full flex items-center justify-center font-bold text-xl mb-6">1</div>
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">Create Your Account</h3>
+              <p className="text-slate-600">
+                Sign up in seconds with just your email. No credit card required for our free plan.
               </p>
+              <div className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 hidden md:block">
+                <ArrowRight className="w-8 h-8 text-blue-300" />
+              </div>
+              <div className="absolute -bottom-1 left-10 right-10 h-4 bg-white blur-xl opacity-80"></div>
             </div>
             
-            <div className="glass-card bg-slate-800/50 border-slate-700 relative">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-full flex items-center justify-center font-bold text-xl mb-6">2</div>
-              <h3 className="text-xl font-semibold text-white mb-3">Configure Monitoring</h3>
-              <p className="text-slate-300">
-                Set up monitoring parameters and alerts according to your needs.
+            <div className="glass-card p-8 relative">
+              <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full flex items-center justify-center font-bold text-xl mb-6">2</div>
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">Upload Your Files</h3>
+              <p className="text-slate-600">
+                Drag and drop your files into CloudStick. They're automatically encrypted and secured.
               </p>
+              <div className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 hidden md:block">
+                <ArrowRight className="w-8 h-8 text-blue-300" />
+              </div>
+              <div className="absolute -bottom-1 left-10 right-10 h-4 bg-white blur-xl opacity-80"></div>
             </div>
             
-            <div className="glass-card bg-slate-800/50 border-slate-700 relative">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-full flex items-center justify-center font-bold text-xl mb-6">3</div>
-              <h3 className="text-xl font-semibold text-white mb-3">Manage & Optimize</h3>
-              <p className="text-slate-300">
-                Start managing your infrastructure with our comprehensive dashboard.
+            <div className="glass-card p-8 relative">
+              <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full flex items-center justify-center font-bold text-xl mb-6">3</div>
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">Access Anywhere</h3>
+              <p className="text-slate-600">
+                Your files sync across all your devices. Access, edit, and share them from anywhere.
               </p>
+              <div className="absolute -bottom-1 left-10 right-10 h-4 bg-white blur-xl opacity-80"></div>
             </div>
+          </div>
+          
+          <div className="mt-16 text-center">
+            <Link to="/signup">
+              <Button className="gradient-btn">
+                Start Securing Your Files
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Pricing Section Preview */}
-      <section className="py-20 md:py-32 bg-slate-900">
+      {/* Plans & Pricing Section Preview */}
+      <section className="py-20 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
-              Plans for Every Scale
+            <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-blue-700 bg-blue-50 rounded-full">
+              Flexible Plans
+            </span>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-6">
+              Choose the Perfect Plan for Your Needs
             </h2>
-            <p className="text-lg text-slate-300">
-              Choose the right plan for your infrastructure needs.
+            <p className="text-lg text-slate-600">
+              Whether you're an individual or a large enterprise, we have a plan that fits your requirements.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="pricing-card bg-slate-800/50 border-slate-700 text-white">
+            <div className="pricing-card animate-float">
               <div className="mb-4">
-                <h3 className="text-lg font-medium text-slate-300">Starter</h3>
+                <h3 className="text-lg font-medium text-slate-500">Basic</h3>
                 <div className="mt-2 flex items-baseline">
-                  <span className="text-4xl font-bold text-white">$49</span>
-                  <span className="ml-2 text-slate-400">/month</span>
+                  <span className="text-4xl font-bold text-slate-900">Free</span>
+                  <span className="ml-2 text-slate-500">forever</span>
                 </div>
-                <p className="mt-4 text-slate-300">
-                  Perfect for small infrastructure deployments.
+                <p className="mt-4 text-slate-600">
+                  Perfect for individual users looking to store and share basic files.
                 </p>
               </div>
               <ul className="mt-6 space-y-4">
                 <li className="flex items-start">
-                  <Cloud className="w-5 h-5 text-blue-400 shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-300">Up to 10 servers</span>
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">5 GB storage</span>
                 </li>
                 <li className="flex items-start">
-                  <Monitor className="w-5 h-5 text-blue-400 shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-300">Basic monitoring</span>
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">End-to-end encryption</span>
                 </li>
                 <li className="flex items-start">
-                  <Terminal className="w-5 h-5 text-blue-400 shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-300">Command line access</span>
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">3 devices</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Basic file sharing</span>
                 </li>
               </ul>
               <div className="mt-8">
                 <Link to="/signup" className="block w-full">
-                  <Button variant="outline" className="w-full rounded-xl border-blue-700 text-white hover:bg-blue-900/50">
-                    Get Started
+                  <Button variant="outline" className="w-full rounded-xl">
+                    Sign Up Free
                   </Button>
                 </Link>
               </div>
             </div>
             
-            <div className="pricing-card featured bg-gradient-to-b from-slate-800 to-blue-900/50 border-blue-700 text-white">
+            <div className="pricing-card featured animate-float" style={{animationDelay: "0.2s"}}>
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                <span className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-xs font-bold px-4 py-1 rounded-full">MOST POPULAR</span>
+                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-bold px-4 py-1 rounded-full">MOST POPULAR</span>
               </div>
               <div className="mb-4">
-                <h3 className="text-lg font-medium text-blue-400">Professional</h3>
+                <h3 className="text-lg font-medium text-blue-700">Pro</h3>
                 <div className="mt-2 flex items-baseline">
-                  <span className="text-4xl font-bold text-white">$199</span>
-                  <span className="ml-2 text-slate-400">/month</span>
+                  <span className="text-4xl font-bold text-slate-900">$9.99</span>
+                  <span className="ml-2 text-slate-500">/month</span>
                 </div>
-                <p className="mt-4 text-slate-300">
-                  Ideal for growing businesses with multiple servers.
+                <p className="mt-4 text-slate-600">
+                  For professionals who need advanced security and more storage.
                 </p>
               </div>
               <ul className="mt-6 space-y-4">
                 <li className="flex items-start">
-                  <Cloud className="w-5 h-5 text-blue-400 shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-300">Up to 50 servers</span>
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">1 TB storage</span>
                 </li>
                 <li className="flex items-start">
-                  <Monitor className="w-5 h-5 text-blue-400 shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-300">Advanced monitoring</span>
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Advanced encryption</span>
                 </li>
                 <li className="flex items-start">
-                  <Terminal className="w-5 h-5 text-blue-400 shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-300">Full access to all features</span>
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Unlimited devices</span>
                 </li>
                 <li className="flex items-start">
-                  <Settings className="w-5 h-5 text-blue-400 shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-300">Priority support</span>
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Advanced sharing & controls</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">30-day version history</span>
                 </li>
               </ul>
               <div className="mt-8">
                 <Link to="/signup" className="block w-full">
                   <Button className="w-full gradient-btn">
-                    Start Free Trial
+                    Start Pro Trial
                   </Button>
                 </Link>
               </div>
             </div>
             
-            <div className="pricing-card bg-slate-800/50 border-slate-700 text-white">
+            <div className="pricing-card animate-float" style={{animationDelay: "0.4s"}}>
               <div className="mb-4">
-                <h3 className="text-lg font-medium text-slate-300">Enterprise</h3>
+                <h3 className="text-lg font-medium text-slate-500">Business</h3>
                 <div className="mt-2 flex items-baseline">
-                  <span className="text-4xl font-bold text-white">Custom</span>
+                  <span className="text-4xl font-bold text-slate-900">$24.99</span>
+                  <span className="ml-2 text-slate-500">/user/month</span>
                 </div>
-                <p className="mt-4 text-slate-300">
-                  For large organizations with complex infrastructure.
+                <p className="mt-4 text-slate-600">
+                  For teams and businesses with advanced security needs.
                 </p>
               </div>
               <ul className="mt-6 space-y-4">
                 <li className="flex items-start">
-                  <Cloud className="w-5 h-5 text-blue-400 shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-300">Unlimited servers</span>
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">5 TB storage per user</span>
                 </li>
                 <li className="flex items-start">
-                  <Monitor className="w-5 h-5 text-blue-400 shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-300">Custom monitoring solutions</span>
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Enterprise-grade security</span>
                 </li>
                 <li className="flex items-start">
-                  <Terminal className="w-5 h-5 text-blue-400 shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-300">Dedicated support team</span>
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Admin console & controls</span>
                 </li>
                 <li className="flex items-start">
-                  <Settings className="w-5 h-5 text-blue-400 shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-300">Custom integrations</span>
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Advanced compliance features</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Unlimited version history</span>
                 </li>
               </ul>
               <div className="mt-8">
                 <Link to="/contact" className="block w-full">
-                  <Button variant="outline" className="w-full rounded-xl border-blue-700 text-white hover:bg-blue-900/50">
+                  <Button variant="outline" className="w-full rounded-xl">
                     Contact Sales
                   </Button>
                 </Link>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-12 text-center">
+            <Link to="/pricing" className="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center">
+              See all pricing details <ArrowRight className="ml-1 w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 md:py-32 bg-gradient-to-b from-slate-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-blue-700 bg-blue-50 rounded-full">
+              Trusted by Thousands
+            </span>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-6">
+              What Our Customers Say
+            </h2>
+            <p className="text-lg text-slate-600">
+              Hear from our satisfied users about how CloudStick has transformed their file security and management.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="glass-card p-8">
+              <div className="flex items-center mb-6">
+                <div className="mr-4">
+                  <img 
+                    src="https://randomuser.me/api/portraits/women/45.jpg" 
+                    alt="Sarah L." 
+                    className="w-12 h-12 rounded-full object-cover"
+                  />
+                </div>
+                <div>
+                  <h4 className="font-medium text-slate-900">Sarah L.</h4>
+                  <p className="text-sm text-slate-500">Freelance Designer</p>
+                </div>
+              </div>
+              <p className="text-slate-700 mb-4">
+                "CloudStick has been a game-changer for my design business. I can securely share large files with clients without worrying about security breaches. The interface is so intuitive!"
+              </p>
+              <div className="flex text-blue-500">
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              </div>
+            </div>
+            
+            <div className="glass-card p-8">
+              <div className="flex items-center mb-6">
+                <div className="mr-4">
+                  <img 
+                    src="https://randomuser.me/api/portraits/men/32.jpg" 
+                    alt="Michael T." 
+                    className="w-12 h-12 rounded-full object-cover"
+                  />
+                </div>
+                <div>
+                  <h4 className="font-medium text-slate-900">Michael T.</h4>
+                  <p className="text-sm text-slate-500">IT Manager</p>
+                </div>
+              </div>
+              <p className="text-slate-700 mb-4">
+                "We've deployed CloudStick across our entire organization. The admin controls are impressive, and the security features help us maintain compliance with industry regulations."
+              </p>
+              <div className="flex text-blue-500">
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              </div>
+            </div>
+            
+            <div className="glass-card p-8">
+              <div className="flex items-center mb-6">
+                <div className="mr-4">
+                  <img 
+                    src="https://randomuser.me/api/portraits/women/68.jpg" 
+                    alt="Jessica K." 
+                    className="w-12 h-12 rounded-full object-cover"
+                  />
+                </div>
+                <div>
+                  <h4 className="font-medium text-slate-900">Jessica K.</h4>
+                  <p className="text-sm text-slate-500">Small Business Owner</p>
+                </div>
+              </div>
+              <p className="text-slate-700 mb-4">
+                "As someone who manages sensitive client information, CloudStick gives me peace of mind. The interface is beautiful, and the cross-platform support means I can work from anywhere."
+              </p>
+              <div className="flex text-blue-500">
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
               </div>
             </div>
           </div>
@@ -414,27 +599,27 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-br from-blue-600 to-blue-900 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl opacity-20"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500 rounded-full filter blur-3xl opacity-20"></div>
+      <section className="py-20 md:py-32 bg-gradient-to-br from-blue-600 to-indigo-700 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500 rounded-full filter blur-3xl opacity-20"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-800 rounded-full filter blur-3xl opacity-20"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
-              Start Managing Your Servers Better Today
+              Join Thousands of Satisfied CloudStick Users Today
             </h2>
             <p className="text-lg text-blue-100 mb-8">
-              Try CloudStick free for 14 days. No credit card required.
+              Start securing your files now with our 14-day free trial. No credit card required.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link to="/signup">
                 <Button className="bg-white hover:bg-blue-50 text-blue-700 hover:text-blue-800 px-8 py-3 text-lg font-medium rounded-xl transition-colors shadow-lg">
-                  Start Free Trial
+                  Get Started Free
                 </Button>
               </Link>
-              <Link to="/demo">
+              <Link to="/contact">
                 <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/10 px-8 py-3 text-lg font-medium rounded-xl transition-colors">
-                  Schedule Demo
+                  Contact Sales
                 </Button>
               </Link>
             </div>
