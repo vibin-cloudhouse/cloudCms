@@ -159,7 +159,7 @@ const Index = () => {
 
       {/* Features Section */}
       <section className="py-20 md:py-32 bg-white dark:bg-slate-800 relative" ref={sectionRef}>
-        <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-blue-50 to-white dark:from-slate-900 dark:to-slate-800"></div>
+        <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-cyan-50 to-white dark:from-slate-900 dark:to-slate-800"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div 
             className="text-center max-w-3xl mx-auto mb-16 md:mb-24"
@@ -168,7 +168,7 @@ const Index = () => {
             animate={isVisible ? "visible" : "hidden"}
           >
             <motion.div variants={itemVariants}>
-              <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-blue-700 bg-blue-50 dark:text-blue-400 dark:bg-blue-900/30 rounded-full">
+              <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-teal-700 bg-teal-50 dark:text-teal-400 dark:bg-teal-900/30 rounded-full">
                 Powerful Features
               </span>
             </motion.div>
@@ -194,12 +194,12 @@ const Index = () => {
               animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <Server className="w-12 h-12 text-blue-600 dark:text-blue-400 mb-4" />
+              <Server className="w-12 h-12 text-teal-600 dark:text-teal-400 mb-4" />
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Server Provisioning</h3>
               <p className="text-slate-600 dark:text-slate-300 mb-4">
                 Deploy new servers in seconds with our one-click provisioning system across multiple cloud providers.
               </p>
-              <Link to="/features/provisioning" className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors font-medium">
+              <Link to="/features/provisioning" className="inline-flex items-center text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors font-medium">
                 Learn more <ArrowRight className="ml-1 w-4 h-4" />
               </Link>
             </motion.div>
@@ -211,12 +211,12 @@ const Index = () => {
               animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <BarChart className="w-12 h-12 text-blue-600 dark:text-blue-400 mb-4" />
+              <BarChart className="w-12 h-12 text-teal-600 dark:text-teal-400 mb-4" />
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Performance Monitoring</h3>
               <p className="text-slate-600 dark:text-slate-300 mb-4">
                 Real-time metrics and analytics dashboard to monitor CPU, memory, disk usage, and network performance.
               </p>
-              <Link to="/features/monitoring" className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors font-medium">
+              <Link to="/features/monitoring" className="inline-flex items-center text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors font-medium">
                 Learn more <ArrowRight className="ml-1 w-4 h-4" />
               </Link>
             </motion.div>
@@ -228,12 +228,12 @@ const Index = () => {
               animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <Shield className="w-12 h-12 text-blue-600 dark:text-blue-400 mb-4" />
+              <Shield className="w-12 h-12 text-teal-600 dark:text-teal-400 mb-4" />
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Security Management</h3>
               <p className="text-slate-600 dark:text-slate-300 mb-4">
                 Manage firewall rules, access controls, and security patches from a centralized dashboard.
               </p>
-              <Link to="/features/security" className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors font-medium">
+              <Link to="/features/security" className="inline-flex items-center text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors font-medium">
                 Learn more <ArrowRight className="ml-1 w-4 h-4" />
               </Link>
             </motion.div>
@@ -245,12 +245,12 @@ const Index = () => {
               animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
-              <Terminal className="w-12 h-12 text-blue-600 dark:text-blue-400 mb-4" />
+              <Terminal className="w-12 h-12 text-teal-600 dark:text-teal-400 mb-4" />
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Remote Terminal</h3>
               <p className="text-slate-600 dark:text-slate-300 mb-4">
                 Access your servers via secure web-based SSH terminal directly from CloudStick's dashboard.
               </p>
-              <Link to="/features/terminal" className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors font-medium">
+              <Link to="/features/terminal" className="inline-flex items-center text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors font-medium">
                 Learn more <ArrowRight className="ml-1 w-4 h-4" />
               </Link>
             </motion.div>
@@ -262,12 +262,12 @@ const Index = () => {
               animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              <Database className="w-12 h-12 text-blue-600 dark:text-blue-400 mb-4" />
+              <Database className="w-12 h-12 text-teal-600 dark:text-teal-400 mb-4" />
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Database Management</h3>
               <p className="text-slate-600 dark:text-slate-300 mb-4">
                 Create, configure, and optimize database instances with automated backups and scaling.
               </p>
-              <Link to="/features/database" className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors font-medium">
+              <Link to="/features/database" className="inline-flex items-center text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors font-medium">
                 Learn more <ArrowRight className="ml-1 w-4 h-4" />
               </Link>
             </motion.div>
@@ -279,12 +279,12 @@ const Index = () => {
               animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.7 }}
             >
-              <Settings className="w-12 h-12 text-blue-600 dark:text-blue-400 mb-4" />
+              <Settings className="w-12 h-12 text-teal-600 dark:text-teal-400 mb-4" />
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Automated Scaling</h3>
               <p className="text-slate-600 dark:text-slate-300 mb-4">
                 Set up auto-scaling rules based on load metrics to ensure your applications always have the resources they need.
               </p>
-              <Link to="/features/scaling" className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors font-medium">
+              <Link to="/features/scaling" className="inline-flex items-center text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors font-medium">
                 Learn more <ArrowRight className="ml-1 w-4 h-4" />
               </Link>
             </motion.div>
@@ -296,7 +296,7 @@ const Index = () => {
       <section className="py-20 md:py-32 bg-gradient-to-b from-white to-slate-50 dark:from-slate-800 dark:to-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
-            <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-blue-700 bg-blue-50 dark:text-blue-400 dark:bg-blue-900/30 rounded-full">
+            <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-teal-700 bg-teal-50 dark:text-teal-400 dark:bg-teal-900/30 rounded-full">
               Simple Process
             </span>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 dark:text-white mb-6">
@@ -309,31 +309,31 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
             <div className="glass-card p-8 relative dark:bg-slate-800/50 dark:border-slate-700">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full flex items-center justify-center font-bold text-xl mb-6">1</div>
+              <div className="w-12 h-12 bg-gradient-to-r from-teal-600 to-cyan-600 text-white rounded-full flex items-center justify-center font-bold text-xl mb-6">1</div>
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Connect Your Cloud</h3>
               <p className="text-slate-600 dark:text-slate-300">
                 Link your AWS, Google Cloud, Azure, or DigitalOcean accounts in just a few clicks.
               </p>
               <div className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 hidden md:block">
-                <ArrowRight className="w-8 h-8 text-blue-300 dark:text-blue-600" />
+                <ArrowRight className="w-8 h-8 text-teal-300 dark:text-teal-600" />
               </div>
               <div className="absolute -bottom-1 left-10 right-10 h-4 bg-white blur-xl opacity-80 dark:bg-slate-800 dark:opacity-50"></div>
             </div>
             
             <div className="glass-card p-8 relative dark:bg-slate-800/50 dark:border-slate-700">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full flex items-center justify-center font-bold text-xl mb-6">2</div>
+              <div className="w-12 h-12 bg-gradient-to-r from-teal-600 to-cyan-600 text-white rounded-full flex items-center justify-center font-bold text-xl mb-6">2</div>
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Manage Your Servers</h3>
               <p className="text-slate-600 dark:text-slate-300">
                 Control all your servers from a unified dashboard with powerful management tools.
               </p>
               <div className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 hidden md:block">
-                <ArrowRight className="w-8 h-8 text-blue-300 dark:text-blue-600" />
+                <ArrowRight className="w-8 h-8 text-teal-300 dark:text-teal-600" />
               </div>
               <div className="absolute -bottom-1 left-10 right-10 h-4 bg-white blur-xl opacity-80 dark:bg-slate-800 dark:opacity-50"></div>
             </div>
             
             <div className="glass-card p-8 relative dark:bg-slate-800/50 dark:border-slate-700">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full flex items-center justify-center font-bold text-xl mb-6">3</div>
+              <div className="w-12 h-12 bg-gradient-to-r from-teal-600 to-cyan-600 text-white rounded-full flex items-center justify-center font-bold text-xl mb-6">3</div>
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Scale & Optimize</h3>
               <p className="text-slate-600 dark:text-slate-300">
                 Monitor performance metrics and scale resources automatically based on demand.
@@ -356,7 +356,7 @@ const Index = () => {
       <section className="py-20 md:py-32 bg-white dark:bg-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-blue-700 bg-blue-50 dark:text-blue-400 dark:bg-blue-900/30 rounded-full">
+            <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-teal-700 bg-teal-50 dark:text-teal-400 dark:bg-teal-900/30 rounded-full">
               Flexible Plans
             </span>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 dark:text-white mb-6">
@@ -381,37 +381,37 @@ const Index = () => {
               </div>
               <ul className="mt-6 space-y-4">
                 <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0 mr-2 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
                   <span className="text-slate-700 dark:text-slate-300">Up to 3 servers</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0 mr-2 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
                   <span className="text-slate-700 dark:text-slate-300">Basic monitoring</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0 mr-2 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
                   <span className="text-slate-700 dark:text-slate-300">Web SSH terminal</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0 mr-2 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
                   <span className="text-slate-700 dark:text-slate-300">Email alerts</span>
                 </li>
               </ul>
               <div className="mt-8">
                 <Link to="/signup" className="block w-full">
-                  <Button variant="outline" className="w-full rounded-xl dark:border-blue-800 dark:text-blue-400 dark:hover:bg-blue-900/30">
+                  <Button variant="outline" className="w-full rounded-xl dark:border-teal-800 dark:text-teal-400 dark:hover:bg-teal-900/30">
                     Sign Up Free
                   </Button>
                 </Link>
               </div>
             </div>
             
-            <div className="pricing-card featured animate-float dark:bg-gradient-to-br dark:from-slate-700 dark:to-slate-800 dark:border-blue-900" style={{animationDelay: "0.2s"}}>
+            <div className="pricing-card featured animate-float dark:bg-gradient-to-br dark:from-slate-700 dark:to-slate-800 dark:border-teal-900" style={{animationDelay: "0.2s"}}>
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-bold px-4 py-1 rounded-full">MOST POPULAR</span>
+                <span className="bg-gradient-to-r from-teal-600 to-cyan-600 text-white text-xs font-bold px-4 py-1 rounded-full">MOST POPULAR</span>
               </div>
               <div className="mb-4">
-                <h3 className="text-lg font-medium text-blue-700 dark:text-blue-400">Pro</h3>
+                <h3 className="text-lg font-medium text-teal-700 dark:text-teal-400">Pro</h3>
                 <div className="mt-2 flex items-baseline">
                   <span className="text-4xl font-bold text-slate-900 dark:text-white">$29.99</span>
                   <span className="ml-2 text-slate-500 dark:text-slate-400">/month</span>
@@ -422,23 +422,23 @@ const Index = () => {
               </div>
               <ul className="mt-6 space-y-4">
                 <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0 mr-2 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
                   <span className="text-slate-700 dark:text-slate-300">Up to 15 servers</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0 mr-2 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
                   <span className="text-slate-700 dark:text-slate-300">Advanced monitoring</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0 mr-2 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
                   <span className="text-slate-700 dark:text-slate-300">Auto-scaling rules</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0 mr-2 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
                   <span className="text-slate-700 dark:text-slate-300">Database management</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0 mr-2 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
                   <span className="text-slate-700 dark:text-slate-300">API access</span>
                 </li>
               </ul>
@@ -464,29 +464,29 @@ const Index = () => {
               </div>
               <ul className="mt-6 space-y-4">
                 <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0 mr-2 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
                   <span className="text-slate-700 dark:text-slate-300">Unlimited servers</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0 mr-2 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
                   <span className="text-slate-700 dark:text-slate-300">Enterprise security</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0 mr-2 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
                   <span className="text-slate-700 dark:text-slate-300">Custom integrations</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0 mr-2 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
                   <span className="text-slate-700 dark:text-slate-300">Dedicated support</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0 mr-2 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
                   <span className="text-slate-700 dark:text-slate-300">SLA guarantees</span>
                 </li>
               </ul>
               <div className="mt-8">
                 <Link to="/contact" className="block w-full">
-                  <Button variant="outline" className="w-full rounded-xl dark:border-blue-800 dark:text-blue-400 dark:hover:bg-blue-900/30">
+                  <Button variant="outline" className="w-full rounded-xl dark:border-teal-800 dark:text-teal-400 dark:hover:bg-teal-900/30">
                     Contact Sales
                   </Button>
                 </Link>
@@ -495,7 +495,7 @@ const Index = () => {
           </div>
           
           <div className="mt-12 text-center">
-            <Link to="/pricing" className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium inline-flex items-center">
+            <Link to="/pricing" className="text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 font-medium inline-flex items-center">
               See all pricing details <ArrowRight className="ml-1 w-4 h-4" />
             </Link>
           </div>
@@ -506,7 +506,7 @@ const Index = () => {
       <section className="py-20 md:py-32 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-blue-700 bg-blue-50 dark:text-blue-400 dark:bg-blue-900/30 rounded-full">
+            <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-teal-700 bg-teal-50 dark:text-teal-400 dark:bg-teal-900/30 rounded-full">
               Trusted by DevOps Teams
             </span>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 dark:text-white mb-6">
@@ -535,7 +535,7 @@ const Index = () => {
               <p className="text-slate-700 dark:text-slate-300 mb-4">
                 "CloudStick has dramatically reduced the time we spend on server management. The automated scaling features have saved us countless hours of manual intervention."
               </p>
-              <div className="flex text-blue-500 dark:text-blue-400">
+              <div className="flex text-teal-500 dark:text-teal-400">
                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
@@ -561,7 +561,7 @@ const Index = () => {
               <p className="text-slate-700 dark:text-slate-300 mb-4">
                 "We've deployed CloudStick across our multi-cloud environment. The unified dashboard gives us perfect visibility into our infrastructure and has improved our team's efficiency."
               </p>
-              <div className="flex text-blue-500 dark:text-blue-400">
+              <div className="flex text-teal-500 dark:text-teal-400">
                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
@@ -587,7 +587,7 @@ const Index = () => {
               <p className="text-slate-700 dark:text-slate-300 mb-4">
                 "The monitoring capabilities in CloudStick have helped us identify and resolve performance issues before they impact our users. The alerting system is top-notch."
               </p>
-              <div className="flex text-blue-500 dark:text-blue-400">
+              <div className="flex text-teal-500 dark:text-teal-400">
                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
@@ -600,21 +600,21 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-br from-blue-600 to-indigo-700 dark:from-blue-800 dark:to-indigo-900 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500 dark:bg-indigo-700 rounded-full filter blur-3xl opacity-20"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-800 dark:bg-blue-900 rounded-full filter blur-3xl opacity-20"></div>
+      <section className="py-20 md:py-32 bg-gradient-to-br from-teal-600 to-cyan-700 dark:from-teal-800 dark:to-cyan-900 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500 dark:bg-cyan-700 rounded-full filter blur-3xl opacity-20"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-teal-800 dark:bg-teal-900 rounded-full filter blur-3xl opacity-20"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
               Take Control of Your Cloud Infrastructure Today
             </h2>
-            <p className="text-lg text-blue-100 mb-8">
+            <p className="text-lg text-teal-100 mb-8">
               Start managing your servers efficiently with our 14-day free trial. No credit card required.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link to="/signup">
-                <Button className="bg-white hover:bg-blue-50 text-blue-700 hover:text-blue-800 px-8 py-3 text-lg font-medium rounded-xl transition-colors shadow-lg">
+                <Button className="bg-white hover:bg-teal-50 text-teal-700 hover:text-teal-800 px-8 py-3 text-lg font-medium rounded-xl transition-colors shadow-lg">
                   Get Started Free
                 </Button>
               </Link>

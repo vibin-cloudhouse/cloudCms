@@ -20,14 +20,14 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
         </Link>
         <div className="flex items-center space-x-6">
           <nav className="hidden md:flex items-center space-x-6">
-            <Link to="/features" className="text-slate-700 hover:text-blue-600 dark:text-slate-200 dark:hover:text-blue-400 transition-colors">Features</Link>
-            <Link to="/pricing" className="text-slate-700 hover:text-blue-600 dark:text-slate-200 dark:hover:text-blue-400 transition-colors">Pricing</Link>
-            <Link to="/dashboard" className="text-slate-700 hover:text-blue-600 dark:text-slate-200 dark:hover:text-blue-400 transition-colors">Dashboard</Link>
+            <Link to="/features" className="text-slate-700 hover:text-teal-600 dark:text-slate-200 dark:hover:text-teal-400 transition-colors">Features</Link>
+            <Link to="/pricing" className="text-slate-700 hover:text-teal-600 dark:text-slate-200 dark:hover:text-teal-400 transition-colors">Pricing</Link>
+            <Link to="/dashboard" className="text-slate-700 hover:text-teal-600 dark:text-slate-200 dark:hover:text-teal-400 transition-colors">Dashboard</Link>
           </nav>
           <div className="flex items-center space-x-4">
-            <Link to="/login" className="text-slate-700 hover:text-blue-600 dark:text-slate-200 dark:hover:text-blue-400 transition-colors">Log in</Link>
+            <Link to="/login" className="text-slate-700 hover:text-teal-600 dark:text-slate-200 dark:hover:text-teal-400 transition-colors">Log in</Link>
             <Link to="/signup">
-              <button className="bg-gradient-to-r from-blue-600 to-teal-500 text-white px-4 py-2 rounded-md hover:opacity-90 transition-opacity">
+              <button className="bg-gradient-to-r from-teal-600 to-cyan-500 text-white px-4 py-2 rounded-md hover:opacity-90 transition-opacity">
                 Sign up
               </button>
             </Link>
