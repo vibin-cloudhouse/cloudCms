@@ -10,6 +10,9 @@ import Pricing from "./pages/Pricing";
 import AboutUs from "./pages/about";
 import Blog from "./pages/Blog";
 import BlogDetail from "./pages/Blog/BlogDetail";
+import KnowledgeBase from "./pages/KnowledgeBase";
+import KnowledgeBaseCategory from "./pages/KnowledgeBase/KnowledgeBaseCategory";
+import KnowledgeBaseArticle from "./pages/KnowledgeBase/KnowledgeBaseArticle";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +30,9 @@ const App = () => (
             <Route path="/about" element={<AboutUs />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogDetail />} />
+            <Route path="/kb" element={<KnowledgeBase />} />
+            <Route path="/kb/:category" element={<KnowledgeBaseCategory />} />
+            <Route path="/kb/:category/:slug" element={<KnowledgeBaseArticle />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
