@@ -3,6 +3,7 @@ import React from "react";
 import { Calendar, Clock, User } from "lucide-react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { BlogPost } from "./types";
+import { Link } from "react-router-dom";
 
 interface BlogPostCardProps {
   post: BlogPost;
@@ -11,20 +12,22 @@ interface BlogPostCardProps {
 const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col border border-slate-200 dark:border-slate-800 hover:border-teal-200 dark:hover:border-teal-800">
-      <div className="relative h-48 overflow-hidden">
-        <img 
-          src={post.coverImage} 
-          alt={post.title} 
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-        />
-        <div className="absolute top-3 right-3 bg-teal-500 text-white text-xs py-1 px-2 rounded-full">
-          {post.category}
+      <Link to={`/blog/${post.slug}`} className="block">
+        <div className="relative h-48 overflow-hidden">
+          <img 
+            src={post.coverImage} 
+            alt={post.title} 
+            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+          />
+          <div className="absolute top-3 right-3 bg-teal-500 text-white text-xs py-1 px-2 rounded-full">
+            {post.category}
+          </div>
         </div>
-      </div>
+      </Link>
       
       <CardHeader className="pb-2">
         <CardTitle className="text-xl font-bold hover:text-teal-600 dark:hover:text-teal-400 transition-colors line-clamp-2">
-          <a href={`/blog/${post.slug}`}>{post.title}</a>
+          <Link to={`/blog/${post.slug}`}>{post.title}</Link>
         </CardTitle>
         <CardDescription className="line-clamp-2 mt-2">{post.excerpt}</CardDescription>
       </CardHeader>
