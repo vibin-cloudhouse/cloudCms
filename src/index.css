@@ -1,4 +1,5 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
@@ -45,7 +46,8 @@
   }
   
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-gradient-to-b from-slate-50 to-white text-foreground antialiased;
+    font-family: 'Poppins', sans-serif;
   }
   
   html {
@@ -55,15 +57,23 @@
 
 @layer components {
   .glass-card {
-    @apply bg-white/60 backdrop-blur-md border border-white/20 shadow-lg rounded-2xl;
+    @apply bg-white/75 backdrop-blur-md border border-white/30 shadow-lg rounded-2xl;
   }
   
-  .cloud-button {
-    @apply bg-cloud-600 hover:bg-cloud-700 focus:ring-4 focus:ring-cloud-300 text-white font-medium rounded-xl px-6 py-3 transition-all duration-200 transform hover:-translate-y-0.5;
+  .gradient-btn {
+    @apply bg-gradient-to-r from-blue-600 to-indigo-500 hover:from-blue-700 hover:to-indigo-600 text-white font-medium rounded-xl px-6 py-3 transition-all duration-200 transform hover:-translate-y-0.5 shadow-md;
   }
   
   .section-container {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+  
+  .gradient-heading {
+    @apply bg-gradient-to-r from-blue-600 to-indigo-500 bg-clip-text text-transparent;
+  }
+  
+  .feature-card {
+    @apply p-6 rounded-2xl transition-all duration-300 hover:shadow-xl border border-slate-100 bg-gradient-to-br from-white to-slate-50;
   }
   
   .animate-delay-1 {
@@ -89,23 +99,36 @@
 
 /* Custom styles for specific elements */
 .nav-link {
-  @apply relative overflow-hidden text-slate-700 hover:text-cloud-600 transition-colors duration-300;
+  @apply relative overflow-hidden text-slate-700 hover:text-blue-600 transition-colors duration-300;
 }
 
 .nav-link::after {
-  @apply content-[''] absolute w-full h-0.5 bg-cloud-500 bottom-0 left-0 scale-x-0 transform origin-bottom-right transition-transform duration-300;
+  @apply content-[''] absolute w-full h-0.5 bg-blue-500 bottom-0 left-0 scale-x-0 transform origin-bottom-right transition-transform duration-300;
 }
 
 .nav-link:hover::after {
   @apply scale-x-100 origin-bottom-left;
 }
 
-.feature-card {
-  @apply p-6 rounded-2xl transition-all duration-300 hover:shadow-xl border border-slate-100;
+.gradient-blob {
+  @apply absolute rounded-full filter blur-3xl opacity-20 z-[-1];
+  background: linear-gradient(225deg, #6366f1, #3b82f6, #2563eb);
+  animation: blob-movement 20s infinite alternate ease-in-out;
 }
 
-.feature-icon {
-  @apply w-12 h-12 text-cloud-600 mb-4;
+@keyframes blob-movement {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.2); }
+  66% { transform: translate(-20px, 20px) scale(0.8); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+.pricing-card {
+  @apply bg-white p-8 rounded-2xl shadow-md border border-slate-100 hover:shadow-xl transition-shadow duration-300;
+}
+
+.pricing-card.featured {
+  @apply bg-gradient-to-b from-blue-50 to-white p-8 rounded-2xl shadow-xl border border-blue-100 transform hover:scale-[1.02] transition-all duration-300 relative;
 }
 
 #root {

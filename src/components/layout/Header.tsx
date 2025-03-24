@@ -30,9 +30,11 @@ const Header = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <span className="font-display text-2xl font-bold bg-gradient-to-r from-cloud-700 to-cloud-500 bg-clip-text text-transparent">
-                CloudStick
-              </span>
+              <img 
+                src="/lovable-uploads/364865ac-6f23-478f-8edf-1750c969df74.png" 
+                alt="CloudStick" 
+                className="h-9 mr-2" 
+              />
             </Link>
           </div>
 
@@ -77,7 +79,7 @@ const Header = () => {
               </Button>
             </Link>
             <Link to="/signup">
-              <Button className="cloud-button">
+              <Button className="bg-gradient-to-r from-blue-600 to-indigo-500 hover:from-blue-700 hover:to-indigo-600 text-white font-medium rounded-xl px-6 py-3 transition-all duration-200 transform hover:-translate-y-0.5 shadow-md">
                 Get Started
               </Button>
             </Link>
@@ -137,7 +139,7 @@ const Header = () => {
                 </Button>
               </Link>
               <Link to="/signup">
-                <Button className="w-full cloud-button">
+                <Button className="w-full bg-gradient-to-r from-blue-600 to-indigo-500 hover:from-blue-700 hover:to-indigo-600 text-white">
                   Get Started
                 </Button>
               </Link>

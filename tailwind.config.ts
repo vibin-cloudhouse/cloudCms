@@ -24,8 +24,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['SF Pro Display', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Poppins', 'system-ui', 'sans-serif'],
+        display: ['Poppins', 'Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: 'hsl(var(--border))',
@@ -121,6 +121,10 @@ export default {
           '0%': { opacity: '0', filter: 'blur(8px)' },
           '100%': { opacity: '1', filter: 'blur(0)' }
         },
+        'float': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' }
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -130,6 +134,7 @@ export default {
         'scale-in': 'scale-in 0.3s ease-out forwards',
         'slide-in-right': 'slide-in-right 0.4s ease-out forwards',
         'blur-in': 'blur-in 0.6s ease-out forwards',
+        'float': 'float 6s ease-in-out infinite',
       }
     }
   },
