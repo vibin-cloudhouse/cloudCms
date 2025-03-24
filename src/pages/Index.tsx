@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -74,20 +73,16 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
-      <Header>
-        <div className="ml-auto">
-          <ThemeToggle />
-        </div>
-      </Header>
+      <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-50 to-teal-50 dark:from-slate-900 dark:to-slate-800 z-[-1] transition-colors duration-300"></div>
-        <div className="gradient-blob w-96 h-96 top-20 right-0"></div>
-        <div className="gradient-blob w-96 h-96 bottom-20 left-0"></div>
-        <div className="gradient-glow w-[600px] h-[600px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+      <section className="min-h-screen pt-28 pb-16 flex items-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/90 to-teal-50/90 dark:from-slate-900/95 dark:to-slate-800/95 z-[-1] transition-colors duration-300"></div>
+        <div className="gradient-blob w-[40rem] h-[40rem] top-[-10rem] right-[-10rem] opacity-40"></div>
+        <div className="gradient-blob w-[30rem] h-[30rem] bottom-[-5rem] left-[-5rem] opacity-30"></div>
+        <div className="gradient-glow w-[60rem] h-[60rem] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30"></div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div 
             className="text-center max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
