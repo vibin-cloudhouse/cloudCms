@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft, ArrowRight, Search, Book } from "lucide-react";
+import { ArrowLeft, ArrowRight, Search, Book, BookOpen, Bookmark } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -53,37 +53,51 @@ const KnowledgeBaseCategory: React.FC = () => {
           </Breadcrumb>
           
           <div className="flex flex-col lg:flex-row gap-8">
-            {/* Sidebar */}
-            <aside className="lg:w-64 flex-shrink-0">
-              <div className="sticky top-24">
-                <div className="bg-slate-50 dark:bg-slate-900 p-4 rounded-lg mb-6">
-                  <h3 className="font-semibold mb-3">Categories</h3>
-                  <ul className="space-y-2">
+            {/* Enhanced Sidebar */}
+            <aside className="lg:w-72 flex-shrink-0">
+              <div className="sticky top-24 space-y-6">
+                <div className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700">
+                  <h3 className="font-semibold text-lg mb-4 text-slate-800 dark:text-slate-200 flex items-center">
+                    <BookOpen className="w-5 h-5 mr-2 text-teal-500" />
+                    Categories
+                  </h3>
+                  <div className="space-y-1">
                     {kbCategories.map(cat => (
-                      <li key={cat.id}>
-                        <Link 
-                          to={`/kb/${cat.slug}`}
-                          className={`block px-2 py-1.5 rounded-md text-sm transition-colors ${
+                      <Link 
+                        key={cat.id}
+                        to={`/kb/${cat.slug}`}
+                        className={`group flex items-center justify-between w-full px-3 py-2.5 rounded-lg text-sm transition-all ${
+                          cat.id === category.id 
+                            ? "bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-teal-300 font-medium" 
+                            : "text-slate-700 dark:text-slate-300 hover:bg-slate-200/70 dark:hover:bg-slate-700/50 hover:text-slate-900 dark:hover:text-slate-100"
+                        }`}
+                      >
+                        <div className="flex items-center">
+                          <Bookmark className={`w-4 h-4 mr-2.5 ${
                             cat.id === category.id 
-                              ? "bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300" 
-                              : "hover:bg-slate-100 dark:hover:bg-slate-800"
-                          }`}
-                        >
-                          {cat.name}
-                          {cat.articles.length > 0 && (
-                            <span className="ml-2 text-xs bg-slate-200 dark:bg-slate-700 px-1.5 py-0.5 rounded-full">
-                              {cat.articles.length}
-                            </span>
-                          )}
-                        </Link>
-                      </li>
+                              ? "text-teal-500" 
+                              : "text-slate-400 group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300"
+                          }`} />
+                          <span>{cat.name}</span>
+                        </div>
+                        
+                        {cat.articles.length > 0 && (
+                          <span className={`text-xs px-2 py-1 rounded-full ${
+                            cat.id === category.id
+                              ? "bg-teal-200 dark:bg-teal-800 text-teal-800 dark:text-teal-200"
+                              : "bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400"
+                          }`}>
+                            {cat.articles.length}
+                          </span>
+                        )}
+                      </Link>
                     ))}
-                  </ul>
+                  </div>
                 </div>
                 
-                <Button variant="outline" className="w-full justify-start" asChild>
+                <Button variant="outline" size="lg" className="w-full justify-start shadow-sm" asChild>
                   <Link to="/kb">
-                    <ArrowLeft className="mr-2" />
+                    <ArrowLeft className="mr-2 h-4 w-4" />
                     Back to all categories
                   </Link>
                 </Button>
@@ -118,7 +132,7 @@ const KnowledgeBaseCategory: React.FC = () => {
               {filteredArticles.length > 0 ? (
                 <div className="space-y-4">
                   {filteredArticles.map(article => (
-                    <Card key={article.id} className="hover:shadow-md transition-shadow">
+                    <Card key={article.id} className="hover:shadow-md transition-shadow border-slate-200 dark:border-slate-700">
                       <CardHeader className="pb-2">
                         <CardTitle className="text-xl">
                           <Link 
@@ -134,9 +148,9 @@ const KnowledgeBaseCategory: React.FC = () => {
                         <span>Updated: {article.updatedAt}</span>
                         <Link 
                           to={`/kb/${category.slug}/${article.slug}`}
-                          className="flex items-center gap-1 text-teal-600 hover:text-teal-700 transition-colors"
+                          className="flex items-center gap-1 text-teal-600 hover:text-teal-700 transition-colors group"
                         >
-                          Read article <ArrowRight className="w-4 h-4" />
+                          Read article <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                         </Link>
                       </CardFooter>
                     </Card>
