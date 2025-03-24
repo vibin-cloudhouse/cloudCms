@@ -1,9 +1,18 @@
 
 import React from "react";
-import { Check } from "lucide-react";
+import { Check, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { cn } from "@/lib/utils";
 
 const Pricing = () => {
   return (
@@ -202,90 +211,155 @@ const Pricing = () => {
           </div>
         </section>
         
-        {/* Comparison Table Section */}
+        {/* Comparison Table Section - Enhanced */}
         <section className="py-16 md:py-24 bg-white dark:bg-slate-900">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Compare Plans</h2>
             
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr className="border-b border-slate-200 dark:border-slate-700">
-                    <th className="text-left py-4 px-6 text-slate-600 dark:text-slate-300 font-medium">Features</th>
-                    <th className="py-4 px-6 text-slate-600 dark:text-slate-300 font-medium">Free</th>
-                    <th className="py-4 px-6 text-slate-600 dark:text-slate-300 font-medium">Basic</th>
-                    <th className="py-4 px-6 text-teal-600 dark:text-teal-400 font-semibold">Pro</th>
-                    <th className="py-4 px-6 text-slate-600 dark:text-slate-300 font-medium">Business</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-b border-slate-200 dark:border-slate-700">
-                    <td className="py-4 px-6 text-slate-800 dark:text-slate-200 font-medium">Storage</td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300">5GB</td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300">100GB</td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300 bg-cyan-50/50 dark:bg-cyan-900/20">1TB</td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300">5TB</td>
-                  </tr>
-                  <tr className="border-b border-slate-200 dark:border-slate-700">
-                    <td className="py-4 px-6 text-slate-800 dark:text-slate-200 font-medium">File Size Limit</td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300">250MB</td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300">2GB</td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300 bg-cyan-50/50 dark:bg-cyan-900/20">10GB</td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300">Unlimited</td>
-                  </tr>
-                  <tr className="border-b border-slate-200 dark:border-slate-700">
-                    <td className="py-4 px-6 text-slate-800 dark:text-slate-200 font-medium">File Recovery</td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300">7 days</td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300">30 days</td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300 bg-cyan-50/50 dark:bg-cyan-900/20">90 days</td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300">Unlimited</td>
-                  </tr>
-                  <tr className="border-b border-slate-200 dark:border-slate-700">
-                    <td className="py-4 px-6 text-slate-800 dark:text-slate-200 font-medium">Collaboration</td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300">Basic</td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300">Advanced</td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300 bg-cyan-50/50 dark:bg-cyan-900/20">Team</td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300">Enterprise</td>
-                  </tr>
-                  <tr className="border-b border-slate-200 dark:border-slate-700">
-                    <td className="py-4 px-6 text-slate-800 dark:text-slate-200 font-medium">Support</td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300">Email</td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300">Priority Email</td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300 bg-cyan-50/50 dark:bg-cyan-900/20">Chat & Email</td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300">Dedicated</td>
-                  </tr>
-                  <tr className="border-b border-slate-200 dark:border-slate-700">
-                    <td className="py-4 px-6 text-slate-800 dark:text-slate-200 font-medium">API Access</td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300">
-                      <span className="inline-block h-5 w-5 text-slate-400">—</span>
-                    </td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300">
-                      <span className="inline-block h-5 w-5 text-slate-400">—</span>
-                    </td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300 bg-cyan-50/50 dark:bg-cyan-900/20">
+            <div className="overflow-x-auto rounded-xl shadow-lg border border-slate-200 dark:border-slate-700">
+              <Table>
+                <TableHeader>
+                  <TableRow className="bg-slate-50 dark:bg-slate-800">
+                    <TableHead className="py-6 px-6 text-left font-semibold text-slate-800 dark:text-slate-200">Features</TableHead>
+                    <TableHead className="py-6 px-6 text-center font-medium text-slate-600 dark:text-slate-300">
+                      <div className="flex flex-col items-center">
+                        <span className="text-sm text-slate-400 dark:text-slate-500">Free</span>
+                        <span className="text-lg font-bold text-slate-800 dark:text-slate-200">$0</span>
+                        <span className="text-xs text-slate-400 dark:text-slate-500">/month</span>
+                      </div>
+                    </TableHead>
+                    <TableHead className="py-6 px-6 text-center font-medium text-slate-600 dark:text-slate-300">
+                      <div className="flex flex-col items-center">
+                        <span className="text-sm text-slate-400 dark:text-slate-500">Basic</span>
+                        <span className="text-lg font-bold text-slate-800 dark:text-slate-200">$9.99</span>
+                        <span className="text-xs text-slate-400 dark:text-slate-500">/month</span>
+                      </div>
+                    </TableHead>
+                    <TableHead className="py-6 px-6 text-center font-semibold bg-cyan-50/50 dark:bg-cyan-900/20">
+                      <div className="flex flex-col items-center">
+                        <span className="text-sm text-teal-600 dark:text-teal-400">Pro</span>
+                        <span className="text-lg font-bold text-teal-600 dark:text-teal-400">$19.99</span>
+                        <span className="text-xs text-teal-500 dark:text-teal-500">/month</span>
+                      </div>
+                    </TableHead>
+                    <TableHead className="py-6 px-6 text-center font-medium text-slate-600 dark:text-slate-300">
+                      <div className="flex flex-col items-center">
+                        <span className="text-sm text-slate-400 dark:text-slate-500">Business</span>
+                        <span className="text-lg font-bold text-slate-800 dark:text-slate-200">$49.99</span>
+                        <span className="text-xs text-slate-400 dark:text-slate-500">/month</span>
+                      </div>
+                    </TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                    <TableCell className="py-5 px-6 text-slate-800 dark:text-slate-200 font-medium">Storage</TableCell>
+                    <TableCell className="py-5 px-6 text-center text-slate-700 dark:text-slate-300">5GB</TableCell>
+                    <TableCell className="py-5 px-6 text-center text-slate-700 dark:text-slate-300">100GB</TableCell>
+                    <TableCell className="py-5 px-6 text-center text-slate-700 dark:text-slate-300 bg-cyan-50/50 dark:bg-cyan-900/20">1TB</TableCell>
+                    <TableCell className="py-5 px-6 text-center text-slate-700 dark:text-slate-300">5TB</TableCell>
+                  </TableRow>
+                  <TableRow className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                    <TableCell className="py-5 px-6 text-slate-800 dark:text-slate-200 font-medium">File Size Limit</TableCell>
+                    <TableCell className="py-5 px-6 text-center text-slate-700 dark:text-slate-300">250MB</TableCell>
+                    <TableCell className="py-5 px-6 text-center text-slate-700 dark:text-slate-300">2GB</TableCell>
+                    <TableCell className="py-5 px-6 text-center text-slate-700 dark:text-slate-300 bg-cyan-50/50 dark:bg-cyan-900/20">10GB</TableCell>
+                    <TableCell className="py-5 px-6 text-center text-slate-700 dark:text-slate-300">Unlimited</TableCell>
+                  </TableRow>
+                  <TableRow className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                    <TableCell className="py-5 px-6 text-slate-800 dark:text-slate-200 font-medium">File Recovery</TableCell>
+                    <TableCell className="py-5 px-6 text-center text-slate-700 dark:text-slate-300">7 days</TableCell>
+                    <TableCell className="py-5 px-6 text-center text-slate-700 dark:text-slate-300">30 days</TableCell>
+                    <TableCell className="py-5 px-6 text-center text-slate-700 dark:text-slate-300 bg-cyan-50/50 dark:bg-cyan-900/20">90 days</TableCell>
+                    <TableCell className="py-5 px-6 text-center text-slate-700 dark:text-slate-300">Unlimited</TableCell>
+                  </TableRow>
+                  <TableRow className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                    <TableCell className="py-5 px-6 text-slate-800 dark:text-slate-200 font-medium">Collaboration</TableCell>
+                    <TableCell className="py-5 px-6 text-center text-slate-700 dark:text-slate-300">Basic</TableCell>
+                    <TableCell className="py-5 px-6 text-center text-slate-700 dark:text-slate-300">Advanced</TableCell>
+                    <TableCell className="py-5 px-6 text-center text-slate-700 dark:text-slate-300 bg-cyan-50/50 dark:bg-cyan-900/20">Team</TableCell>
+                    <TableCell className="py-5 px-6 text-center text-slate-700 dark:text-slate-300">Enterprise</TableCell>
+                  </TableRow>
+                  <TableRow className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                    <TableCell className="py-5 px-6 text-slate-800 dark:text-slate-200 font-medium">Support</TableCell>
+                    <TableCell className="py-5 px-6 text-center text-slate-700 dark:text-slate-300">Email</TableCell>
+                    <TableCell className="py-5 px-6 text-center text-slate-700 dark:text-slate-300">Priority Email</TableCell>
+                    <TableCell className="py-5 px-6 text-center text-slate-700 dark:text-slate-300 bg-cyan-50/50 dark:bg-cyan-900/20">Chat & Email</TableCell>
+                    <TableCell className="py-5 px-6 text-center text-slate-700 dark:text-slate-300">Dedicated</TableCell>
+                  </TableRow>
+                  <TableRow className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                    <TableCell className="py-5 px-6 text-slate-800 dark:text-slate-200 font-medium">API Access</TableCell>
+                    <TableCell className="py-5 px-6 text-center">
+                      <X className="h-5 w-5 text-slate-400 dark:text-slate-500 mx-auto" />
+                    </TableCell>
+                    <TableCell className="py-5 px-6 text-center">
+                      <X className="h-5 w-5 text-slate-400 dark:text-slate-500 mx-auto" />
+                    </TableCell>
+                    <TableCell className="py-5 px-6 text-center bg-cyan-50/50 dark:bg-cyan-900/20">
                       <Check className="h-5 w-5 text-teal-500 mx-auto" />
-                    </td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300">
+                    </TableCell>
+                    <TableCell className="py-5 px-6 text-center">
                       <Check className="h-5 w-5 text-teal-500 mx-auto" />
-                    </td>
-                  </tr>
-                  <tr className="border-b border-slate-200 dark:border-slate-700">
-                    <td className="py-4 px-6 text-slate-800 dark:text-slate-200 font-medium">SSO Integration</td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300">
-                      <span className="inline-block h-5 w-5 text-slate-400">—</span>
-                    </td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300">
-                      <span className="inline-block h-5 w-5 text-slate-400">—</span>
-                    </td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300 bg-cyan-50/50 dark:bg-cyan-900/20">
-                      <span className="inline-block h-5 w-5 text-slate-400">—</span>
-                    </td>
-                    <td className="py-4 px-6 text-center text-slate-700 dark:text-slate-300">
+                    </TableCell>
+                  </TableRow>
+                  <TableRow className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                    <TableCell className="py-5 px-6 text-slate-800 dark:text-slate-200 font-medium">SSO Integration</TableCell>
+                    <TableCell className="py-5 px-6 text-center">
+                      <X className="h-5 w-5 text-slate-400 dark:text-slate-500 mx-auto" />
+                    </TableCell>
+                    <TableCell className="py-5 px-6 text-center">
+                      <X className="h-5 w-5 text-slate-400 dark:text-slate-500 mx-auto" />
+                    </TableCell>
+                    <TableCell className="py-5 px-6 text-center bg-cyan-50/50 dark:bg-cyan-900/20">
+                      <X className="h-5 w-5 text-slate-400 dark:text-slate-500 mx-auto" />
+                    </TableCell>
+                    <TableCell className="py-5 px-6 text-center">
                       <Check className="h-5 w-5 text-teal-500 mx-auto" />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                    <TableCell className="py-5 px-6 text-slate-800 dark:text-slate-200 font-medium">Two-Factor Authentication</TableCell>
+                    <TableCell className="py-5 px-6 text-center">
+                      <X className="h-5 w-5 text-slate-400 dark:text-slate-500 mx-auto" />
+                    </TableCell>
+                    <TableCell className="py-5 px-6 text-center">
+                      <Check className="h-5 w-5 text-teal-500 mx-auto" />
+                    </TableCell>
+                    <TableCell className="py-5 px-6 text-center bg-cyan-50/50 dark:bg-cyan-900/20">
+                      <Check className="h-5 w-5 text-teal-500 mx-auto" />
+                    </TableCell>
+                    <TableCell className="py-5 px-6 text-center">
+                      <Check className="h-5 w-5 text-teal-500 mx-auto" />
+                    </TableCell>
+                  </TableRow>
+                  <TableRow className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                    <TableCell className="py-5 px-6 text-slate-800 dark:text-slate-200 font-medium">Custom Branding</TableCell>
+                    <TableCell className="py-5 px-6 text-center">
+                      <X className="h-5 w-5 text-slate-400 dark:text-slate-500 mx-auto" />
+                    </TableCell>
+                    <TableCell className="py-5 px-6 text-center">
+                      <X className="h-5 w-5 text-slate-400 dark:text-slate-500 mx-auto" />
+                    </TableCell>
+                    <TableCell className="py-5 px-6 text-center bg-cyan-50/50 dark:bg-cyan-900/20">
+                      <Check className="h-5 w-5 text-teal-500 mx-auto" />
+                    </TableCell>
+                    <TableCell className="py-5 px-6 text-center">
+                      <Check className="h-5 w-5 text-teal-500 mx-auto" />
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </div>
+            
+            <div className="mt-12 text-center">
+              <p className="text-slate-600 dark:text-slate-400 mb-8">
+                Need a custom plan for your enterprise? Contact our sales team for a tailored solution.
+              </p>
+              <Link to="/contact">
+                <button className="bg-gradient-to-r from-teal-600 to-cyan-500 text-white px-8 py-3 rounded-xl hover:opacity-90 transition-opacity font-medium">
+                  Contact Sales
+                </button>
+              </Link>
             </div>
           </div>
         </section>
