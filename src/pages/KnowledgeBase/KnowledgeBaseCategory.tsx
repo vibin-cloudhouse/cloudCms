@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Search, Book, BookOpen, Bookmark } from "lucide-react";
@@ -53,39 +52,38 @@ const KnowledgeBaseCategory: React.FC = () => {
           </Breadcrumb>
           
           <div className="flex flex-col lg:flex-row gap-8">
-            {/* Enhanced Sidebar */}
             <aside className="lg:w-72 flex-shrink-0">
               <div className="sticky top-24 space-y-6">
-                <div className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700">
+                <div className="bg-gradient-to-br from-teal-50 to-cyan-100 dark:from-slate-900 dark:to-slate-800 p-6 rounded-xl shadow-md border border-teal-100 dark:border-slate-700">
                   <h3 className="font-semibold text-lg mb-4 text-slate-800 dark:text-slate-200 flex items-center">
-                    <BookOpen className="w-5 h-5 mr-2 text-teal-500" />
-                    Categories
+                    <BookOpen className="w-5 h-5 mr-2 text-teal-600" />
+                    Knowledge Categories
                   </h3>
                   <div className="space-y-1">
                     {kbCategories.map(cat => (
                       <Link 
                         key={cat.id}
                         to={`/kb/${cat.slug}`}
-                        className={`group flex items-center justify-between w-full px-3 py-2.5 rounded-lg text-sm transition-all ${
+                        className={`group flex items-center justify-between w-full px-3 py-2.5 rounded-lg text-sm transition-all duration-300 ${
                           cat.id === category.id 
                             ? "bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-teal-300 font-medium" 
-                            : "text-slate-700 dark:text-slate-300 hover:bg-slate-200/70 dark:hover:bg-slate-700/50 hover:text-slate-900 dark:hover:text-slate-100"
+                            : "text-slate-700 dark:text-slate-300 hover:bg-teal-50 dark:hover:bg-slate-700/50 hover:text-teal-800 dark:hover:text-teal-200"
                         }`}
                       >
                         <div className="flex items-center">
-                          <Bookmark className={`w-4 h-4 mr-2.5 ${
+                          <Bookmark className={`w-4 h-4 mr-2.5 transition-colors ${
                             cat.id === category.id 
                               ? "text-teal-500" 
-                              : "text-slate-400 group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300"
+                              : "text-slate-400 group-hover:text-teal-500 dark:text-slate-500 dark:group-hover:text-teal-400"
                           }`} />
                           <span>{cat.name}</span>
                         </div>
                         
                         {cat.articles.length > 0 && (
-                          <span className={`text-xs px-2 py-1 rounded-full ${
+                          <span className={`text-xs px-2 py-1 rounded-full transition-colors ${
                             cat.id === category.id
                               ? "bg-teal-200 dark:bg-teal-800 text-teal-800 dark:text-teal-200"
-                              : "bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400"
+                              : "bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 group-hover:bg-teal-100 dark:group-hover:bg-teal-900/50"
                           }`}>
                             {cat.articles.length}
                           </span>
@@ -95,16 +93,15 @@ const KnowledgeBaseCategory: React.FC = () => {
                   </div>
                 </div>
                 
-                <Button variant="outline" size="lg" className="w-full justify-start shadow-sm" asChild>
+                <Button variant="outline" size="lg" className="w-full justify-start shadow-sm bg-gradient-to-r from-teal-50 to-cyan-100 hover:from-teal-100 hover:to-cyan-200 dark:from-slate-800 dark:to-slate-900 dark:hover:from-slate-700 dark:hover:to-slate-800" asChild>
                   <Link to="/kb">
-                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    <ArrowLeft className="mr-2 h-4 w-4 text-teal-600" />
                     Back to all categories
                   </Link>
                 </Button>
               </div>
             </aside>
             
-            {/* Main content */}
             <div className="flex-grow">
               <div className="flex items-center gap-3 mb-6">
                 <div className="bg-teal-100 dark:bg-teal-900/30 p-3 rounded-lg text-teal-600 dark:text-teal-400">
