@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -9,7 +10,8 @@ import {
   Server,
   Monitor,
   ClipboardCheck,
-  Database
+  Database,
+  ArrowRightCircle
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -130,106 +132,130 @@ const ServerMigration = () => {
       <Header />
       
       <main>
-        {/* Hero Section */}
-        <section className="py-12 md:py-20 bg-gradient-to-b from-cyan-50/80 to-teal-50/80 dark:from-slate-900/90 dark:to-slate-800/90">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Improved Hero Section */}
+        <section className="py-16 md:py-24 bg-gradient-to-br from-cyan-50/90 to-teal-50/90 dark:from-slate-900/95 dark:to-slate-800/95 relative overflow-hidden">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="gradient-blob w-96 h-96 -top-20 -right-20 opacity-10"></div>
+            <div className="gradient-blob w-96 h-96 bottom-20 -left-20 opacity-10"></div>
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-display font-bold text-slate-900 dark:text-white mb-4">
-                Migration to CloudStick is <span className="gradient-heading dark:text-teal-400">Totally Free</span>
+              <span className="px-4 py-1.5 text-sm font-semibold text-teal-700 bg-teal-100/70 dark:text-teal-300 dark:bg-teal-900/30 rounded-full inline-block mb-6">Free Service</span>
+              <h1 className="text-4xl md:text-6xl font-display font-bold text-slate-900 dark:text-white mb-6 leading-tight">
+                Migration to CloudStick is <span className="gradient-heading dark:text-teal-400 block md:inline">Totally Free</span>
               </h1>
-              <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300">
-                Our experts handle your entire server migration process at no cost, 
-                ensuring a smooth transition with minimal downtime.
+              <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 leading-relaxed">
+                Our expert team handles your entire server migration process at no cost, 
+                ensuring a smooth transition with minimal downtime and maximum reliability.
               </p>
+              <div className="mt-8 flex flex-wrap justify-center gap-4">
+                <div className="flex items-center bg-white/70 dark:bg-slate-800/50 px-4 py-2 rounded-full shadow-sm">
+                  <span className="h-6 w-6 bg-teal-500 text-white rounded-full flex items-center justify-center text-xs font-bold mr-2">✓</span>
+                  <span className="font-medium text-teal-700 dark:text-teal-300">Zero Downtime</span>
+                </div>
+                <div className="flex items-center bg-white/70 dark:bg-slate-800/50 px-4 py-2 rounded-full shadow-sm">
+                  <span className="h-6 w-6 bg-teal-500 text-white rounded-full flex items-center justify-center text-xs font-bold mr-2">✓</span>
+                  <span className="font-medium text-teal-700 dark:text-teal-300">All Website Types</span>
+                </div>
+                <div className="flex items-center bg-white/70 dark:bg-slate-800/50 px-4 py-2 rounded-full shadow-sm">
+                  <span className="h-6 w-6 bg-teal-500 text-white rounded-full flex items-center justify-center text-xs font-bold mr-2">✓</span>
+                  <span className="font-medium text-teal-700 dark:text-teal-300">24/7 Expert Support</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
         
-        {/* Migration Process Flow Chart */}
-        <section className="py-16 bg-slate-50 dark:bg-slate-900">
+        {/* Improved Migration Process Flow Chart */}
+        <section className="py-20 bg-white dark:bg-slate-900">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl font-display font-bold text-slate-900 dark:text-white mb-6">
+              <div className="text-center mb-16">
+                <span className="px-4 py-1.5 text-sm font-semibold text-teal-700 bg-teal-100/70 dark:text-teal-300 dark:bg-teal-900/30 rounded-full inline-block mb-4">Seamless Process</span>
+                <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 dark:text-white mb-6">
                   Our Migration Process
                 </h2>
-                <p className="text-lg text-slate-600 dark:text-slate-300">
-                  How we execute your server migration from start to finish
+                <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+                  We've perfected our migration process to be straightforward and efficient, 
+                  minimizing disruption to your business operations
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 gap-8 mb-12">
-                <div className="flex flex-col md:flex-row gap-6 items-center bg-white dark:bg-slate-800/50 p-6 rounded-xl border border-slate-200 dark:border-slate-700">
-                  <div className="shrink-0 w-16 h-16 bg-teal-100 dark:bg-teal-900/30 rounded-full flex items-center justify-center">
-                    <ClipboardCheck className="w-8 h-8 text-teal-600 dark:text-teal-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">1. Migration Request</h3>
+              <div className="relative">
+                {/* Timeline line */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-teal-500 to-cyan-500 hidden md:block"></div>
+                
+                {/* Step 1 */}
+                <div className="flex flex-col md:flex-row items-center mb-12 relative">
+                  <div className="md:w-1/2 md:pr-12 md:text-right mb-8 md:mb-0">
+                    <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">1. Migration Request</h3>
                     <p className="text-slate-600 dark:text-slate-300">
-                      You submit a migration request with details about your server and websites. Our team reviews your requirements and contacts you to confirm details.
+                      Submit your migration request with details about your server and websites. Our team reviews your requirements and contacts you to confirm details.
                     </p>
                   </div>
+                  <div className="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 z-10 shrink-0 w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full flex items-center justify-center shadow-lg mb-8 md:mb-0">
+                    <ClipboardCheck className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="md:w-1/2 md:pl-12 md:hidden"></div>
                 </div>
                 
-                <div className="ml-8 h-12 w-0.5 bg-teal-200 dark:bg-teal-800 mx-auto"></div>
-                
-                <div className="flex flex-col md:flex-row gap-6 items-center bg-white dark:bg-slate-800/50 p-6 rounded-xl border border-slate-200 dark:border-slate-700">
-                  <div className="shrink-0 w-16 h-16 bg-teal-100 dark:bg-teal-900/30 rounded-full flex items-center justify-center">
-                    <Server className="w-8 h-8 text-teal-600 dark:text-teal-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">2. Server Assessment</h3>
+                {/* Step 2 */}
+                <div className="flex flex-col md:flex-row-reverse items-center mb-12 relative">
+                  <div className="md:w-1/2 md:pl-12 md:text-left mb-8 md:mb-0">
+                    <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">2. Server Assessment</h3>
                     <p className="text-slate-600 dark:text-slate-300">
                       Our experts analyze your current server setup, identify potential challenges, and create a detailed migration plan tailored to your needs.
                     </p>
                   </div>
+                  <div className="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 z-10 shrink-0 w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full flex items-center justify-center shadow-lg mb-8 md:mb-0">
+                    <Server className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="md:w-1/2 md:pr-12 md:hidden"></div>
                 </div>
                 
-                <div className="ml-8 h-12 w-0.5 bg-teal-200 dark:bg-teal-800 mx-auto"></div>
-                
-                <div className="flex flex-col md:flex-row gap-6 items-center bg-white dark:bg-slate-800/50 p-6 rounded-xl border border-slate-200 dark:border-slate-700">
-                  <div className="shrink-0 w-16 h-16 bg-teal-100 dark:bg-teal-900/30 rounded-full flex items-center justify-center">
-                    <Database className="w-8 h-8 text-teal-600 dark:text-teal-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">3. Data Migration</h3>
+                {/* Step 3 */}
+                <div className="flex flex-col md:flex-row items-center mb-12 relative">
+                  <div className="md:w-1/2 md:pr-12 md:text-right mb-8 md:mb-0">
+                    <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">3. Data Migration</h3>
                     <p className="text-slate-600 dark:text-slate-300">
                       We transfer all your files, databases, and configurations to the destination server, ensuring everything is properly set up and optimized.
                     </p>
                   </div>
+                  <div className="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 z-10 shrink-0 w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full flex items-center justify-center shadow-lg mb-8 md:mb-0">
+                    <Database className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="md:w-1/2 md:pl-12 md:hidden"></div>
                 </div>
                 
-                <div className="ml-8 h-12 w-0.5 bg-teal-200 dark:bg-teal-800 mx-auto"></div>
-                
-                <div className="flex flex-col md:flex-row gap-6 items-center bg-white dark:bg-slate-800/50 p-6 rounded-xl border border-slate-200 dark:border-slate-700">
-                  <div className="shrink-0 w-16 h-16 bg-teal-100 dark:bg-teal-900/30 rounded-full flex items-center justify-center">
-                    <Monitor className="w-8 h-8 text-teal-600 dark:text-teal-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">4. Testing & Quality Check</h3>
+                {/* Step 4 */}
+                <div className="flex flex-col md:flex-row-reverse items-center mb-12 relative">
+                  <div className="md:w-1/2 md:pl-12 md:text-left mb-8 md:mb-0">
+                    <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">4. Testing & Quality Check</h3>
                     <p className="text-slate-600 dark:text-slate-300">
                       We thoroughly test your websites to ensure they function correctly on the new server, verifying database connectivity, script functionality, and more.
                     </p>
                   </div>
+                  <div className="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 z-10 shrink-0 w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full flex items-center justify-center shadow-lg mb-8 md:mb-0">
+                    <Monitor className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="md:w-1/2 md:pr-12 md:hidden"></div>
                 </div>
                 
-                <div className="ml-8 h-12 w-0.5 bg-teal-200 dark:bg-teal-800 mx-auto"></div>
-                
-                <div className="flex flex-col md:flex-row gap-6 items-center bg-white dark:bg-slate-800/50 p-6 rounded-xl border border-slate-200 dark:border-slate-700">
-                  <div className="shrink-0 w-16 h-16 bg-teal-100 dark:bg-teal-900/30 rounded-full flex items-center justify-center">
-                    <CheckCircle className="w-8 h-8 text-teal-600 dark:text-teal-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">5. Go Live & Support</h3>
+                {/* Step 5 */}
+                <div className="flex flex-col md:flex-row items-center relative">
+                  <div className="md:w-1/2 md:pr-12 md:text-right mb-8 md:mb-0">
+                    <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">5. Go Live & Support</h3>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Once you approve the migration, we switch your DNS to point to the new server. We monitor the transition and provide post-migration support to resolve any issues.
+                      Once you approve the migration, we switch your DNS to point to the new server and provide post-migration support to ensure everything works seamlessly.
                     </p>
                   </div>
+                  <div className="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 z-10 shrink-0 w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full flex items-center justify-center shadow-lg">
+                    <CheckCircle className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="md:w-1/2 md:pl-12 md:hidden"></div>
                 </div>
               </div>
               
-              <div className="text-center">
-                <p className="text-slate-600 dark:text-slate-300 mb-6">
+              <div className="text-center mt-16 p-6 bg-teal-50 dark:bg-teal-900/20 rounded-xl border border-teal-100 dark:border-teal-800/40">
+                <p className="text-teal-700 dark:text-teal-300 font-medium mb-0">
                   Our migration process typically takes 24-72 hours depending on the size and complexity of your websites.
                 </p>
               </div>
@@ -238,7 +264,7 @@ const ServerMigration = () => {
         </section>
         
         {/* Request Form Section */}
-        <section className="py-16 md:py-24">
+        <section className="py-16 md:py-24 bg-slate-50 dark:bg-slate-900/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 dark:text-white mb-6">
