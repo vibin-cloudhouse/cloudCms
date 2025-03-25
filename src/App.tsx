@@ -15,6 +15,7 @@ import KnowledgeBaseCategory from "./pages/KnowledgeBase/KnowledgeBaseCategory";
 import KnowledgeBaseArticle from "./pages/KnowledgeBase/KnowledgeBaseArticle";
 import Docs from "./pages/Docs";
 import Features from "./pages/Features";
+import ServerMigration from "./pages/ServerMigration";
 import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
 import TermsOfService from "./pages/legal/TermsOfService";
 import CookiesPolicy from "./pages/legal/CookiesPolicy";
@@ -40,6 +41,7 @@ const App = () => (
             <Route path="/kb/:category/:slug" element={<KnowledgeBaseArticle />} />
             <Route path="/docs" element={<Docs />} />
             <Route path="/features" element={<Features />} />
+            <Route path="/server-migration" element={<ServerMigration />} />
             <Route path="/legal/privacy" element={<PrivacyPolicy />} />
             <Route path="/legal/terms" element={<TermsOfService />} />
             <Route path="/legal/cookies" element={<CookiesPolicy />} />

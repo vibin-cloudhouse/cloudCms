@@ -55,7 +55,7 @@ const HowItWorksSection = () => {
         </div>
         
         <div className="mt-16 text-center">
-          <Link to="/signup">
+          <Link to="/server-migration">
             <Button className="gradient-btn">
               Request Free Migration
             </Button>
