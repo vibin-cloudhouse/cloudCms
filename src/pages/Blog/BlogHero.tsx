@@ -1,11 +1,24 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Search, Book, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
-const BlogHero: React.FC = () => {
+interface BlogHeroProps {
+  onSearch: (searchTerm: string) => void;
+}
+
+const BlogHero: React.FC<BlogHeroProps> = ({ onSearch }) => {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setInputValue(value);
+    onSearch(value);
+  };
+
   return (
     <div className="relative py-12 md:py-16 mb-12">
       {/* Background elements */}
@@ -57,9 +70,17 @@ const BlogHero: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <div className="glass-card flex items-center p-2 rounded-full border border-slate-200 dark:border-slate-700 shadow-md overflow-hidden">
-              <div className="flex-1 flex items-center px-4">
-                <Search className="h-5 w-5 text-slate-400 mr-2" />
-                <span className="text-slate-500 dark:text-slate-400">Search articles, tutorials and more...</span>
+              <div className="relative flex-1">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <Search className="h-5 w-5 text-slate-400" />
+                </div>
+                <Input
+                  type="text"
+                  placeholder="Search articles, tutorials and more..."
+                  className="pl-10 w-full border-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                  value={inputValue}
+                  onChange={handleInputChange}
+                />
               </div>
               <Button className="rounded-full">
                 <ArrowRight className="h-5 w-5" />
