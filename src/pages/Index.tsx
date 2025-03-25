@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -510,4 +511,32 @@ const Index = () => {
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700 dark:text-slate-300">Custom integrations
+                  <span className="text-slate-700 dark:text-slate-300">Custom integrations</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700 dark:text-slate-300">24/7 phone support</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700 dark:text-slate-300">Dedicated account manager</span>
+                </li>
+              </ul>
+              <div className="mt-8">
+                <Link to="/signup" className="block w-full">
+                  <Button variant="outline" className="w-full rounded-xl dark:border-teal-800 dark:text-teal-400 dark:hover:bg-teal-900/30">
+                    Contact Sales
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default Index;
