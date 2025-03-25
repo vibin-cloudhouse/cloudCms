@@ -1,12 +1,14 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Cookie } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
+import { useCookieConsent } from "@/hooks/useCookieConsent";
 
 const CookiesPolicy = () => {
+  const { resetCookiePreferences } = useCookieConsent();
+
   return (
     <>
       <Header />
@@ -31,6 +33,17 @@ const CookiesPolicy = () => {
               <p className="text-slate-600 dark:text-slate-300 mb-6">
                 Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
               </p>
+
+              <div className="bg-slate-50 dark:bg-slate-700 p-4 rounded-lg mb-6">
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <p className="text-slate-600 dark:text-slate-300">
+                    Manage your cookie preferences
+                  </p>
+                  <Button onClick={resetCookiePreferences}>
+                    Manage Cookies
+                  </Button>
+                </div>
+              </div>
 
               <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-200 mt-8 mb-4">1. What Are Cookies</h2>
               <p className="text-slate-600 dark:text-slate-300 mb-4">
