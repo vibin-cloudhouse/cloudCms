@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -345,7 +344,7 @@ const Index = () => {
           <div className="mt-16 text-center">
             <Link to="/signup">
               <Button className="gradient-btn">
-                Start Managing Your Servers
+                Request Free Migration
               </Button>
             </Link>
           </div>
@@ -672,3 +671,4 @@ const Index = () => {
 };
 
 export default Index;
+
