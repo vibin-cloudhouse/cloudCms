@@ -1,4 +1,3 @@
-
 // Documentation content types
 export interface DocSection {
   title?: string;
@@ -349,6 +348,60 @@ const documents: Document[] = [
     ]
   }
   // You can add more documents as needed
+];
+
+// Create categories array for sidebar navigation
+export const categories = [
+  {
+    id: "getting-started",
+    title: "Getting Started",
+    articles: [
+      { title: "CloudStick Overview", path: "getting-started/overview" },
+      { title: "Quick Start Guide", path: "getting-started/quick-start" },
+      { title: "Installation", path: "getting-started/installation" },
+      { title: "First Project", path: "getting-started/first-project" },
+    ]
+  },
+  {
+    id: "core-concepts",
+    title: "Core Concepts",
+    articles: [
+      { title: "Architecture", path: "core-concepts/architecture" },
+      { title: "Project Structure", path: "core-concepts/project-structure" },
+      { title: "Configuration", path: "core-concepts/configuration" },
+      { title: "Deployment", path: "core-concepts/deployment" },
+    ]
+  },
+  {
+    id: "guides",
+    title: "Guides",
+    articles: [
+      { title: "Deploying Applications", path: "guides/deploying" },
+      { title: "Custom Domains", path: "guides/domains" },
+      { title: "Environment Variables", path: "guides/environment-variables" },
+      { title: "Scaling Applications", path: "guides/scaling" },
+    ]
+  },
+  {
+    id: "api-reference",
+    title: "API Reference",
+    articles: [
+      { title: "Authentication", path: "api/authentication" },
+      { title: "Projects", path: "api/projects" },
+      { title: "Deployments", path: "api/deployments" },
+      { title: "Users & Teams", path: "api/users" },
+    ]
+  },
+  {
+    id: "faq",
+    title: "FAQ & Troubleshooting",
+    articles: [
+      { title: "Common Issues", path: "faq/common-issues" },
+      { title: "Error Codes", path: "faq/error-codes" },
+      { title: "Best Practices", path: "faq/best-practices" },
+      { title: "Support Resources", path: "faq/support" },
+    ]
+  }
 ];
 
 // Helper functions to retrieve document data
