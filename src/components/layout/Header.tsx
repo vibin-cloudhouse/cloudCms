@@ -1,16 +1,37 @@
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import MobileMenu from "./MobileMenu";
 
 interface HeaderProps {
   children?: React.ReactNode;
 }
 
 const Header: React.FC<HeaderProps> = ({ children }) => {
+  const [scrolled, setScrolled] = useState(false);
+
+  // Add scroll event listener to add shadow and background when scrolled
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="fixed w-full top-0 z-50 bg-transparent backdrop-blur-sm border-b border-transparent transition-colors duration-300">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+    <header 
+      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+        scrolled 
+          ? "bg-white/90 dark:bg-slate-900/90 shadow-sm backdrop-blur-sm border-b border-slate-200 dark:border-slate-800" 
+          : "bg-transparent backdrop-blur-sm border-b border-transparent"
+      }`}
+    >
+      <div className="container mx-auto px-4 py-3 md:py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center">
           <img 
             src="/lovable-uploads/ad1726d2-eef7-461b-bd63-0ff96cad4f84.png" 
@@ -18,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
             className="h-8" 
           />
         </Link>
-        <div className="flex items-center space-x-6">
+        <div className="flex items-center">
           <nav className="hidden md:flex items-center space-x-6">
             {/* Rearranged menu items by priority */}
             <Link to="/features" className="text-slate-700 hover:text-teal-600 dark:text-slate-200 dark:hover:text-teal-400 transition-colors">Features</Link>
@@ -28,14 +49,18 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
             <Link to="/docs" className="text-slate-700 hover:text-teal-600 dark:text-slate-200 dark:hover:text-teal-400 transition-colors">Docs</Link>
             <Link to="/kb" className="text-slate-700 hover:text-teal-600 dark:text-slate-200 dark:hover:text-teal-400 transition-colors">Knowledge Base</Link>
           </nav>
-          <div className="flex items-center space-x-4">
-            <Link to="/login" className="text-slate-700 hover:text-teal-600 dark:text-slate-200 dark:hover:text-teal-400 transition-colors">Log in</Link>
-            <Link to="/signup">
+          
+          <div className="flex items-center ml-4 space-x-2 md:space-x-4">
+            <Link to="/login" className="hidden md:block text-slate-700 hover:text-teal-600 dark:text-slate-200 dark:hover:text-teal-400 transition-colors">
+              Log in
+            </Link>
+            <Link to="/signup" className="hidden md:block">
               <button className="bg-gradient-to-r from-teal-600 to-cyan-500 text-white px-4 py-2 rounded-md hover:opacity-90 transition-opacity">
                 Sign up
               </button>
             </Link>
             <ThemeToggle />
+            <MobileMenu />
           </div>
           {children}
         </div>
