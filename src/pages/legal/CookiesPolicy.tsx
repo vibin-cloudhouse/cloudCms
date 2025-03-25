@@ -11,7 +11,7 @@ const CookiesPolicy = () => {
     <>
       <Header />
       <main className="min-h-screen bg-gradient-to-b from-cyan-50 to-white dark:from-slate-950 dark:to-slate-900">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16">
           <div className="mb-8">
             <Button variant="outline" size="sm" asChild>
               <Link to="/">
