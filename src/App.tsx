@@ -15,6 +15,9 @@ import KnowledgeBaseCategory from "./pages/KnowledgeBase/KnowledgeBaseCategory";
 import KnowledgeBaseArticle from "./pages/KnowledgeBase/KnowledgeBaseArticle";
 import Docs from "./pages/Docs";
 import Features from "./pages/Features";
+import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
+import TermsOfService from "./pages/legal/TermsOfService";
+import CookiesPolicy from "./pages/legal/CookiesPolicy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,6 +40,9 @@ const App = () => (
             <Route path="/kb/:category/:slug" element={<KnowledgeBaseArticle />} />
             <Route path="/docs" element={<Docs />} />
             <Route path="/features" element={<Features />} />
+            <Route path="/legal/privacy" element={<PrivacyPolicy />} />
+            <Route path="/legal/terms" element={<TermsOfService />} />
+            <Route path="/legal/cookies" element={<CookiesPolicy />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

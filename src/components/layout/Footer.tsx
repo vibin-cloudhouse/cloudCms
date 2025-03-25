@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Mail, MessageCircle, Phone, ArrowRight, Linkedin } from "lucide-react";
 
@@ -77,9 +78,9 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/roadmap" className="text-slate-600 hover:text-teal-600 transition-colors">
+                <a href="https://roadmap.cloudstick.io/" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-teal-600 transition-colors">
                   Roadmap
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -103,9 +104,9 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/community" className="text-slate-600 hover:text-teal-600 transition-colors">
+                <a href="https://community.cloudstick.io/" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-teal-600 transition-colors">
                   Community
-                </Link>
+                </a>
               </li>
               <li>
                 <Link to="/legal/privacy" className="text-slate-600 hover:text-teal-600 transition-colors">
