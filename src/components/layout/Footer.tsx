@@ -11,9 +11,9 @@ const Footer = () => {
             <Link to="/" className="inline-block mb-6">
               <div className="flex items-center">
                 <img 
-                  src="/lovable-uploads/b6663b6d-31b3-4893-9cba-9af864ba5896.png" 
+                  src="/lovable-uploads/ad1726d2-eef7-461b-bd63-0ff96cad4f84.png" 
                   alt="CloudStick" 
-                  className="h-10 mr-2" 
+                  className="h-8 mr-2" 
                 />
               </div>
             </Link>

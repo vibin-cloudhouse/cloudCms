@@ -13,9 +13,9 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center">
           <img 
-            src="/lovable-uploads/1e9c8d72-fd3e-426d-aff4-3f96e3314af1.png" 
+            src="/lovable-uploads/ad1726d2-eef7-461b-bd63-0ff96cad4f84.png" 
             alt="CloudStick Logo" 
-            className="h-12" 
+            className="h-8" 
           />
         </Link>
         <div className="flex items-center space-x-6">
