@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import { File, Book, Archive, HelpCircle, Star } from "lucide-react";
+import { File, Book, Archive, HelpCircle, Star, Play, ExternalLink } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -67,6 +67,37 @@ const DocsPage: React.FC = () => {
         { title: "Best Practices", link: "/docs/faq/best-practices" },
         { title: "Support Resources", link: "/docs/faq/support" },
       ]
+    }
+  ];
+
+  const videoResources = [
+    {
+      title: "Getting Started with CloudStick",
+      description: "Learn the basics in under 10 minutes",
+      thumbnail: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
+      link: "/resources/videos/getting-started",
+      duration: "9:47"
+    },
+    {
+      title: "Advanced Security Features",
+      description: "Protect your data with enterprise-grade encryption",
+      thumbnail: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
+      link: "/resources/videos/security-features",
+      duration: "12:35"
+    },
+    {
+      title: "Custom Domain Setup",
+      description: "Connect CloudStick to your own domain in minutes",
+      thumbnail: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+      link: "/resources/videos/domain-setup",
+      duration: "7:23"
+    },
+    {
+      title: "Team Collaboration Tips",
+      description: "Best practices for working with multiple users",
+      thumbnail: "https://images.unsplash.com/photo-1531297484001-80022131f5a1",
+      link: "/resources/videos/collaboration",
+      duration: "14:08"
     }
   ];
 
@@ -172,24 +203,56 @@ const DocsPage: React.FC = () => {
             </div>
           </section>
           
-          {/* Documentation Resources */}
+          {/* Documentation Resources - YouTube Style */}
           <section>
+            <h2 className="text-2xl font-bold mb-6">Video Tutorials</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {videoResources.map((video, index) => (
+                <Link 
+                  to={video.link} 
+                  key={index}
+                  className="group flex flex-col hover:transform hover:scale-[1.01] transition-all"
+                >
+                  <div className="relative rounded-lg overflow-hidden aspect-video mb-3 bg-slate-200 dark:bg-slate-800">
+                    <img 
+                      src={video.thumbnail} 
+                      alt={video.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-80 group-hover:opacity-95 transition-opacity">
+                      <div className="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center">
+                        <Play className="w-5 h-5 text-white fill-white ml-1" />
+                      </div>
+                    </div>
+                    <div className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-1.5 py-0.5 rounded">
+                      {video.duration}
+                    </div>
+                  </div>
+                  <h3 className="font-medium text-base text-slate-900 dark:text-white mb-1 group-hover:text-teal-600 dark:group-hover:text-teal-400">
+                    {video.title}
+                  </h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">
+                    {video.description}
+                  </p>
+                </Link>
+              ))}
+            </div>
+
+            <div className="flex justify-center mt-8">
+              <Link 
+                to="/resources/videos" 
+                className="flex items-center gap-2 text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300 font-medium"
+              >
+                View all video tutorials
+                <ExternalLink className="w-4 h-4" />
+              </Link>
+            </div>
+          </section>
+          
+          {/* Community and Other Resources */}
+          <section className="mt-16">
             <h2 className="text-2xl font-bold mb-6">Additional Resources</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <Card className="flex flex-col h-full">
-                <CardHeader>
-                  <CardTitle className="text-lg">Video Tutorials</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-sm text-muted-foreground">Visual step-by-step guides to help you get started quickly</p>
-                </CardContent>
-                <div className="p-4 pt-0 mt-auto">
-                  <Link to="/resources/videos" className="text-sm text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">
-                    Watch tutorials →
-                  </Link>
-                </div>
-              </Card>
-              
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <Card className="flex flex-col h-full">
                 <CardHeader>
                   <CardTitle className="text-lg">Community Forums</CardTitle>
