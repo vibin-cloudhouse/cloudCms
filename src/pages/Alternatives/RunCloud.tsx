@@ -1,4 +1,3 @@
-
 import React from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -71,8 +70,8 @@ const RunCloudComparison = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow pt-20">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800 py-16 md:py-24">
+        {/* Hero Section - Updated Background Gradient */}
+        <section className="bg-gradient-to-b from-cyan-50 to-white dark:from-slate-900 dark:to-slate-950 py-16 md:py-24">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="flex items-center space-x-2 mb-4">
@@ -220,7 +219,7 @@ const RunCloudComparison = () => {
           </div>
         </section>
         
-        {/* Final CTA */}
+        {/* Final CTA - Updated Background Gradient */}
         <section className="py-16 bg-gradient-to-r from-teal-600 to-cyan-500 text-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold mb-6">Ready to Try CloudStick?</h2>
