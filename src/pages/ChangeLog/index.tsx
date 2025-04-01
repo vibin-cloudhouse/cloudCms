@@ -109,7 +109,6 @@ const ChangeLog: React.FC = () => {
           </motion.div>
 
           <div className="relative">
-            {/* Timeline vertical line */}
             <div className="absolute left-0 md:left-8 top-0 bottom-0 w-0.5 bg-teal-200 dark:bg-teal-900/50 ml-3 md:ml-0"></div>
             
             <div className="space-y-12">
@@ -121,7 +120,6 @@ const ChangeLog: React.FC = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="relative pl-8 md:pl-24"
                 >
-                  {/* Timeline dot */}
                   <div className="absolute left-0 md:left-8 w-6 h-6 rounded-full bg-teal-500 border-4 border-white dark:border-slate-900 z-10 ml-0.5 md:ml-0 transform -translate-y-1"></div>
                   
                   <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-shadow">
@@ -150,23 +148,32 @@ const ChangeLog: React.FC = () => {
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
                       {entry.changes.map((change, idx) => (
-                        <div key={idx} className="flex items-start p-3 rounded-lg bg-slate-50 dark:bg-slate-700/30 border border-slate-100 dark:border-slate-700">
-                          <div className="mr-3 mt-0.5">
-                            <span className={`inline-flex items-center justify-center p-1.5 rounded-full ${
+                        <div 
+                          key={idx} 
+                          className="p-4 rounded-lg bg-slate-50 dark:bg-slate-700/30 border border-slate-100 dark:border-slate-700"
+                        >
+                          <div className="flex items-start mb-2">
+                            <span className={`mr-3 mt-1 ${
                               change.type === 'feature' 
-                                ? 'bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-400'
+                                ? 'text-green-600 dark:text-green-400'
                                 : change.type === 'improvement'
-                                  ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-400'
-                                  : 'bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-400'
+                                  ? 'text-blue-600 dark:text-blue-400'
+                                  : 'text-amber-600 dark:text-amber-400'
                             }`}>
                               {getChangeTypeIcon(change.type)}
                             </span>
-                          </div>
-                          <div>
-                            <div className="font-medium mb-0.5 text-sm uppercase text-slate-500 dark:text-slate-400">
-                              {change.type === 'feature' ? 'New Feature' : change.type === 'improvement' ? 'Improvement' : 'Bug Fix'}
+                            <div>
+                              <div className="font-medium mb-1 text-sm uppercase text-slate-500 dark:text-slate-400">
+                                {change.type === 'feature' 
+                                  ? 'New Feature' 
+                                  : change.type === 'improvement' 
+                                    ? 'Improvement' 
+                                    : 'Bug Fix'}
+                              </div>
+                              <ul className="list-disc list-inside text-slate-700 dark:text-slate-300 space-y-1">
+                                <li>{change.description}</li>
+                              </ul>
                             </div>
-                            <p className="text-slate-700 dark:text-slate-300">{change.description}</p>
                           </div>
                         </div>
                       ))}
