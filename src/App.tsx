@@ -20,6 +20,7 @@ import ServerMigration from "./pages/ServerMigration";
 import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
 import TermsOfService from "./pages/legal/TermsOfService";
 import CookiesPolicy from "./pages/legal/CookiesPolicy";
+import ChangeLog from "./pages/ChangeLog";
 import NotFound from "./pages/NotFound";
 import CookieBanner from "./components/CookieBanner";
 
@@ -48,6 +49,7 @@ const App = () => (
             <Route path="/legal/privacy" element={<PrivacyPolicy />} />
             <Route path="/legal/terms" element={<TermsOfService />} />
             <Route path="/legal/cookies" element={<CookiesPolicy />} />
+            <Route path="/changelog" element={<ChangeLog />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

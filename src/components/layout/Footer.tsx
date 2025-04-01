@@ -78,6 +78,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/changelog" className="text-slate-600 hover:text-teal-600 transition-colors">
+                  Change Log
+                </Link>
+              </li>
+              <li>
                 <a href="https://roadmap.cloudstick.io/" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-teal-600 transition-colors">
                   Roadmap
                 </a>
