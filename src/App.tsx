@@ -21,6 +21,8 @@ import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
 import TermsOfService from "./pages/legal/TermsOfService";
 import CookiesPolicy from "./pages/legal/CookiesPolicy";
 import ChangeLog from "./pages/ChangeLog";
+import AlternativesPage from "./pages/Alternatives";
+import RunCloudComparison from "./pages/Alternatives/RunCloud";
 import NotFound from "./pages/NotFound";
 import CookieBanner from "./components/CookieBanner";
 
@@ -50,6 +52,8 @@ const App = () => (
             <Route path="/legal/terms" element={<TermsOfService />} />
             <Route path="/legal/cookies" element={<CookiesPolicy />} />
             <Route path="/changelog" element={<ChangeLog />} />
+            <Route path="/alternatives" element={<AlternativesPage />} />
+            <Route path="/alternatives/runcloud" element={<RunCloudComparison />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
