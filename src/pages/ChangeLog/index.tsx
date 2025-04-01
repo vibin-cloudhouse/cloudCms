@@ -8,6 +8,7 @@ import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 
 // Type definitions for changelog entries
 interface ChangelogEntry {
@@ -31,7 +32,7 @@ const changelogData: ChangelogEntry[] = [
     changes: [
       { type: "feature", description: "Added support for hardware security keys." },
       { type: "feature", description: "Introduced client-side encryption settings." },
-      { type: "improvement", description: "Improved password policy enforcement." },
+      { type: "improvement", description: "Improved password policy enforcement.\n• Stronger password requirements\n• Password rotation policies\n• Failed login attempt tracking" },
       { type: "fix", description: "Fixed an issue with expired session handling." }
     ]
   },
@@ -41,8 +42,8 @@ const changelogData: ChangelogEntry[] = [
     title: "Performance Improvements",
     description: "This update brings performance enhancements and bug fixes.",
     changes: [
-      { type: "improvement", description: "Optimized file syncing for large files." },
-      { type: "improvement", description: "Reduced memory usage during batch uploads." },
+      { type: "improvement", description: "Optimized file syncing for large files.\n• 50% faster uploads for files >1GB\n• Reduced bandwidth usage\n• Better handling of interrupted transfers" },
+      { type: "improvement", description: "Reduced memory usage during batch uploads.\n• Memory usage down by 30%\n• Parallel processing of uploads\n• Better queue management" },
       { type: "fix", description: "Fixed thumbnail generation for certain file types." },
       { type: "fix", description: "Addressed issues with WebDAV connectivity." }
     ]
@@ -55,8 +56,8 @@ const changelogData: ChangelogEntry[] = [
     changes: [
       { type: "feature", description: "Introduced real-time document collaboration." },
       { type: "feature", description: "Added commenting functionality to shared files." },
-      { type: "improvement", description: "Enhanced link sharing with expiration options." },
-      { type: "improvement", description: "Updated the sharing UI for better usability." },
+      { type: "improvement", description: "Enhanced link sharing with expiration options.\n• Custom expiration dates\n• Password protection for links\n• View-only or edit permission options" },
+      { type: "improvement", description: "Updated the sharing UI for better usability.\n• Simplified sharing dialog\n• Quick access to recent shares\n• Improved permission management interface" },
       { type: "fix", description: "Fixed permissions issues when sharing to external users." }
     ]
   }
@@ -74,7 +75,39 @@ const getChangeTypeIcon = (type: "feature" | "improvement" | "fix") => {
   }
 };
 
+// Function to render the description with bullet points for improvements
+const renderDescription = (description: string) => {
+  if (!description.includes('\n')) {
+    return <p>{description}</p>;
+  }
+  
+  const lines = description.split('\n');
+  const mainText = lines[0];
+  const bulletPoints = lines.slice(1);
+  
+  return (
+    <div>
+      <p className="mb-2">{mainText}</p>
+      <ul className="list-disc pl-5 space-y-1 text-slate-600 dark:text-slate-300">
+        {bulletPoints.map((point, i) => (
+          <li key={i}>{point.startsWith('• ') ? point.substring(2) : point}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
 const ChangeLog: React.FC = () => {
+  // Sort the changes to put improvements at the end
+  const sortChanges = (entry: ChangelogEntry) => {
+    const sortedChanges = [...entry.changes].sort((a, b) => {
+      if (a.type === "improvement" && b.type !== "improvement") return 1;
+      if (a.type !== "improvement" && b.type === "improvement") return -1;
+      return 0;
+    });
+    return sortedChanges;
+  };
+
   return (
     <>
       <Header />
@@ -148,9 +181,18 @@ const ChangeLog: React.FC = () => {
                     
                     <Separator className="my-4" />
                     
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                      {entry.changes.map((change, idx) => (
-                        <div key={idx} className="flex items-start p-3 rounded-lg bg-slate-50 dark:bg-slate-700/30 border border-slate-100 dark:border-slate-700">
+                    <div className="grid grid-cols-1 gap-4 mt-6">
+                      {sortChanges(entry).map((change, idx) => (
+                        <div 
+                          key={idx} 
+                          className={`flex items-start p-4 rounded-lg border ${
+                            change.type === 'feature' 
+                              ? 'bg-green-50 border-green-100 dark:bg-green-900/20 dark:border-green-800/30'
+                              : change.type === 'improvement'
+                                ? 'bg-blue-50 border-blue-100 dark:bg-blue-900/20 dark:border-blue-800/30 col-span-1 md:col-span-2'
+                                : 'bg-amber-50 border-amber-100 dark:bg-amber-900/20 dark:border-amber-800/30'
+                          }`}
+                        >
                           <div className="mr-3 mt-0.5">
                             <span className={`inline-flex items-center justify-center p-1.5 rounded-full ${
                               change.type === 'feature' 
@@ -162,11 +204,13 @@ const ChangeLog: React.FC = () => {
                               {getChangeTypeIcon(change.type)}
                             </span>
                           </div>
-                          <div>
-                            <div className="font-medium mb-0.5 text-sm uppercase text-slate-500 dark:text-slate-400">
+                          <div className="flex-1">
+                            <div className="font-medium mb-1 text-sm uppercase text-slate-500 dark:text-slate-400">
                               {change.type === 'feature' ? 'New Feature' : change.type === 'improvement' ? 'Improvement' : 'Bug Fix'}
                             </div>
-                            <p className="text-slate-700 dark:text-slate-300">{change.description}</p>
+                            <div className="text-slate-700 dark:text-slate-300">
+                              {renderDescription(change.description)}
+                            </div>
                           </div>
                         </div>
                       ))}
