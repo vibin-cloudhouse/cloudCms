@@ -165,6 +165,43 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* New Alternatives Row */}
+        <div className="mt-12 pt-8 border-t border-slate-200">
+          <h3 className="font-medium text-slate-900 mb-4">Alternatives</h3>
+          <ul className="grid grid-cols-2 md:grid-cols-6 gap-3">
+            <li>
+              <a href="https://runcloud.io/" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-teal-600 transition-colors">
+                RunCloud
+              </a>
+            </li>
+            <li>
+              <a href="https://gridpane.com/" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-teal-600 transition-colors">
+                GridPane
+              </a>
+            </li>
+            <li>
+              <a href="https://www.cloudways.com/" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-teal-600 transition-colors">
+                CloudWays
+              </a>
+            </li>
+            <li>
+              <a href="https://flywp.com/" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-teal-600 transition-colors">
+                Flywp
+              </a>
+            </li>
+            <li>
+              <a href="https://ploi.io/" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-teal-600 transition-colors">
+                Ploi
+              </a>
+            </li>
+            <li>
+              <a href="https://serveravatar.com/" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-teal-600 transition-colors">
+                ServerAvatar
+              </a>
+            </li>
+          </ul>
+        </div>
+
         <div className="mt-12 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center">
           <p className="text-slate-500 text-sm">
             &copy; {new Date().getFullYear()} CloudStick. All rights reserved.
@@ -187,3 +224,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
