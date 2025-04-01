@@ -2,11 +2,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { FileText, ArrowLeft, Calendar } from "lucide-react";
+import { FileText, ArrowLeft, Calendar, Star, GitMerge, Zap } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge";
 
 // Type definitions for changelog entries
 interface ChangelogEntry {
@@ -61,6 +62,18 @@ const changelogData: ChangelogEntry[] = [
   }
 ];
 
+// Function to get the icon based on change type
+const getChangeTypeIcon = (type: "feature" | "improvement" | "fix") => {
+  switch (type) {
+    case "feature":
+      return <Star className="h-4 w-4" />;
+    case "improvement":
+      return <Zap className="h-4 w-4" />;
+    case "fix":
+      return <GitMerge className="h-4 w-4" />;
+  }
+};
+
 const ChangeLog: React.FC = () => {
   return (
     <>
@@ -83,7 +96,9 @@ const ChangeLog: React.FC = () => {
             className="mb-12"
           >
             <div className="flex items-center gap-3 mb-4">
-              <FileText className="h-8 w-8 text-teal-600" />
+              <div className="p-3 bg-teal-100 dark:bg-teal-900/40 rounded-full">
+                <FileText className="h-6 w-6 text-teal-600 dark:text-teal-400" />
+              </div>
               <h1 className="text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
                 Change Log
               </h1>
@@ -93,58 +108,73 @@ const ChangeLog: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className="space-y-12">
-            {changelogData.map((entry, index) => (
-              <motion.div
-                key={entry.version}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm"
-              >
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <div>
-                    <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-1">
-                      {entry.title}
-                    </h2>
-                    <div className="flex items-center text-slate-500 dark:text-slate-400 gap-4">
-                      <span className="font-mono bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded text-sm">
-                        {entry.version}
-                      </span>
-                      <div className="flex items-center">
-                        <Calendar className="h-4 w-4 mr-1" />
-                        {entry.date}
+          <div className="relative">
+            {/* Timeline vertical line */}
+            <div className="absolute left-0 md:left-8 top-0 bottom-0 w-0.5 bg-teal-200 dark:bg-teal-900/50 ml-3 md:ml-0"></div>
+            
+            <div className="space-y-12">
+              {changelogData.map((entry, index) => (
+                <motion.div
+                  key={entry.version}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="relative pl-8 md:pl-24"
+                >
+                  {/* Timeline dot */}
+                  <div className="absolute left-0 md:left-8 w-6 h-6 rounded-full bg-teal-500 border-4 border-white dark:border-slate-900 z-10 ml-0.5 md:ml-0 transform -translate-y-1"></div>
+                  
+                  <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-shadow">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                      <div>
+                        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-1">
+                          {entry.title}
+                        </h2>
+                        <div className="flex flex-wrap items-center text-slate-500 dark:text-slate-400 gap-4">
+                          <Badge variant="outline" className="bg-slate-100 dark:bg-slate-700 flex items-center gap-1 px-3 py-1 text-sm font-mono">
+                            {entry.version}
+                          </Badge>
+                          <div className="flex items-center">
+                            <Calendar className="h-4 w-4 mr-1" />
+                            {entry.date}
+                          </div>
+                        </div>
                       </div>
+                    </div>
+                    
+                    <p className="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+                      {entry.description}
+                    </p>
+                    
+                    <Separator className="my-4" />
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                      {entry.changes.map((change, idx) => (
+                        <div key={idx} className="flex items-start p-3 rounded-lg bg-slate-50 dark:bg-slate-700/30 border border-slate-100 dark:border-slate-700">
+                          <div className="mr-3 mt-0.5">
+                            <span className={`inline-flex items-center justify-center p-1.5 rounded-full ${
+                              change.type === 'feature' 
+                                ? 'bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-400'
+                                : change.type === 'improvement'
+                                  ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-400'
+                                  : 'bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-400'
+                            }`}>
+                              {getChangeTypeIcon(change.type)}
+                            </span>
+                          </div>
+                          <div>
+                            <div className="font-medium mb-0.5 text-sm uppercase text-slate-500 dark:text-slate-400">
+                              {change.type === 'feature' ? 'New Feature' : change.type === 'improvement' ? 'Improvement' : 'Bug Fix'}
+                            </div>
+                            <p className="text-slate-700 dark:text-slate-300">{change.description}</p>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                </div>
-                
-                <p className="text-slate-600 dark:text-slate-300 mb-4">
-                  {entry.description}
-                </p>
-                
-                <Separator className="my-4" />
-                
-                <div className="space-y-3">
-                  {entry.changes.map((change, idx) => (
-                    <div key={idx} className="flex">
-                      <div className="mr-3">
-                        <span className={`inline-block px-2 py-1 text-xs font-medium rounded-full ${
-                          change.type === 'feature' 
-                            ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300'
-                            : change.type === 'improvement'
-                              ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300'
-                              : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300'
-                        }`}>
-                          {change.type === 'feature' ? 'New' : change.type === 'improvement' ? 'Improved' : 'Fixed'}
-                        </span>
-                      </div>
-                      <p className="text-slate-700 dark:text-slate-300">{change.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </main>
