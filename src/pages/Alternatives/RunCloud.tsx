@@ -5,6 +5,15 @@ import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { CheckIcon, XIcon, ArrowUpRight, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { Card } from "@/components/ui/card";
 
 const RunCloudComparison = () => {
   const comparisonPoints = [
@@ -105,53 +114,49 @@ const RunCloudComparison = () => {
               Feature Comparison
             </h2>
             
-            <div className="overflow-x-auto">
-              <table className="w-full max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg">
-                <thead>
-                  <tr>
-                    <th className="bg-slate-100 dark:bg-slate-800 p-4 text-left text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-700">
-                      Feature
-                    </th>
-                    <th className="bg-gradient-to-r from-teal-600 to-cyan-500 p-4 text-center text-white border-b border-slate-200 dark:border-slate-700">
-                      CloudStick
-                    </th>
-                    <th className="bg-blue-600 p-4 text-center text-white border-b border-slate-200 dark:border-slate-700">
-                      RunCloud
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
+            <Card className="overflow-hidden border-slate-200 dark:border-slate-700 shadow-md max-w-5xl mx-auto">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="w-1/4 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold">Feature</TableHead>
+                    <TableHead className="w-1/3 bg-gradient-to-r from-teal-600 to-cyan-500 text-white font-semibold text-center">CloudStick</TableHead>
+                    <TableHead className="w-1/3 bg-blue-600 text-white font-semibold text-center">RunCloud</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
                   {comparisonPoints.map((point, index) => (
-                    <tr key={index} className={index % 2 === 0 ? "bg-white dark:bg-slate-900" : "bg-slate-50 dark:bg-slate-800/50"}>
-                      <td className="p-4 border-b border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white font-medium">
+                    <TableRow key={index} className={index % 2 === 0 ? "bg-white dark:bg-slate-900" : "bg-slate-50 dark:bg-slate-800/50"}>
+                      <TableCell className="font-medium text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-700">
                         {point.feature}
-                      </td>
-                      <td className="p-4 border-b border-slate-200 dark:border-slate-700">
-                        <div className="flex items-start">
-                          {point.cloudstickBetter ? 
-                            <CheckIcon className="h-5 w-5 text-teal-500 mt-0.5 mr-2 flex-shrink-0" /> : 
-                            <CheckIcon className="h-5 w-5 text-slate-400 mt-0.5 mr-2 flex-shrink-0" />
-                          }
-                          <span className={`text-sm ${point.cloudstickBetter ? "text-slate-900 dark:text-white" : "text-slate-600 dark:text-slate-400"}`}>
+                      </TableCell>
+                      <TableCell className={`border-b border-slate-200 dark:border-slate-700 ${point.cloudstickBetter ? "bg-teal-50 dark:bg-teal-950/20" : ""}`}>
+                        <div className="flex items-start gap-3">
+                          <div className={`flex-shrink-0 rounded-full p-1 ${point.cloudstickBetter ? "bg-teal-100 text-teal-600 dark:bg-teal-900/50 dark:text-teal-400" : "bg-slate-100 text-slate-400 dark:bg-slate-800 dark:text-slate-500"}`}>
+                            <CheckIcon className="h-4 w-4" />
+                          </div>
+                          <span className={`text-sm ${point.cloudstickBetter ? "text-slate-900 dark:text-white font-medium" : "text-slate-600 dark:text-slate-400"}`}>
                             {point.cloudstick}
                           </span>
                         </div>
-                      </td>
-                      <td className="p-4 border-b border-slate-200 dark:border-slate-700">
-                        <div className="flex items-start">
-                          {!point.cloudstickBetter ? 
-                            <CheckIcon className="h-5 w-5 text-blue-500 mt-0.5 mr-2 flex-shrink-0" /> : 
-                            <CheckIcon className="h-5 w-5 text-slate-400 mt-0.5 mr-2 flex-shrink-0" />
-                          }
-                          <span className={`text-sm ${!point.cloudstickBetter ? "text-slate-900 dark:text-white" : "text-slate-600 dark:text-slate-400"}`}>
+                      </TableCell>
+                      <TableCell className={`border-b border-slate-200 dark:border-slate-700 ${!point.cloudstickBetter ? "bg-blue-50 dark:bg-blue-950/20" : ""}`}>
+                        <div className="flex items-start gap-3">
+                          <div className={`flex-shrink-0 rounded-full p-1 ${!point.cloudstickBetter ? "bg-blue-100 text-blue-600 dark:bg-blue-900/50 dark:text-blue-400" : "bg-slate-100 text-slate-400 dark:bg-slate-800 dark:text-slate-500"}`}>
+                            <CheckIcon className="h-4 w-4" />
+                          </div>
+                          <span className={`text-sm ${!point.cloudstickBetter ? "text-slate-900 dark:text-white font-medium" : "text-slate-600 dark:text-slate-400"}`}>
                             {point.runcloud}
                           </span>
                         </div>
-                      </td>
-                    </tr>
+                      </TableCell>
+                    </TableRow>
                   ))}
-                </tbody>
-              </table>
+                </TableBody>
+              </Table>
+            </Card>
+            
+            <div className="mt-6 text-center text-sm text-slate-500 dark:text-slate-400">
+              <p>Feature comparison based on publicly available information as of 2023.</p>
             </div>
           </div>
         </section>
