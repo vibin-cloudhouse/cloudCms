@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -11,7 +10,6 @@ import AboutUs from "./pages/about";
 import Blog from "./pages/Blog";
 import BlogDetail from "./pages/Blog/BlogDetail";
 import KnowledgeBase from "./pages/KnowledgeBase";
-import KnowledgeBaseCategory from "./pages/KnowledgeBase/KnowledgeBaseCategory";
 import KnowledgeBaseArticle from "./pages/KnowledgeBase/KnowledgeBaseArticle";
 import Docs from "./pages/Docs";
 import DocDetail from "./pages/Docs/DocDetail";
@@ -25,6 +23,9 @@ import AlternativesPage from "./pages/Alternatives";
 import RunCloudComparison from "./pages/Alternatives/RunCloud";
 import NotFound from "./pages/NotFound";
 import CookieBanner from "./components/CookieBanner";
+import KnowledgeBasePage from "./pages/Knowledge";
+import KnowledgeBaseCategory from "./pages/KnowledgeBase/KnowledgeBaseCategory";
+import KnowledgeBaseCategoryPage from "./pages/KnowledgeBase/KnowledgeBaseCategoryPage";
 
 const queryClient = new QueryClient();
 
@@ -36,13 +37,13 @@ const App = () => (
           <Toaster />
           <Sonner />
           <Routes>
-            <Route path="/" element={<Index />} />
+            <Route path="/" element={<Index />} />KnowledgeBasePage
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogDetail />} />
             <Route path="/kb" element={<KnowledgeBase />} />
-            <Route path="/kb/:category" element={<KnowledgeBaseCategory />} />
+            <Route path="/kb/:category" element={<KnowledgeBaseCategoryPage />} />
             <Route path="/kb/:category/:slug" element={<KnowledgeBaseArticle />} />
             <Route path="/docs" element={<Docs />} />
             <Route path="/docs/:category/:article" element={<DocDetail />} />
