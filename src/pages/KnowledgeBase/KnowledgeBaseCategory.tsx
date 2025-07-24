@@ -1,3 +1,4 @@
+import { Card } from "@/components/ui/card";
 import { HelpCategory } from "@/types/helpTypes";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
@@ -24,14 +25,14 @@ const KnowledgeBaseCategory: React.FC<Props> = ({ category }) => {
     : currentDescription.slice(0, cutoffLength);
 
   return (
-    <div className="hover:shadow-lg bg-white transition-all border-2 border-slate-200 dark:border-slate-800 hover:border-teal-200 dark:hover:border-teal-800 p-4 rounded-md">
+    <Card className="hover:shadow-lg transition-all border border-slate-200 dark:border-slate-800 hover:border-teal-200 dark:hover:border-teal-800 p-4 rounded-lg">
       <div className="flex gap-2 items-center">
-        <img className="bg-teal-100 rounded-md w-9 h-9" src={`http://localhost:1337${category.icon?.url}`} alt="" />
+        <img className=" rounded-md w-5 h-5" src={`${category.icon?.url}`} alt="" />
       <Link to={`/kb/${category.slug}`} className="hover:text-teal-600 text-2xl font-semibold dark:hover:text-teal-400 transition-colors">{category.title}</Link>
 
       </div>
 
-      <p className="text-sm text-gray-500 mt-1">
+      {/* <p className="text-sm text-gray-500 mt-1">
         {displayedText}
         {isDescriptionLong && !showFullDescription && "..."}
         {isDescriptionLong && (
@@ -42,7 +43,7 @@ const KnowledgeBaseCategory: React.FC<Props> = ({ category }) => {
             {showFullDescription ? "see less" : "see more"}
           </span>
         )}
-      </p>
+      </p> */}
 
       <ul className="mt-3 text-sm space-y-1 font-">
         {category.help_articles && category.help_articles?.length > 0 ? (
@@ -67,7 +68,7 @@ const KnowledgeBaseCategory: React.FC<Props> = ({ category }) => {
       >
         View all articles ({category.help_articles?.length}) →
       </a>
-    </div>
+    </Card>
   );
 };
 

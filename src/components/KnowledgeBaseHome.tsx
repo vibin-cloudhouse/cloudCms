@@ -13,7 +13,7 @@ useEffect(() => {
     setLoading(true);
     setError(null); // Clear previous errors
 
-    axios.get("http://localhost:1337/api/help-categories?populate[icon]=true&populate[help_articles][fields][0]=title&populate[help_articles][fields][1]=slug&populate[help_articles][fields][2]=content")
+    axios.get("https://great-basket-5458a3b3d3.strapiapp.com/api/help-categories?populate[icon]=true&populate[help_articles][fields][0]=title")
         .then((res) => {
             console.log("KnowledgeBaseHome: API response received.", res.data);
 
@@ -24,7 +24,7 @@ useEffect(() => {
                     const descriptionText = item?.description?.[0]?.children?.[0]?.text || "No description available.";
 
                     // Safely access media field
-                    const imageUrl = item?.media?.data?.attributes?.url ? `http://localhost:1337${item.media.data.attributes.url}` : null;
+                    const imageUrl = item?.media?.data?.attributes?.url ? `https://great-basket-5458a3b3d3.strapiapp.com${item.media.data.attributes.url}` : null;
                     const imageAltText = item?.media?.data?.attributes?.alternativeText || "Category image";
                     // Safely map help_articles
                     const helpArticles = item?.help_articles?.map((article: any) => ({

@@ -13,7 +13,7 @@ const KnowledgeBaseCategoryDetail = () => {
 
       try {
         const res = await axios.get(
-          `http://localhost:1337/api/help-categories?populate[help_articles][fields]&populate[help_articles][populate]=media`
+          `https://great-basket-5458a3b3d3.strapiapp.com/api/help-categories?populate[help_articles][fields]&populate[help_articles][populate]=media`
         );
 
         const data = res.data.data?.[0];

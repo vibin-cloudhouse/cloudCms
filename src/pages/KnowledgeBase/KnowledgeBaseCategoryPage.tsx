@@ -27,7 +27,7 @@ console.log("category",category);
     setLoading(true);
     setError(null); // Clear previous errors
 
-    axios.get("http://localhost:1337/api/help-categories?populate[help_articles][fields]&populate[help_articles][populate]=media")
+axios.get("https://great-basket-5458a3b3d3.strapiapp.com/api/help-categories?populate[icon]=true&populate[help_articles][fields]&populate[help_articles][populate][mediasection][populate]=infomedia")
         .then((res) => {
             console.log("KnowledgeBaseHome: API response received.", res.data);
 
@@ -38,7 +38,7 @@ console.log("category",category);
                     const descriptionText = item?.description?.[0]?.children?.[0]?.text || "No description available.";
 
                     // Safely access media field
-                    const imageUrl = item?.media?.data?.attributes?.url ? `http://localhost:1337${item.media.data.attributes.url}` : null;
+                    const imageUrl = item?.media?.data?.attributes?.url ? `https://great-basket-5458a3b3d3.strapiapp.com${item.media.data.attributes.url}` : null;
                     const imageAltText = item?.media?.data?.attributes?.alternativeText || "Category image";
 
                     // Safely map help_articles
@@ -65,6 +65,7 @@ console.log("category",category);
                         imageUrl: imageUrl,
                         imageAltText: imageAltText,
                         help_articles: helpArticles,
+                        icon:item.icon
                     };
                 });
 
@@ -116,14 +117,11 @@ console.log("category",category);
     return null; 
   }
   
-  // const filteredArticles = searchTerm 
-  //   ? category.articles.filter(article => 
-  //       article.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-  //       article.content.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  //       article.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
-  //     )
-  //   : category.articles; 
-    // Ensure category.articles is used here
+   const filteredArticles = searchTerm
+    ? category.help_articles.filter((article: any) =>
+        article.title.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    : category.help_articles;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -201,7 +199,7 @@ console.log("category",category);
             <div className="flex-grow">
               <div className="flex items-center gap-3 mb-6">
                 <div className="bg-teal-100 dark:bg-teal-900/30 p-3 rounded-lg text-teal-600 dark:text-teal-400">
-                  <Book className="w-6 h-6" />
+                 <img className=" rounded-md w-5 h-5" src={`${category.icon?.url}`} alt="" />
                 </div>
                 <div>
                   <h1 className="text-3xl font-bold">{category.title}</h1>
@@ -215,16 +213,16 @@ console.log("category",category);
                 </div>
                 <Input
                   type="text"
-                  placeholder={`Search in ${category.name}...`}
+                  placeholder={`Search in ${category.title}...`}
                   className="pl-10 w-full"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
               </div>
               
-              {categories.length > 0 ? (
+              {filteredArticles.length > 0 ? (
                 <div className="space-y-4">
-                  {category.help_articles.map(article => (
+                  {filteredArticles.map(article => (
                     <Card key={article.id} className="hover:shadow-md transition-shadow border-slate-200 dark:border-slate-700">
                       <CardHeader className="pb-2">
                         <CardTitle className="text-xl">
@@ -238,7 +236,7 @@ console.log("category",category);
                         <CardDescription className="mt-2">{article.description}</CardDescription>
                       </CardHeader>
                       <CardFooter className="text-sm text-muted-foreground flex justify-between pt-4">
-                        <span>Updated: {article.updatedAt}</span>
+                        <span>Updated: {new Date(article.updateDate)?.toLocaleString()}</span>
                         <Link 
                           to={`/kb/${category.slug}/${article.slug}`}
                           className="flex items-center gap-1 text-teal-600 hover:text-teal-700 transition-colors group"

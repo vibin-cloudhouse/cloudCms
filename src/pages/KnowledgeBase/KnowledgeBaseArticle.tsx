@@ -45,7 +45,7 @@ const KnowledgeBaseArticle: React.FC = () => {
     setLoading(true);
     setError(null); // Clear previous errors
 
-    axios.get("http://localhost:1337/api/help-categories?populate[help_articles][fields]&populate[help_articles][populate]=media")
+    axios.get("https://great-basket-5458a3b3d3.strapiapp.com/api/help-categories?populate[help_articles][fields]&populate[help_articles][populate][mediasection][populate]=infomedia")
         .then((res) => {
             console.log("KnowledgeBaseHome: API response received.", res.data);
 
@@ -56,7 +56,7 @@ const KnowledgeBaseArticle: React.FC = () => {
                     const descriptionText = item?.description?.[0]?.children?.[0]?.text || "No description available.";
 
                     // Safely access media field
-                    const imageUrl = item?.media?.data?.attributes?.url ? `http://localhost:1337${item.media.data.attributes.url}` : null;
+                    const imageUrl = item?.media?.data?.attributes?.url ? `https://great-basket-5458a3b3d3.strapiapp.com${item.media.data.attributes.url}` : null;
                     const imageAltText = item?.media?.data?.attributes?.alternativeText || "Category image";
 
                     // Safely map help_articles
@@ -65,8 +65,7 @@ const KnowledgeBaseArticle: React.FC = () => {
                         title: article.title,
                         slug: article.slug,
                         description:article.description,
-                        content:article.content,
-                        image:article.media,
+                        mediaSection:article.mediasection,
                         updateDate:article.updatedAt
                         // Add any other fields you expect from help_article here
                         // For example, if your help_article has a 'content' field:
@@ -228,8 +227,53 @@ const KnowledgeBaseArticle: React.FC = () => {
                     ))}
                   </div>
                   <div>
-                    <img className="w-full h-[500px]" src={`http://localhost:1337${article?.image?.url}`} alt="" />
+                    {article?.mediaSection.map((media, mediaIndex) => (
+  <div key={mediaIndex}>
+    <div>
+      {media?.content?.map((text, textIndex) => {
+        if (text?.type === "paragraph") {
+          return text?.children?.map((para, paraIndex) => (
+            <p
+              key={`para-${textIndex}-${paraIndex}`}
+              className="text-slate-700 dark:text-slate-300 mb-4"
+            >
+              {para.text}
+            </p>
+          ));
+        }
+
+        if (text?.type === "list") {
+          return (
+            <ul key={`list-${textIndex}`} className="list-disc pl-5 mb-4">
+              {text?.children?.map((listItem, listIndex) => (
+                <li
+                  key={`listItem-${textIndex}-${listIndex}`}
+                  className="text-slate-700 dark:text-slate-300"
+                >
+                  {listItem?.text}
+                </li>
+              ))}
+            </ul>
+          );
+        }
+
+        return null;
+      })}
+    </div>
+
+    {media?.infomedia?.map((img, imgIndex) => (
+      <img
+        key={`img-${imgIndex}`}
+        className="w-full object-cover rounded-lg mb-4"
+        src={img?.url}
+        alt={img?.alternativeText || "Media image"}
+      />
+    ))}
+  </div>
+))}
+
                   </div>
+                  
                   <div className="prose prose-slate dark:prose-invert max-w-none prose-img:rounded-lg prose-headings:border-b prose-headings:pb-2 prose-headings:border-slate-200 dark:prose-headings:border-slate-800 prose-headings:text-slate-900 dark:prose-headings:text-white prose-a:text-teal-600 dark:prose-a:text-teal-400 prose-p:text-slate-700 dark:prose-p:text-slate-300 leading-relaxed">
                     {article?.content?.map((content)=>{
                       
