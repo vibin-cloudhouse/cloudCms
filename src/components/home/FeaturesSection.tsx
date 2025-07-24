@@ -2,6 +2,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion"; // Not used in this simplified version, can be removed if not needed for other animations
 import FeatureCard from "./FeatureCard";
+import MarkdownRenderer from "../MarkdownRenderer";
 
 interface Feature {
   id: number;
@@ -18,6 +19,7 @@ interface SectionData {
   sectionLabel: string;
   mainHeading: string;
   description: string;
+  description_test?: string; // Optional field for additional description
   features: Feature[];
 }
 
@@ -26,6 +28,8 @@ interface FeaturesSectionProps {
 }
 
 const FeaturesSection = ({ sectionData }: FeaturesSectionProps) => {
+  console.log("sectionData in FeaturesSection:", sectionData);
+  
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -81,11 +85,14 @@ const FeaturesSection = ({ sectionData }: FeaturesSectionProps) => {
           >
             {sectionData.description}
           </p>
+          
         </div>
+       
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {sectionData.features.map((feature, index) => (
             <FeatureCard
+              
               key={feature.id}
               iconUrl={feature.icon.url}
               title={feature.title}

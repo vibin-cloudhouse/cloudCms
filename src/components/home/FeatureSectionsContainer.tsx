@@ -25,6 +25,8 @@ const STRAPI_URL = "https://great-basket-5458a3b3d3.strapiapp.com"; // replace i
 
 const FeatureSectionsContainer = () => {
   const [sectionsData, setSectionsData] = useState<SectionData[] | null>(null);
+  console.log("sectionsData in FeatureSectionsContainer:", sectionsData);
+  
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -52,6 +54,7 @@ const FeatureSectionsContainer = () => {
         mainHeading: section.mainHeading,
         description:
           section.description?.[0]?.children?.[0]?.text || "",
+          description_test:section?.description_test||"",
         features: section.features?.map((item: any) => ({
           id: item.id,
           title: item.title,

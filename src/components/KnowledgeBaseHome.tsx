@@ -13,7 +13,7 @@ useEffect(() => {
     setLoading(true);
     setError(null); // Clear previous errors
 
-    axios.get("https://great-basket-5458a3b3d3.strapiapp.com/api/help-categories?populate[icon]=true&populate[help_articles][fields][0]=title")
+    axios.get("https://great-basket-5458a3b3d3.strapiapp.com/api/help-categories?populate[icon]=true&populate[help_articles][fields]")
         .then((res) => {
             console.log("KnowledgeBaseHome: API response received.", res.data);
 

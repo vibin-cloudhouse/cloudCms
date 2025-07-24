@@ -7,7 +7,7 @@ interface FeatureCardProps {
   link: string;
   delay: number;
   isVisible: boolean;
-}
+ }
 
 const FeatureCard = ({
   iconUrl,

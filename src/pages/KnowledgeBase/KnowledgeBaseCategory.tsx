@@ -27,7 +27,7 @@ const KnowledgeBaseCategory: React.FC<Props> = ({ category }) => {
   return (
     <Card className="hover:shadow-lg transition-all border border-slate-200 dark:border-slate-800 hover:border-teal-200 dark:hover:border-teal-800 p-4 rounded-lg">
       <div className="flex gap-2 items-center">
-        <img className=" rounded-md w-5 h-5" src={`${category.icon?.url}`} alt="" />
+        <img className=" w-5 h-5" src={`${category.icon?.url}`} alt="" />
       <Link to={`/kb/${category.slug}`} className="hover:text-teal-600 text-2xl font-semibold dark:hover:text-teal-400 transition-colors">{category.title}</Link>
 
       </div>

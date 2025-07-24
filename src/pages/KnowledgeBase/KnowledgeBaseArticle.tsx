@@ -12,6 +12,8 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Badge } from "@/components/ui/badge";
 import axios from "axios";
+import MarkdownRenderer from "@/components/MarkdownRenderer";
+import rehypeRaw from "rehype-raw";
 
 const KnowledgeBaseArticle: React.FC = () => {
     const params = useParams()
@@ -24,6 +26,7 @@ const KnowledgeBaseArticle: React.FC = () => {
   const navigate = useNavigate();
    const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
+    const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
 
     const category = categories.find((item)=>item.slug==categorySlug)
     const article = category?.help_articles?.find((item)=>item.slug==articleSlug)
@@ -31,6 +34,17 @@ const KnowledgeBaseArticle: React.FC = () => {
     console.log("category",category,"article",article);
 
     console.log("image",article?.image?.url);
+    const [copied, setCopied] = useState(false);
+
+  const handleCopy = async (code,index) => {
+    try {
+      await navigator.clipboard.writeText(code);
+      setCopiedIndex(index);
+      setTimeout(() => setCopiedIndex(null), 1500);
+    } catch (err) {
+      console.error("Copy failed", err);
+    }
+  };
     
     
   
@@ -215,7 +229,7 @@ const KnowledgeBaseArticle: React.FC = () => {
                     </div>
                   </div>
                   
-                  <div className="mb-8 flex flex-wrap gap-2">
+                  <div className=" flex flex-wrap gap-2">
                     {article?.tags?.map(tag => (
                       <Badge 
                         key={tag} 
@@ -226,40 +240,50 @@ const KnowledgeBaseArticle: React.FC = () => {
                       </Badge>
                     ))}
                   </div>
-                  <div>
-                    {article?.mediaSection.map((media, mediaIndex) => (
+                  <div className="">
+                    {article?.mediaSection.map((media, mediaIndex) => {
+                       const content = media.content.trim();
+    const isIframe = content.startsWith("<iframe");
+                      return(
   <div key={mediaIndex}>
-    <div>
-      {media?.content?.map((text, textIndex) => {
-        if (text?.type === "paragraph") {
-          return text?.children?.map((para, paraIndex) => (
-            <p
-              key={`para-${textIndex}-${paraIndex}`}
-              className="text-slate-700 dark:text-slate-300 mb-4"
-            >
-              {para.text}
-            </p>
-          ));
-        }
+     {/* <div className="p-4">
+      <MarkdownRenderer markdown={media?.content} />
+    </div> */}
+ <div key={mediaIndex} className="p-4">
+        {isIframe ? (
+          <div
+            className="w-full max-w-5xl"
+            dangerouslySetInnerHTML={{
+              __html: content.replace(
+                /<iframe /,
+                `<iframe class="w-full h-[400px]" ` // you can adjust height as needed
+              ),
+            }}
+          />
+        ) : (
+          <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+            {content}
+          </ReactMarkdown>
+        )}
+      </div>
+     
 
-        if (text?.type === "list") {
-          return (
-            <ul key={`list-${textIndex}`} className="list-disc pl-5 mb-4">
-              {text?.children?.map((listItem, listIndex) => (
-                <li
-                  key={`listItem-${textIndex}-${listIndex}`}
-                  className="text-slate-700 dark:text-slate-300"
-                >
-                  {listItem?.text}
-                </li>
-              ))}
-            </ul>
-          );
-        }
-
-        return null;
-      })}
+    {media?.copy_text && (
+       <div className="rounded-t-lg overflow-hidden w-fit border min-w-full border-gray-300">
+      <div className="flex justify-between items-center bg-gray-600 text-white px-4 py-2 text-sm">
+        <span> </span>
+        <button
+          onClick={()=>handleCopy(media.copy_text,mediaIndex)}
+          className="bg-gray-100 hover:bg-gray-200 text-gray-800 px-3 py-1 text-sm font-medium rounded"
+        >
+          {copiedIndex === mediaIndex ? "Copied!" : "Copy"}
+        </button>
+      </div>
+      <pre className="bg-black text-white px-4 py-3 text-sm overflow-auto">
+        <code>{media?.copy_text}</code>
+      </pre>
     </div>
+      )}
 
     {media?.infomedia?.map((img, imgIndex) => (
       <img
@@ -270,7 +294,7 @@ const KnowledgeBaseArticle: React.FC = () => {
       />
     ))}
   </div>
-))}
+)})}
 
                   </div>
                   
