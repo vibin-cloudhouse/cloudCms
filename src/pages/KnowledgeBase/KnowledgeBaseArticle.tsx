@@ -15,6 +15,8 @@ import axios from "axios";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import rehypeRaw from "rehype-raw";
 
+const baseUrl = import.meta.env.VITE_APP_DEV_URL || "https://strapiss.cloudstick.io";
+
 const KnowledgeBaseArticle: React.FC = () => {
     const params = useParams()
     console.log("params",params);
@@ -59,7 +61,7 @@ const KnowledgeBaseArticle: React.FC = () => {
     setLoading(true);
     setError(null); // Clear previous errors
 
-    axios.get("https://great-basket-5458a3b3d3.strapiapp.com/api/help-categories?populate[help_articles][fields]&populate[help_articles][populate][mediasection][populate]=infomedia")
+    axios.get("https://strapiss.cloudstick.io/api/help-categories?populate[help_articles][fields]&populate[help_articles][populate][mediasection][populate]=infomedia")
         .then((res) => {
             console.log("KnowledgeBaseHome: API response received.", res.data);
 
@@ -70,7 +72,7 @@ const KnowledgeBaseArticle: React.FC = () => {
                     const descriptionText = item?.description?.[0]?.children?.[0]?.text || "No description available.";
 
                     // Safely access media field
-                    const imageUrl = item?.media?.data?.attributes?.url ? `https://great-basket-5458a3b3d3.strapiapp.com${item.media.data.attributes.url}` : null;
+                    const imageUrl = item?.media?.data?.attributes?.url ? `https://strapiss.cloudstick.io${item.media.data.attributes.url}` : null;
                     const imageAltText = item?.media?.data?.attributes?.alternativeText || "Category image";
 
                     // Safely map help_articles
@@ -195,10 +197,11 @@ const KnowledgeBaseArticle: React.FC = () => {
                 </div>
                 
                 <div className="space-y-3">
-                  <Button variant="outline" size="lg" className="w-full justify-start shadow-sm" asChild>
-                    <Link to={`/kb/${category?.slug}`}>
+                  <Button variant="outline" size="lg" className="w-full h-auto justify-start shadow-sm" asChild>
+                    <Link className="" to={`/kb/${category?.slug}`}>
                       <ChevronLeft className="mr-2 h-4 w-4" />
-                      Back to {category?.title}
+                        <span className="max-w-[190px] flex text-wrap flex-wrap">Back to {category?.title}</span>
+                      
                     </Link>
                   </Button>
                   
@@ -242,8 +245,8 @@ const KnowledgeBaseArticle: React.FC = () => {
                   </div>
                   <div className="">
                     {article?.mediaSection.map((media, mediaIndex) => {
-                       const content = media.content.trim();
-    const isIframe = content.startsWith("<iframe");
+                       const content = media?.content?.trim();
+    const isIframe = content?.startsWith("<iframe");
                       return(
   <div key={mediaIndex}>
      {/* <div className="p-4">
@@ -289,7 +292,7 @@ const KnowledgeBaseArticle: React.FC = () => {
       <img
         key={`img-${imgIndex}`}
         className="w-full object-cover rounded-lg mb-4"
-        src={img?.url}
+        src={img?.url ? `${baseUrl}${img.url}` : ""}
         alt={img?.alternativeText || "Media image"}
       />
     ))}

@@ -10,6 +10,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { HelpCategory } from "@/types/helpTypes";
 import axios from "axios";
+const baseUrl = import.meta.env.VITE_APP_DEV_URL || "https://strapiss.cloudstick.io";
 
 const KnowledgeBaseCategoryPage: React.FC = () => {
   const params = useParams()
@@ -27,7 +28,7 @@ console.log("category",category);
     setLoading(true);
     setError(null); // Clear previous errors
 
-axios.get("https://great-basket-5458a3b3d3.strapiapp.com/api/help-categories?populate[icon]=true&populate[help_articles][fields]&populate[help_articles][populate][mediasection][populate]=infomedia")
+axios.get("https://strapiss.cloudstick.io/api/help-categories?populate[icon]=true&populate[help_articles][fields]&populate[help_articles][populate][mediasection][populate]=infomedia")
         .then((res) => {
             console.log("KnowledgeBaseHome: API response received.", res.data);
 
@@ -38,7 +39,7 @@ axios.get("https://great-basket-5458a3b3d3.strapiapp.com/api/help-categories?pop
                     const descriptionText = item?.description?.[0]?.children?.[0]?.text || "No description available.";
 
                     // Safely access media field
-                    const imageUrl = item?.media?.data?.attributes?.url ? `https://great-basket-5458a3b3d3.strapiapp.com${item.media.data.attributes.url}` : null;
+                    const imageUrl = item?.media?.data?.attributes?.url ? `https://strapiss.cloudstick.io${item.media.data.attributes.url}` : null;
                     const imageAltText = item?.media?.data?.attributes?.alternativeText || "Category image";
 
                     // Safely map help_articles
@@ -199,7 +200,7 @@ axios.get("https://great-basket-5458a3b3d3.strapiapp.com/api/help-categories?pop
             <div className="flex-grow">
               <div className="flex items-center gap-3 mb-6">
                 <div className="bg-teal-100 dark:bg-teal-900/30 p-3 rounded-lg text-teal-600 dark:text-teal-400">
-                 <img className=" rounded-md w-5 h-5" src={`${category.icon?.url}`} alt="" />
+                 <img className=" rounded-md w-5 h-5" src={`${baseUrl}${category.icon?.url}`} alt="" />
                 </div>
                 <div>
                   <h1 className="text-3xl font-bold">{category.title}</h1>

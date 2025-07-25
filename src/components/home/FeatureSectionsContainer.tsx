@@ -21,7 +21,7 @@ interface SectionData {
   features: Feature[];
 }
 
-const STRAPI_URL = "https://great-basket-5458a3b3d3.strapiapp.com"; // replace if deployed
+const STRAPI_URL = "https://strapiss.cloudstick.io"; // replace if deployed
 
 const FeatureSectionsContainer = () => {
   const [sectionsData, setSectionsData] = useState<SectionData[] | null>(null);

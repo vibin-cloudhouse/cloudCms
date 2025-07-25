@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 interface Props {
   category: HelpCategory;
 }
+const baseUrl = import.meta.env.VITE_APP_DEV_URL || "https://strapiss.cloudstick.io";
 
 const KnowledgeBaseCategory: React.FC<Props> = ({ category }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
@@ -27,7 +28,7 @@ const KnowledgeBaseCategory: React.FC<Props> = ({ category }) => {
   return (
     <Card className="hover:shadow-lg transition-all border border-slate-200 dark:border-slate-800 hover:border-teal-200 dark:hover:border-teal-800 p-4 rounded-lg">
       <div className="flex gap-2 items-center">
-        <img className=" w-5 h-5" src={`${category.icon?.url}`} alt="" />
+        <img className=" w-5 h-5" src={`${baseUrl}${category.icon?.url}`} alt="" />
       <Link to={`/kb/${category.slug}`} className="hover:text-teal-600 text-2xl font-semibold dark:hover:text-teal-400 transition-colors">{category.title}</Link>
 
       </div>

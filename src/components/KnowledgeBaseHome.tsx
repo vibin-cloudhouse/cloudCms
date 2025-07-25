@@ -13,7 +13,7 @@ useEffect(() => {
     setLoading(true);
     setError(null); // Clear previous errors
 
-    axios.get("https://great-basket-5458a3b3d3.strapiapp.com/api/help-categories?populate[icon]=true&populate[help_articles][fields]")
+    axios.get("https://strapiss.cloudstick.io/api/help-categories?populate[icon]=true&populate[help_articles][fields]")
         .then((res) => {
             console.log("KnowledgeBaseHome: API response received.", res.data);
 
@@ -24,7 +24,7 @@ useEffect(() => {
                     const descriptionText = item?.description?.[0]?.children?.[0]?.text || "No description available.";
 
                     // Safely access media field
-                    const imageUrl = item?.media?.data?.attributes?.url ? `https://great-basket-5458a3b3d3.strapiapp.com${item.media.data.attributes.url}` : null;
+                    const imageUrl = item?.media?.data?.attributes?.url ? `https://strapiss.cloudstick.io${item.media.data.attributes.url}` : null;
                     const imageAltText = item?.media?.data?.attributes?.alternativeText || "Category image";
                     // Safely map help_articles
                     const helpArticles = item?.help_articles?.map((article: any) => ({
