@@ -137,7 +137,7 @@ axios.get("https://strapiss.cloudstick.io/api/help-categories?populate[icon]=tru
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <Link to="/kb" className="transition-colors hover:text-foreground">Knowledge Base</Link>
+                <Link to="/knowledgebase" className="transition-colors hover:text-foreground">Knowledge Base</Link>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
@@ -151,14 +151,14 @@ axios.get("https://strapiss.cloudstick.io/api/help-categories?populate[icon]=tru
               <div className="sticky top-24 space-y-6">
                 <div className="bg-gradient-to-br from-teal-50 to-cyan-100 dark:from-slate-900 dark:to-slate-800 p-6 rounded-xl shadow-md border border-teal-100 dark:border-slate-700">
                   <h3 className="font-semibold text-lg mb-4 text-slate-800 dark:text-slate-200 flex items-center">
-                    <BookOpen className="w-5 h-5 mr-2 text-teal-600" />
+                    <BookOpen className="w-5 h-5 mr-2 text-[#006FEE]" />
                     Knowledge Categories
                   </h3>
                   <div className="space-y-1">
                     {categories.map(cat => (
                       <Link 
                         key={cat.id}
-                        to={`/kb/${cat.slug}`}
+                        to={`/knowledgebase/${cat.slug}`}
                         className={`group flex items-center justify-between w-full px-3 py-2.5 rounded-lg text-sm transition-all duration-300 ${
                           cat.id === category.id 
                             ? "bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-teal-300 font-medium" 
@@ -189,8 +189,8 @@ axios.get("https://strapiss.cloudstick.io/api/help-categories?populate[icon]=tru
                 </div>
                 
                 <Button variant="outline" size="lg" className="w-full justify-start shadow-sm bg-gradient-to-r from-teal-50 to-cyan-100 hover:from-teal-100 hover:to-cyan-200 dark:from-slate-800 dark:to-slate-900 dark:hover:from-slate-700 dark:hover:to-slate-800" asChild>
-                  <Link to="/kb">
-                    <ArrowLeft className="mr-2 h-4 w-4 text-teal-600" />
+                  <Link to="/knowledgebase">
+                    <ArrowLeft className="mr-2 h-4 w-4 text-[#006FEE]" />
                     Back to all categories
                   </Link>
                 </Button>
@@ -199,7 +199,7 @@ axios.get("https://strapiss.cloudstick.io/api/help-categories?populate[icon]=tru
             
             <div className="flex-grow">
               <div className="flex items-center gap-3 mb-6">
-                <div className="bg-teal-100 dark:bg-teal-900/30 p-3 rounded-lg text-teal-600 dark:text-teal-400">
+                <div className="bg-teal-100 dark:bg-teal-900/30 p-3 rounded-lg text-[#006FEE] dark:text-teal-400">
                  <img className=" rounded-md w-5 h-5" src={`${baseUrl}${category.icon?.url}`} alt="" />
                 </div>
                 <div>
@@ -228,8 +228,8 @@ axios.get("https://strapiss.cloudstick.io/api/help-categories?populate[icon]=tru
                       <CardHeader className="pb-2">
                         <CardTitle className="text-xl">
                           <Link 
-                            to={`/kb/${category.slug}/${article.slug}`}
-                            className="hover:text-teal-600 transition-colors"
+                            to={`/knowledgebase/${category.slug}/${article.slug}`}
+                            className="hover:text-[#006FEE] transition-colors"
                           >
                             {article.title}
                           </Link>
@@ -239,8 +239,8 @@ axios.get("https://strapiss.cloudstick.io/api/help-categories?populate[icon]=tru
                       <CardFooter className="text-sm text-muted-foreground flex justify-between pt-4">
                         <span>Updated: {new Date(article.updateDate)?.toLocaleString()}</span>
                         <Link 
-                          to={`/kb/${category.slug}/${article.slug}`}
-                          className="flex items-center gap-1 text-teal-600 hover:text-teal-700 transition-colors group"
+                          to={`/knowledgebase/${category.slug}/${article.slug}`}
+                          className="flex items-center gap-1 text-[#006FEE] hover:text-teal-700 transition-colors group"
                         >
                           Read article <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                         </Link>

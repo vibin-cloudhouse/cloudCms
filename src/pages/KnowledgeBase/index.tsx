@@ -35,7 +35,7 @@ const KnowledgeBase: React.FC = () => {
       
       <main className="flex-grow pt-24 pb-16">
         {/* Hero section */}
-        <section className="bg-gradient-to-r from-teal-600 to-cyan-600 py-16 px-4 text-white">
+        <section className="bg-gradient-to-r from-[#006FEE] to-cyan-600 py-16 px-4 text-white">
           <div className="container mx-auto max-w-5xl text-center">
             <h1 className="text-3xl md:text-5xl font-bold mb-4">Knowledge Base</h1>
             <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto opacity-90">

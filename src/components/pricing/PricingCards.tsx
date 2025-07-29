@@ -1,7 +1,7 @@
 
 import React, { useContext } from "react";
 import { Check } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import { PricingContext } from "@/pages/Pricing";
 
 const PricingCards = () => {
@@ -10,72 +10,101 @@ const PricingCards = () => {
   // Pricing data with both monthly and yearly options
   const plans = [
     {
-      name: "Free",
-      monthlyPrice: "$0",
-      yearlyPrice: "$0",
-      description: "Perfect for personal use",
-      features: [
-        "5GB Storage",
-        "Basic file sharing",
-        "Desktop app",
-        "Mobile app"
+      "name": "Free",
+      "monthlyPrice": "$0",
+      "yearlyPrice": "$0",
+      "description": "Perfect for personal use",
+      "features": [
+        "1 Server",
+        "One Hosting Account",
+        "Custom SSL Only",
+        "Server Firewall",
+        "Sub Domains",
+        "EasyPHP",
+        "User Quota",
+        "Multiple PHP Versions",
+        "Git Deployment",
+        "SFTP & Additional FTP Accounts"
       ],
-      buttonText: "Get Started",
-      buttonVariant: "outline"
+      "buttonText": "More",
+      "buttonVariant": "gradient",
+      "redirectUrl": "#comparePlans"
     },
     {
-      name: "Basic",
-      monthlyPrice: "$9.99",
-      yearlyPrice: "$95.90",
-      description: "Great for individuals",
-      trial: "10-day free trial",
-      features: [
-        "100GB Storage",
-        "Advanced file sharing",
-        "Priority support",
-        "Offline access",
-        "30-day file recovery"
+      "name": "Basic",
+      "monthlyPrice": "$8.00",
+      "yearlyPrice": "$80",
+      "description": "Great for individuals",
+      "trial": "10-day free trial",
+      "features": [
+        "1 Server",
+        "Unlimited Hosting Accounts",
+        "One-click Free SSL",
+        "Server Firewall",
+        "WordPress Manager",
+        "EasyPHP",
+        "User Quota",
+        "Multiple PHP Versions",
+        "Git Deployment",
+        "Email",
+        "SFTP & Additional FTP Accounts",
+        "5GB Free Backup",
+        "Web application Clone"
       ],
-      buttonText: "Start Free Trial",
-      buttonVariant: "gradient"
+      "buttonText": "More",
+      "buttonVariant": "gradient",
+      "redirectUrl": ""
     },
     {
-      name: "Pro",
-      monthlyPrice: "$19.99",
-      yearlyPrice: "$191.90",
-      description: "Perfect for professionals",
-      trial: "10-day free trial",
-      featured: true,
-      features: [
-        "1TB Storage",
-        "Everything in Basic",
-        "Advanced permissions",
-        "Team collaboration tools",
-        "90-day file recovery",
-        "API access"
+      "name": "Pro",
+      "monthlyPrice": "$15.00",
+      "yearlyPrice": "$150",
+      "description": "Perfect for professionals",
+      "trial": "10-day free trial",
+      "featured": true,
+      "features": [
+        "Unlimited",
+        "Unlimited Hosting Accounts",
+        "One-click Free SSL",
+        "Server Firewall",
+        "WordPress Manager",
+        "EasyPHP",
+        "User Quota",
+        "Multiple PHP Versions",
+        "Git Deployment",
+        "Email",
+        "SFTP & Additional FTP Accounts",
+        "10GB Free Backup",
+        "Web application Clone"
       ],
-      buttonText: "Start Free Trial",
-      buttonVariant: "gradient"
+      "buttonText": "More",
+      "buttonVariant": "gradient"
     },
     {
-      name: "Business",
-      monthlyPrice: "$49.99",
-      yearlyPrice: "$479.90",
-      description: "For teams and organizations",
-      trial: "10-day free trial",
-      features: [
-        "5TB Storage",
-        "Everything in Pro",
-        "SSO Integration",
-        "Advanced admin controls",
-        "Unlimited file recovery",
-        "Dedicated support",
-        "Custom contracts"
+      "name": "Business",
+      "monthlyPrice": "$45.00",
+      "yearlyPrice": "$450",
+      "description": "For teams and organizations",
+      "trial": "10-day free trial",
+      "features": [
+        "Unlimited Servers",
+        "All features of Pro account",
+        "White-label Solution",
+        "Activepieces",
+        "WordPress Manager",
+        "EasyPHP",
+        "User Quota",
+        "Multiple PHP Versions",
+        "Email",
+        "SFTP & Additional FTP Accounts",
+        "40GB Free Backup",
+        "Web application Clone",
+        "One-click Wordpress login"
       ],
-      buttonText: "Contact Sales",
-      buttonVariant: "outline"
+      "buttonText": "More",
+      "buttonVariant": "gradient"
     }
-  ];
+];
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
@@ -87,7 +116,7 @@ const PricingCards = () => {
           }`}
         >
           {plan.featured && (
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-teal-600 to-cyan-500 text-white text-sm font-medium py-1 px-4 rounded-full">
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-[#006FEE] to-cyan-500 text-white text-sm font-medium py-1 px-4 rounded-full">
               Most Popular
             </div>
           )}
@@ -100,7 +129,7 @@ const PricingCards = () => {
             </div>
             <p className="text-slate-600 dark:text-slate-300 text-sm mb-2">{plan.description}</p>
             {plan.trial && (
-              <p className="text-teal-600 dark:text-teal-400 text-sm font-medium mb-6">{plan.trial}</p>
+              <p className="text-[#006FEE] dark:text-teal-400 text-sm font-medium mb-6">{plan.trial}</p>
             )}
           </div>
           
@@ -113,17 +142,17 @@ const PricingCards = () => {
             ))}
           </ul>
           
-          <Link to="/signup" className="block text-center">
+          <a href="#comparePlans" className="block text-center">
             <button 
               className={
                 plan.buttonVariant === "gradient" 
-                  ? "w-full py-3 px-6 bg-gradient-to-r from-teal-600 to-cyan-500 text-white rounded-xl hover:opacity-90 transition-opacity shadow-md"
-                  : "w-full py-3 px-6 border border-teal-600 text-teal-600 hover:bg-teal-50 rounded-xl transition-colors dark:border-teal-400 dark:text-teal-400 dark:hover:bg-slate-700"
+                  ? "w-full py-3 px-6 bg-gradient-to-r from-[#006FEE] to-cyan-500 text-white rounded-xl hover:opacity-90 transition-opacity shadow-md"
+                  : "w-full py-3 px-6 border border-[#006FEE] text-[#006FEE] hover:bg-teal-50 rounded-xl transition-colors dark:border-teal-400 dark:text-teal-400 dark:hover:bg-slate-700"
               }
             >
               {plan.buttonText}
             </button>
-          </Link>
+          </a>
         </div>
       ))}
     </div>

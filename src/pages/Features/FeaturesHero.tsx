@@ -10,7 +10,7 @@ const FeaturesHero = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-cyan-500">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#006FEE] to-cyan-500">
               Powerful Features
             </span>{" "}
             to Streamline Your Workflow
@@ -21,7 +21,7 @@ const FeaturesHero = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link to="/pricing">
-              <Button className="bg-gradient-to-r from-teal-600 to-cyan-500 hover:from-teal-700 hover:to-cyan-600 text-white px-6 py-6 rounded-md text-lg font-medium">
+              <Button className="bg-gradient-to-r from-[#006FEE] to-cyan-500 hover:from-teal-700 hover:to-cyan-600 text-white px-6 py-6 rounded-md text-lg font-medium">
                 View Pricing
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>

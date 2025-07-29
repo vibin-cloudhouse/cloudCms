@@ -70,7 +70,7 @@ const CookieBanner: React.FC = () => {
       <div className="container mx-auto max-w-7xl">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="flex items-start gap-3">
-            <Cookie className="h-5 w-5 text-teal-600 mt-0.5" />
+            <Cookie className="h-5 w-5 text-[#006FEE] mt-0.5" />
             <div>
               <h3 className="text-sm font-semibold text-slate-900 dark:text-white mb-1">
                 We use cookies
@@ -78,7 +78,7 @@ const CookieBanner: React.FC = () => {
               <p className="text-xs text-slate-600 dark:text-slate-300 max-w-3xl">
                 We use cookies to improve your experience and analyze website traffic. 
                 By clicking "Accept", you agree to our website's cookie use as described in our{" "}
-                <Link to="/legal/cookies" className="text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">
+                <Link to="/legal/cookies" className="text-[#006FEE] hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">
                   Cookie Policy
                 </Link>.
               </p>
@@ -100,7 +100,7 @@ const CookieBanner: React.FC = () => {
                 <div className="py-6">
                   <div className="space-y-4">
                     <div className="flex items-start space-x-4">
-                      <Cookie className="h-5 w-5 text-teal-600 mt-0.5" />
+                      <Cookie className="h-5 w-5 text-[#006FEE] mt-0.5" />
                       <div>
                         <h3 className="text-sm font-medium">Essential Cookies</h3>
                         <p className="text-sm text-slate-600 dark:text-slate-400">
@@ -109,7 +109,7 @@ const CookieBanner: React.FC = () => {
                       </div>
                     </div>
                     <div className="flex items-start space-x-4">
-                      <Cookie className="h-5 w-5 text-teal-600 mt-0.5" />
+                      <Cookie className="h-5 w-5 text-[#006FEE] mt-0.5" />
                       <div>
                         <h3 className="text-sm font-medium">Analytics Cookies</h3>
                         <p className="text-sm text-slate-600 dark:text-slate-400">
@@ -118,7 +118,7 @@ const CookieBanner: React.FC = () => {
                       </div>
                     </div>
                     <div className="flex items-start space-x-4">
-                      <Cookie className="h-5 w-5 text-teal-600 mt-0.5" />
+                      <Cookie className="h-5 w-5 text-[#006FEE] mt-0.5" />
                       <div>
                         <h3 className="text-sm font-medium">Marketing Cookies</h3>
                         <p className="text-sm text-slate-600 dark:text-slate-400">

@@ -130,7 +130,7 @@ const ChangeLog: React.FC = () => {
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="p-3 bg-teal-100 dark:bg-teal-900/40 rounded-full">
-                <FileText className="h-6 w-6 text-teal-600 dark:text-teal-400" />
+                <FileText className="h-6 w-6 text-[#006FEE] dark:text-teal-400" />
               </div>
               <h1 className="text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
                 Change Log

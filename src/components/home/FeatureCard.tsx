@@ -32,7 +32,7 @@ const FeatureCard = ({
       <p className="text-sm text-slate-600 dark:text-slate-300 mb-4">
         {description}
       </p>
-      <a href={link} className="text-teal-600 font-medium">
+      <a href={link} className="text-[#006FEE] font-medium">
         Learn more →
       </a>
     </div>

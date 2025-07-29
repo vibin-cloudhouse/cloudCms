@@ -16,7 +16,7 @@ const AdditionalResources: React.FC = () => {
             <p className="text-sm text-muted-foreground">Connect with other CloudStick users to share knowledge</p>
           </CardContent>
           <div className="p-4 pt-0 mt-auto">
-            <Link to="/community" className="text-sm text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">
+            <Link to="/community" className="text-sm text-[#006FEE] hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">
               Join our community →
             </Link>
           </div>
@@ -30,7 +30,7 @@ const AdditionalResources: React.FC = () => {
             <p className="text-sm text-muted-foreground">Download and explore example applications built with CloudStick</p>
           </CardContent>
           <div className="p-4 pt-0 mt-auto">
-            <Link to="/resources/examples" className="text-sm text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">
+            <Link to="/resources/examples" className="text-sm text-[#006FEE] hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">
               Browse examples →
             </Link>
           </div>
@@ -44,7 +44,7 @@ const AdditionalResources: React.FC = () => {
             <p className="text-sm text-muted-foreground">Tips, tricks and best practices from our engineering team</p>
           </CardContent>
           <div className="p-4 pt-0 mt-auto">
-            <Link to="/blog" className="text-sm text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">
+            <Link to="/blog" className="text-sm text-[#006FEE] hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">
               Read our blog →
             </Link>
           </div>

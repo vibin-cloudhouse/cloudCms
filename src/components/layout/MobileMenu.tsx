@@ -76,7 +76,7 @@ const MobileMenu: React.FC = () => {
                 to="/signup"
                 onClick={() => setOpen(false)}
               >
-                <Button className="w-full bg-gradient-to-r from-teal-600 to-cyan-500">
+                <Button className="w-full bg-gradient-to-r from-[#006FEE] to-cyan-500">
                   Sign up
                 </Button>
               </Link>

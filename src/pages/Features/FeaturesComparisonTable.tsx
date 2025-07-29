@@ -29,7 +29,7 @@ const FeaturesComparisonTable = () => {
             <thead>
               <tr>
                 <th className="text-left p-4 text-slate-900 dark:text-white">Feature</th>
-                <th className="p-4 text-center text-white bg-gradient-to-r from-teal-600 to-cyan-500 rounded-tl-lg">
+                <th className="p-4 text-center text-white bg-gradient-to-r from-[#006FEE] to-cyan-500 rounded-tl-lg">
                   CloudStick
                 </th>
                 <th className="p-4 text-center text-slate-900 dark:text-white bg-slate-200 dark:bg-slate-700">

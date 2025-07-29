@@ -142,7 +142,7 @@ const DocDetail: React.FC = () => {
                             <h3 className="font-medium text-lg mb-2">
                               <Link 
                                 to={`/docs/${relatedDoc.path}`} 
-                                className="text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300"
+                                className="text-[#006FEE] hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300"
                               >
                                 {relatedDoc.title}
                               </Link>
@@ -150,7 +150,7 @@ const DocDetail: React.FC = () => {
                             <p className="text-sm text-slate-600 dark:text-slate-300 mb-4">{relatedDoc.description}</p>
                             <Link 
                               to={`/docs/${relatedDoc.path}`} 
-                              className="text-sm flex items-center text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300"
+                              className="text-sm flex items-center text-[#006FEE] hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300"
                             >
                               Read more <ArrowRight className="w-4 h-4 ml-1" />
                             </Link>
@@ -167,7 +167,7 @@ const DocDetail: React.FC = () => {
                 {prevDoc ? (
                   <Link 
                     to={`/docs/${prevDoc.path}`}
-                    className="flex items-center text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300 mb-4 sm:mb-0"
+                    className="flex items-center text-[#006FEE] hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300 mb-4 sm:mb-0"
                   >
                     <ChevronLeft className="w-5 h-5 mr-1" />
                     <div>
@@ -182,7 +182,7 @@ const DocDetail: React.FC = () => {
                 {nextDoc && (
                   <Link 
                     to={`/docs/${nextDoc.path}`}
-                    className="flex items-center text-right text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300 sm:ml-auto"
+                    className="flex items-center text-right text-[#006FEE] hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300 sm:ml-auto"
                   >
                     <div>
                       <div className="text-xs text-slate-500 dark:text-slate-400">Next</div>

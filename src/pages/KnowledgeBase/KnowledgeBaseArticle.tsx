@@ -151,11 +151,11 @@ const KnowledgeBaseArticle: React.FC = () => {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <Link to="/kb" className="transition-colors hover:text-foreground">Knowledge Base</Link>
+                <Link to="/knowledgebase" className="transition-colors hover:text-foreground">Knowledge Base</Link>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <Link to={`/kb/${category?.slug}`} className="transition-colors hover:text-foreground">{category?.title}</Link>
+                <Link to={`/knowledgebase/${category?.slug}`} className="transition-colors hover:text-foreground">{category?.title}</Link>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
@@ -177,7 +177,7 @@ const KnowledgeBaseArticle: React.FC = () => {
                     {category?.help_articles?.map(art => (
                       <li key={art.id} className="group">
                         <Link 
-                          to={`/kb/${category.slug}/${art.slug}`}
+                          to={`/knowledgebase/${category.slug}/${art.slug}`}
                           className={`block px-3 py-2.5 rounded-lg text-sm transition-all flex items-center justify-between ${
                             art.id === article.id 
                               ? "bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 font-medium" 
@@ -198,7 +198,7 @@ const KnowledgeBaseArticle: React.FC = () => {
                 
                 <div className="space-y-3">
                   <Button variant="outline" size="lg" className="w-full h-auto justify-start shadow-sm" asChild>
-                    <Link className="" to={`/kb/${category?.slug}`}>
+                    <Link className="" to={`/knowledgebase/${category?.slug}`}>
                       <ChevronLeft className="mr-2 h-4 w-4" />
                         <span className="max-w-[190px] flex text-wrap flex-wrap">Back to {category?.title}</span>
                       
@@ -206,7 +206,7 @@ const KnowledgeBaseArticle: React.FC = () => {
                   </Button>
                   
                   <Button variant="outline" size="lg" className="w-full justify-start shadow-sm" asChild>
-                    <Link to="/kb">
+                    <Link to="/knowledgebase">
                       <ArrowLeft className="mr-2 h-4 w-4" />
                       All categories
                     </Link>
@@ -301,7 +301,7 @@ const KnowledgeBaseArticle: React.FC = () => {
 
                   </div>
                   
-                  <div className="prose prose-slate dark:prose-invert max-w-none prose-img:rounded-lg prose-headings:border-b prose-headings:pb-2 prose-headings:border-slate-200 dark:prose-headings:border-slate-800 prose-headings:text-slate-900 dark:prose-headings:text-white prose-a:text-teal-600 dark:prose-a:text-teal-400 prose-p:text-slate-700 dark:prose-p:text-slate-300 leading-relaxed">
+                  <div className="prose prose-slate dark:prose-invert max-w-none prose-img:rounded-lg prose-headings:border-b prose-headings:pb-2 prose-headings:border-slate-200 dark:prose-headings:border-slate-800 prose-headings:text-slate-900 dark:prose-headings:text-white prose-a:text-[#006FEE] dark:prose-a:text-teal-400 prose-p:text-slate-700 dark:prose-p:text-slate-300 leading-relaxed">
                     {article?.content?.map((content)=>{
                       
                        return <p className="my-2">{content?.children[0]?.text}</p>
@@ -357,8 +357,8 @@ const KnowledgeBaseArticle: React.FC = () => {
                         <CardHeader className="pb-2">
                           <CardTitle className="text-lg">
                             <Link 
-                              to={`/kb/${categorySlug}/${relatedArticle.slug}`}
-                              className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
+                              to={`/knowledgebase/${categorySlug}/${relatedArticle.slug}`}
+                              className="hover:text-[#006FEE] dark:hover:text-teal-400 transition-colors"
                             >
                               {relatedArticle.title}
                             </Link>
@@ -369,8 +369,8 @@ const KnowledgeBaseArticle: React.FC = () => {
                             {category.title}
                           </Badge>
                           <Link 
-                            to={`/kb/${categorySlug}/${relatedArticle.slug}`}
-                            className="flex items-center gap-1 text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300 transition-colors group"
+                            to={`/knowledgebase/${categorySlug}/${relatedArticle.slug}`}
+                            className="flex items-center gap-1 text-[#006FEE] hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300 transition-colors group"
                           >
                             Read <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                           </Link>

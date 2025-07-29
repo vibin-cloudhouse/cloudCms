@@ -91,7 +91,7 @@
   }
   
   .gradient-btn {
-    @apply bg-gradient-to-r from-teal-600 to-cyan-500 hover:from-teal-700 hover:to-cyan-600 text-white font-medium rounded-xl px-6 py-3 transition-all duration-200 transform hover:-translate-y-0.5 shadow-md;
+    @apply bg-gradient-to-r from-[#006FEE] to-cyan-500 hover:from-teal-700 hover:to-cyan-600 text-white font-medium rounded-xl px-6 py-3 transition-all duration-200 transform hover:-translate-y-0.5 shadow-md;
   }
   
   .section-container {
@@ -99,7 +99,7 @@
   }
   
   .gradient-heading {
-    @apply bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent dark:from-teal-400 dark:to-cyan-400;
+    @apply bg-gradient-to-r from-[#006FEE] to-cyan-500 bg-clip-text text-transparent dark:from-teal-400 dark:to-cyan-400;
   }
   
   .feature-card {
@@ -129,7 +129,7 @@
 
 /* Custom styles for specific elements */
 .nav-link {
-  @apply relative overflow-hidden text-slate-700 hover:text-teal-600 transition-colors duration-300 dark:text-slate-300 dark:hover:text-teal-400;
+  @apply relative overflow-hidden text-slate-700 hover:text-[#006FEE] transition-colors duration-300 dark:text-slate-300 dark:hover:text-teal-400;
 }
 
 .nav-link::after {
@@ -142,7 +142,7 @@
 
 .gradient-blob {
   @apply absolute rounded-full filter blur-3xl opacity-20 z-[-1] dark:opacity-10;
-  background: linear-gradient(225deg, #06b6d4, #0891b2, #0d9488);
+  background: linear-gradient(225deg, #06b6d4, #a2d8e5, #74a6df);
   animation: blob-movement 20s infinite alternate ease-in-out;
 }
 

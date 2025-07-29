@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 const FeaturesCTA = () => {
   return (
-    <section className="py-16 bg-gradient-to-r from-teal-600 to-cyan-500">
+    <section className="py-16 bg-gradient-to-r from-[#006FEE] to-cyan-500">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
           Ready to Experience CloudStick?
@@ -16,7 +16,7 @@ const FeaturesCTA = () => {
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Link to="/signup">
-            <Button className="bg-white text-teal-600 hover:bg-slate-100 px-6 py-6 rounded-md text-lg font-medium">
+            <Button className="bg-white text-[#006FEE] hover:bg-slate-100 px-6 py-6 rounded-md text-lg font-medium">
               Start Free Trial
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>

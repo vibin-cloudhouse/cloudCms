@@ -25,7 +25,7 @@ const CookiesPolicy = () => {
 
           <div className="bg-white dark:bg-slate-800 shadow-md rounded-2xl p-8 mb-8">
             <div className="flex items-center mb-6">
-              <Cookie className="h-8 w-8 text-teal-600 mr-3" />
+              <Cookie className="h-8 w-8 text-[#006FEE] mr-3" />
               <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Cookies Policy</h1>
             </div>
 
@@ -85,8 +85,8 @@ const CookiesPolicy = () => {
                 You can learn more about cookies and the following third-party websites:
               </p>
               <ul className="list-disc pl-6 mb-4 text-slate-600 dark:text-slate-300">
-                <li className="mb-2">AllAboutCookies: <a href="https://www.allaboutcookies.org/" className="text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">https://www.allaboutcookies.org/</a></li>
-                <li className="mb-2">Network Advertising Initiative: <a href="https://www.networkadvertising.org/" className="text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">https://www.networkadvertising.org/</a></li>
+                <li className="mb-2">AllAboutCookies: <a href="https://www.allaboutcookies.org/" className="text-[#006FEE] hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">https://www.allaboutcookies.org/</a></li>
+                <li className="mb-2">Network Advertising Initiative: <a href="https://www.networkadvertising.org/" className="text-[#006FEE] hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">https://www.networkadvertising.org/</a></li>
               </ul>
 
               <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-200 mt-8 mb-4">6. Contact Us</h2>

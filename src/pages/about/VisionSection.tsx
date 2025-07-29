@@ -9,7 +9,7 @@ const VisionSection: React.FC = () => {
       <div className="grid md:grid-cols-3 gap-10">
         <div className="bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-slate-800 dark:to-slate-700 p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
           <div className="w-16 h-16 bg-teal-100 dark:bg-teal-900 rounded-full flex items-center justify-center mb-6 mx-auto">
-            <Globe className="h-8 w-8 text-teal-600 dark:text-teal-400" />
+            <Globe className="h-8 w-8 text-[#006FEE] dark:text-teal-400" />
           </div>
           <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-4 text-center">Global Access</h3>
           <p className="text-slate-700 dark:text-slate-200 text-center">
@@ -19,7 +19,7 @@ const VisionSection: React.FC = () => {
         
         <div className="bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-slate-800 dark:to-slate-700 p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
           <div className="w-16 h-16 bg-teal-100 dark:bg-teal-900 rounded-full flex items-center justify-center mb-6 mx-auto">
-            <Shield className="h-8 w-8 text-teal-600 dark:text-teal-400" />
+            <Shield className="h-8 w-8 text-[#006FEE] dark:text-teal-400" />
           </div>
           <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-4 text-center">Uncompromising Security</h3>
           <p className="text-slate-700 dark:text-slate-200 text-center">
@@ -29,7 +29,7 @@ const VisionSection: React.FC = () => {
         
         <div className="bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-slate-800 dark:to-slate-700 p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
           <div className="w-16 h-16 bg-teal-100 dark:bg-teal-900 rounded-full flex items-center justify-center mb-6 mx-auto">
-            <Users className="h-8 w-8 text-teal-600 dark:text-teal-400" />
+            <Users className="h-8 w-8 text-[#006FEE] dark:text-teal-400" />
           </div>
           <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-4 text-center">Collaborative Innovation</h3>
           <p className="text-slate-700 dark:text-slate-200 text-center">

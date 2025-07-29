@@ -63,7 +63,7 @@ const TestimonialsSection = () => {
                 "{testimonial.content}"
               </p>
               <div className="flex items-center mt-4">
-                <div className="bg-gradient-to-r from-teal-600 to-cyan-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                <div className="bg-gradient-to-r from-[#006FEE] to-cyan-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
                   <span className="text-white font-semibold">
                     {testimonial.name.charAt(0)}
                   </span>

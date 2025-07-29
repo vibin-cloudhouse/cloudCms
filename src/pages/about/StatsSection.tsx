@@ -13,22 +13,22 @@ const statCounters: StatCounterData[] = [
   {
     value: 5782,
     label: "Servers Connected",
-    icon: <Server className="h-8 w-8 text-teal-600" />
+    icon: <Server className="h-8 w-8 text-[#006FEE]" />
   },
   {
     value: 3149,
     label: "Databases Managed",
-    icon: <Database className="h-8 w-8 text-teal-600" />
+    icon: <Database className="h-8 w-8 text-[#006FEE]" />
   },
   {
     value: 8634,
     label: "Applications Secured",
-    icon: <AppWindow className="h-8 w-8 text-teal-600" />
+    icon: <AppWindow className="h-8 w-8 text-[#006FEE]" />
   },
   {
     value: 2957,
     label: "Domains Protected",
-    icon: <Globe className="h-8 w-8 text-teal-600" />
+    icon: <Globe className="h-8 w-8 text-[#006FEE]" />
   }
 ];
 

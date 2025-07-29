@@ -27,7 +27,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
       </Link>
       
       <CardHeader className="pb-2">
-        <CardTitle className="text-xl font-bold text-slate-800 dark:text-slate-100 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors line-clamp-2">
+        <CardTitle className="text-xl font-bold text-slate-800 dark:text-slate-100 group-hover:text-[#006FEE] dark:group-hover:text-teal-400 transition-colors line-clamp-2">
           <Link to={`/blog/${post.slug}`}>{post.title}</Link>
         </CardTitle>
         <CardDescription className="line-clamp-2 mt-2 text-slate-600 dark:text-slate-300">{post.excerpt}</CardDescription>

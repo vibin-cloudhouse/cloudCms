@@ -77,7 +77,7 @@ const AlternativesPage = () => {
                   <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{alt.name}</h3>
                   <p className="text-slate-700 dark:text-slate-300 mb-4">{alt.description}</p>
                   {alt.available ? (
-                    <Link to={alt.link} className="inline-flex items-center text-teal-600 hover:text-teal-700 font-medium">
+                    <Link to={alt.link} className="inline-flex items-center text-[#006FEE] hover:text-teal-700 font-medium">
                       View Comparison <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   ) : (
@@ -101,28 +101,28 @@ const AlternativesPage = () => {
               
               <div className="grid md:grid-cols-2 gap-8">
                 <Card className="bg-white dark:bg-slate-900 p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
-                  <h3 className="text-xl font-bold text-teal-600 dark:text-teal-500 mb-4">Comprehensive Solution</h3>
+                  <h3 className="text-xl font-bold text-[#006FEE] dark:text-teal-500 mb-4">Comprehensive Solution</h3>
                   <p className="text-slate-700 dark:text-slate-300">
                     CloudStick provides an all-in-one solution for server management, monitoring, security, and scaling - eliminating the need for multiple tools and services.
                   </p>
                 </Card>
                 
                 <Card className="bg-white dark:bg-slate-900 p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
-                  <h3 className="text-xl font-bold text-teal-600 dark:text-teal-500 mb-4">Superior Performance</h3>
+                  <h3 className="text-xl font-bold text-[#006FEE] dark:text-teal-500 mb-4">Superior Performance</h3>
                   <p className="text-slate-700 dark:text-slate-300">
                     Our proprietary optimization technology delivers faster load times, better resource utilization, and improved user experience compared to alternative solutions.
                   </p>
                 </Card>
                 
                 <Card className="bg-white dark:bg-slate-900 p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
-                  <h3 className="text-xl font-bold text-teal-600 dark:text-teal-500 mb-4">Flexible Pricing</h3>
+                  <h3 className="text-xl font-bold text-[#006FEE] dark:text-teal-500 mb-4">Flexible Pricing</h3>
                   <p className="text-slate-700 dark:text-slate-300">
                     Pay only for what you use with our usage-based pricing model, making CloudStick more cost-effective for businesses of all sizes.
                   </p>
                 </Card>
                 
                 <Card className="bg-white dark:bg-slate-900 p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
-                  <h3 className="text-xl font-bold text-teal-600 dark:text-teal-500 mb-4">Enterprise-Grade Security</h3>
+                  <h3 className="text-xl font-bold text-[#006FEE] dark:text-teal-500 mb-4">Enterprise-Grade Security</h3>
                   <p className="text-slate-700 dark:text-slate-300">
                     Advanced security features including automated patching, vulnerability scanning, and compliance monitoring to keep your applications safe.
                   </p>

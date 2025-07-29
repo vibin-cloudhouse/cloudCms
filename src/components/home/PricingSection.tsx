@@ -6,63 +6,96 @@ const PricingSection = () => {
     {
       name: "Free",
       price: "$0",
-      period: "/forever",
-      description: "Perfect for individuals and small personal projects.",
+      period: "/month",
+      description: "Perfect for individuals and small personal projects.", // Description based on common free tier offerings, not explicitly in image
       features: [
-        { text: "Up to 3 servers" },
-        { text: "Basic monitoring" },
-        { text: "Email support" }
+        { text: "1 Server" },
+        { text: "One Hosting Account" },
+        { text: "Custom SSL Only" },
+        { text: "Server Firewall" },
+        { text: "Sub Domains" },
+        { text: "EasyPHP" },
+        { text: "User Quota" },
+        { text: "Multiple PHP Versions" },
+        { text: "Git Deployment" },
+        { text: "SFTP & Additional FTP Accounts" }
       ],
-      buttonText: "Sign Up Free",
-      buttonVariant: "outline",
+      buttonText: "More",
+      buttonVariant: "outline", // Assuming "More" button is similar to "Sign Up Free"
       animationDelay: "0s"
     },
     {
       name: "Basic",
-      price: "$19.99",
-      period: "/month",
-      description: "For startups and growing projects with more needs.",
+      price: "$80",
+      period: "/Yearly",
+      description: "For startups and growing projects with more needs.", // Description based on common basic tier offerings, not explicitly in image
       features: [
-        { text: "Up to 10 servers" },
-        { text: "Standard monitoring" },
-        { text: "Web SSH terminal" },
-        { text: "Priority email support" }
+        { text: "1 Server" },
+        { text: "Unlimited Hosting Accounts" },
+        { text: "One-click Free SSL" },
+        { text: "Server Firewall" },
+        { text: "WordPress Manager" },
+        { text: "EasyPHP" },
+        { text: "User Quota" },
+        { text: "Multiple PHP Versions" },
+        { text: "Git Deployment" },
+        { text: "Email" },
+        { text: "SFTP & Additional FTP Accounts" },
+        { text: "5GB Free Backup" },
+        { text: "Web application Clone" }
       ],
-      buttonText: "Get Started",
-      buttonVariant: "outline",
+      buttonText: "More",
+      buttonVariant: "outline", // Assuming "More" button is similar to "Get Started"
       animationDelay: "0.1s"
     },
     {
       name: "Pro",
-      price: "$49.99",
-      period: "/month",
-      description: "For growing businesses with multiple servers and advanced needs.",
+      price: "$150",
+      period: "/Yearly",
+      description: "For growing businesses with multiple servers and advanced needs.", // Description based on common pro tier offerings, not explicitly in image
       features: [
-        { text: "Up to 25 servers" },
-        { text: "Advanced monitoring" },
-        { text: "Auto-scaling rules" },
-        { text: "Database management" },
-        { text: "API access" }
+        { text: "Unlimited" },
+        { text: "Unlimited Hosting Accounts" },
+        { text: "One-click Free SSL" },
+        { text: "Server Firewall" },
+        { text: "WordPress Manager" },
+        { text: "EasyPHP" },
+        { text: "User Quota" },
+        { text: "Multiple PHP Versions" },
+        { text: "Git Deployment" },
+        { text: "Email" },
+        { text: "SFTP & Additional FTP Accounts" },
+        { text: "10GB Free Backup" },
+        { text: "Web application Clone" }
       ],
-      buttonText: "Start Pro Trial",
-      buttonVariant: "gradient",
+      buttonText: "More",
+      buttonVariant: "gradient", // Assuming the "More" button for Pro is the featured one
       isFeatured: true,
       animationDelay: "0.2s"
     },
     {
       name: "Business",
-      price: "$99.99",
-      period: "/month",
-      description: "For organizations with large-scale infrastructure requirements.",
+      price: "$450",
+      period: "/Yearly",
+      description: "For organizations with large-scale infrastructure requirements.", // Description based on common business tier offerings, not explicitly in image
       features: [
-        { text: "Unlimited servers" },
-        { text: "Enterprise security" },
-        { text: "Custom integrations" },
-        { text: "24/7 phone support" },
-        { text: "Dedicated account manager" }
+        { text: "Unlimited Servers" },
+        { text: "All features of Pro account" },
+        { text: "White-label Solution" },
+        { text: "Activepieces" },
+        { text: "Server Firewall" },
+        { text: "WordPress Manager" },
+        { text: "EasyPHP" },
+        { text: "User Quota" },
+        { text: "Multiple PHP Versions" },
+        { text: "Email" },
+        { text: "SFTP & Additional FTP Accounts" },
+        { text: "40GB Free Backup" },
+        { text: "Web application Clone" },
+        { text: "One-click WordPress login" }
       ],
-      buttonText: "Contact Sales",
-      buttonVariant: "outline",
+      buttonText: "More",
+      buttonVariant: "outline", // Assuming "More" button for Business is not the featured one
       animationDelay: "0.4s"
     }
   ];

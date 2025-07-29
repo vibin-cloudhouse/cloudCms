@@ -42,9 +42,9 @@ const App = () => (
             <Route path="/about" element={<AboutUs />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogDetail />} />
-            <Route path="/kb" element={<KnowledgeBase />} />
-            <Route path="/kb/:category" element={<KnowledgeBaseCategoryPage />} />
-            <Route path="/kb/:category/:slug" element={<KnowledgeBaseArticle />} />
+            <Route path="/knowledgebase" element={<KnowledgeBase />} />
+            <Route path="/knowledgebase/:category" element={<KnowledgeBaseCategoryPage />} />
+            <Route path="/knowledgebase/:category/:slug" element={<KnowledgeBaseArticle />} />
             <Route path="/docs" element={<Docs />} />
             <Route path="/docs/:category/:article" element={<DocDetail />} />
             <Route path="/features" element={<Features />} />

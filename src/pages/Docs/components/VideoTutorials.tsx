@@ -60,7 +60,7 @@ const VideoTutorials: React.FC = () => {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-80 group-hover:opacity-95 transition-opacity">
-                <div className="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-[#006FEE] rounded-full flex items-center justify-center">
                   <Play className="w-5 h-5 text-white fill-white ml-1" />
                 </div>
               </div>
@@ -68,7 +68,7 @@ const VideoTutorials: React.FC = () => {
                 {video.duration}
               </div>
             </div>
-            <h3 className="font-medium text-base text-slate-900 dark:text-white mb-1 group-hover:text-teal-600 dark:group-hover:text-teal-400">
+            <h3 className="font-medium text-base text-slate-900 dark:text-white mb-1 group-hover:text-[#006FEE] dark:group-hover:text-teal-400">
               {video.title}
             </h3>
             <p className="text-sm text-slate-600 dark:text-slate-400">
@@ -81,7 +81,7 @@ const VideoTutorials: React.FC = () => {
       <div className="flex justify-center mt-8">
         <Link 
           to="/resources/videos" 
-          className="flex items-center gap-2 text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300 font-medium"
+          className="flex items-center gap-2 text-[#006FEE] hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300 font-medium"
         >
           View all video tutorials
           <ExternalLink className="w-4 h-4" />

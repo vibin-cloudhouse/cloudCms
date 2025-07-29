@@ -300,9 +300,9 @@ const BlogDetail: React.FC = () => {
             <div className="flex items-center gap-6">
               <button 
                 onClick={handleLike}
-                className={`flex items-center gap-2 ${liked ? 'text-teal-600 dark:text-teal-400' : 'text-slate-600 dark:text-slate-400'}`}
+                className={`flex items-center gap-2 ${liked ? 'text-[#006FEE] dark:text-teal-400' : 'text-slate-600 dark:text-slate-400'}`}
               >
-                <ThumbsUp size={20} className={liked ? 'fill-teal-600 dark:fill-teal-400' : ''} />
+                <ThumbsUp size={20} className={liked ? 'fill-[#006FEE] dark:fill-teal-400' : ''} />
                 <span>{likeCount}</span>
               </button>
               <button className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
@@ -425,7 +425,7 @@ const BlogDetail: React.FC = () => {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
-                    <h4 className="font-semibold group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                    <h4 className="font-semibold group-hover:text-[#006FEE] dark:group-hover:text-teal-400 transition-colors">
                       {relatedPost.title}
                     </h4>
                     <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">

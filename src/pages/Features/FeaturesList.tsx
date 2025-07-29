@@ -97,7 +97,7 @@ const FeaturesList = () => {
               key={index} 
               className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300 border border-slate-100 dark:border-slate-700"
             >
-              <div className="bg-gradient-to-r from-teal-600 to-cyan-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+              <div className="bg-gradient-to-r from-[#006FEE] to-cyan-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
                 <feature.icon className="text-white h-6 w-6" />
               </div>
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">

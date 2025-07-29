@@ -309,7 +309,7 @@ const MigrationRequestForm = ({
           <div className="max-w-2xl mx-auto bg-white dark:bg-slate-800/50 shadow-lg rounded-2xl p-8 border border-slate-200 dark:border-slate-700 text-center">
             <div className="flex justify-center mb-6">
               <div className="w-16 h-16 bg-teal-100 dark:bg-teal-900/30 rounded-full flex items-center justify-center">
-                <CheckCircle className="w-8 h-8 text-teal-600 dark:text-teal-400" />
+                <CheckCircle className="w-8 h-8 text-[#006FEE] dark:text-teal-400" />
               </div>
             </div>
             <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">

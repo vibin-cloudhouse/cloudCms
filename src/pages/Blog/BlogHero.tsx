@@ -20,7 +20,7 @@ const BlogHero: React.FC<BlogHeroProps> = ({ onSearch }) => {
   };
 
   return (
-    <div className="relative py-12 md:py-16 mb-12">
+    <div className="relative min-h-[80vh] flex items-center md:py-16 mb-12">
       {/* Background elements */}
       <div className="gradient-blob w-96 h-96 -top-20 -right-20 opacity-10"></div>
       <div className="gradient-blob w-72 h-72 -bottom-10 -left-10 opacity-20"></div>
@@ -33,10 +33,10 @@ const BlogHero: React.FC<BlogHeroProps> = ({ onSearch }) => {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-slate-100 mb-6">
-              Cloud<span className="gradient-heading">Stick</span> Blog
+              <span className="gradient-heading">CloudStick</span> Blog
             </h1>
             
-            <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
+            <p className="text-sm md:text-lg text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
               Stay updated with the latest cloud storage insights, security tips, 
               and product updates from our team of experts.
             </p>

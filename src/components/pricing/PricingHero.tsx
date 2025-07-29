@@ -17,17 +17,17 @@ const PricingHero = () => {
       
       {/* Billing Toggle */}
       <div className="flex items-center justify-center mb-8">
-        <span className={`mr-3 text-sm font-medium ${!isYearly ? 'text-teal-600 dark:text-teal-400' : 'text-slate-600 dark:text-slate-400'}`}>
+        <span className={`mr-3 text-sm font-medium ${!isYearly ? 'text-[#006FEE] dark:text-teal-400' : 'text-slate-600 dark:text-slate-400'}`}>
           Monthly
         </span>
         <div className="flex items-center">
           <Switch 
             checked={isYearly} 
             onCheckedChange={setIsYearly}
-            className="data-[state=checked]:bg-teal-600"
+            className="data-[state=checked]:bg-[#006FEE]"
           />
         </div>
-        <span className={`ml-3 text-sm font-medium ${isYearly ? 'text-teal-600 dark:text-teal-400' : 'text-slate-600 dark:text-slate-400'}`}>
+        <span className={`ml-3 text-sm font-medium ${isYearly ? 'text-[#006FEE] dark:text-teal-400' : 'text-slate-600 dark:text-slate-400'}`}>
           Yearly <span className="bg-teal-100 text-teal-700 dark:bg-teal-900/50 dark:text-teal-400 text-xs px-2 py-0.5 rounded-full ml-1">Save 20%</span>
         </span>
       </div>

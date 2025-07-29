@@ -29,7 +29,7 @@ const KnowledgeBaseCategory: React.FC<Props> = ({ category }) => {
     <Card className="hover:shadow-lg transition-all border border-slate-200 dark:border-slate-800 hover:border-teal-200 dark:hover:border-teal-800 p-4 rounded-lg">
       <div className="flex gap-2 items-center">
         <img className=" w-5 h-5" src={`${baseUrl}${category.icon?.url}`} alt="" />
-      <Link to={`/kb/${category.slug}`} className="hover:text-teal-600 text-2xl font-semibold dark:hover:text-teal-400 transition-colors">{category.title}</Link>
+      <Link to={`/knowledgebase/${category.slug}`} className="hover:text-[#006FEE] text-2xl font-semibold dark:hover:text-teal-400 transition-colors">{category.title}</Link>
 
       </div>
 
@@ -49,7 +49,7 @@ const KnowledgeBaseCategory: React.FC<Props> = ({ category }) => {
       <ul className="mt-3 text-sm space-y-1 font-">
         {category.help_articles && category.help_articles?.length > 0 ? (
           category.help_articles.slice(0, 2).map((article) => (
-            <li>            <Link to={`/kb/${category.slug}/${article.slug}`} className="hover:text-teal-400 cursor-pointer" key={article.id}>➜ {article.title}</Link>
+            <li>            <Link to={`/knowledgebase/${category.slug}/${article.slug}`} className="hover:text-teal-400 cursor-pointer" key={article.id}>➜ {article.title}</Link>
 </li>
           ))
           
@@ -64,8 +64,8 @@ const KnowledgeBaseCategory: React.FC<Props> = ({ category }) => {
       </ul>
 
       <a
-        href={`/kb/${category.slug}`}
-        className="inline-block mt-3 text-teal-600 hover:text-teal-700 text-sm hover:underline"
+        href={`/knowledgebase/${category.slug}`}
+        className="inline-block mt-3 text-[#006FEE] hover:text-teal-700 text-sm hover:underline"
       >
         View all articles ({category.help_articles?.length}) →
       </a>

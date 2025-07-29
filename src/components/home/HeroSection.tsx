@@ -52,7 +52,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <Link to="/signup">
+            <Link to="https://dash.cloudstick.io/register">
               <Button className="gradient-btn text-lg px-8 py-6">
                 Get Started Free
               </Button>
@@ -71,19 +71,19 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.8 }}
           >
             <div className="flex items-center">
-              <Server className="w-5 h-5 text-teal-600 dark:text-teal-400 mr-2" />
+              <Server className="w-5 h-5 text-[#006FEE] dark:text-teal-400 mr-2" />
               <span>Multi-Cloud Support</span>
             </div>
             <div className="flex items-center">
-              <MonitorCheck className="w-5 h-5 text-teal-600 dark:text-teal-400 mr-2" />
+              <MonitorCheck className="w-5 h-5 text-[#006FEE] dark:text-teal-400 mr-2" />
               <span>99.9% Uptime</span>
             </div>
             <div className="flex items-center">
-              <Lock className="w-5 h-5 text-teal-600 dark:text-teal-400 mr-2" />
+              <Lock className="w-5 h-5 text-[#006FEE] dark:text-teal-400 mr-2" />
               <span>Advanced Security</span>
             </div>
             <div className="flex items-center">
-              <Terminal className="w-5 h-5 text-teal-600 dark:text-teal-400 mr-2" />
+              <Terminal className="w-5 h-5 text-[#006FEE] dark:text-teal-400 mr-2" />
               <span>Command Line Tools</span>
             </div>
           </motion.div>

@@ -38,7 +38,7 @@ const PricingCard = ({
     <div className={cardClass} style={animationDelay ? { animationDelay } : undefined}>
       {isFeatured && (
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <span className="bg-gradient-to-r from-teal-600 to-cyan-600 text-white text-xs font-bold px-4 py-1 rounded-full">
+          <span className="bg-gradient-to-r from-[#006FEE] to-cyan-600 text-white text-xs font-bold px-4 py-1 rounded-full">
             MOST POPULAR
           </span>
         </div>
@@ -58,12 +58,12 @@ const PricingCard = ({
       <ul className="mt-6 space-y-4">
         {features.map((feature, index) => (
           <li key={index} className="flex items-start">
-            <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
+            <CheckCircle className="w-5 h-5 text-[#006FEE] dark:text-teal-400 shrink-0 mr-2 mt-0.5" />
             <span className="text-slate-700 dark:text-slate-300">{feature.text}</span>
           </li>
         ))}
       </ul>
-      <div className="mt-8">
+      {/* <div className="mt-8">
         <Link to="/signup" className="block w-full">
           {buttonVariant === "gradient" ? (
             <Button className="w-full gradient-btn">
@@ -75,7 +75,7 @@ const PricingCard = ({
             </Button>
           )}
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };

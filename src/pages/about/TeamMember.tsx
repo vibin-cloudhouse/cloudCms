@@ -26,7 +26,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({ id, name, title, photo }) => {
           </Avatar>
         </div>
         <CardTitle className="text-center text-xl">{name}</CardTitle>
-        <p className="text-center text-teal-600 dark:text-teal-400 font-medium mt-1">
+        <p className="text-center text-[#006FEE] dark:text-teal-400 font-medium mt-1">
           {title}
         </p>
       </CardHeader>

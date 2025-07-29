@@ -15,9 +15,9 @@ const PopularDocumentation: React.FC = () => {
           </CardHeader>
           <CardContent>
             <ul className="space-y-2">
-              <li><Link to="/docs/getting-started/overview" className="text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">CloudStick Overview</Link></li>
-              <li><Link to="/docs/getting-started/quick-start" className="text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">Quick Start Guide</Link></li>
-              <li><Link to="/docs/getting-started/installation" className="text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">Installation Guide</Link></li>
+              <li><Link to="/docs/getting-started/overview" className="text-[#006FEE] hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">CloudStick Overview</Link></li>
+              <li><Link to="/docs/getting-started/quick-start" className="text-[#006FEE] hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">Quick Start Guide</Link></li>
+              <li><Link to="/docs/getting-started/installation" className="text-[#006FEE] hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">Installation Guide</Link></li>
             </ul>
           </CardContent>
         </Card>
@@ -29,9 +29,9 @@ const PopularDocumentation: React.FC = () => {
           </CardHeader>
           <CardContent>
             <ul className="space-y-2">
-              <li><Link to="/docs/guides/deploying" className="text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">Deploying Applications</Link></li>
-              <li><Link to="/docs/guides/domains" className="text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">Setting Up Custom Domains</Link></li>
-              <li><Link to="/docs/guides/scaling" className="text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">Scaling Your Application</Link></li>
+              <li><Link to="/docs/guides/deploying" className="text-[#006FEE] hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">Deploying Applications</Link></li>
+              <li><Link to="/docs/guides/domains" className="text-[#006FEE] hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">Setting Up Custom Domains</Link></li>
+              <li><Link to="/docs/guides/scaling" className="text-[#006FEE] hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">Scaling Your Application</Link></li>
             </ul>
           </CardContent>
         </Card>

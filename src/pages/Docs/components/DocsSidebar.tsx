@@ -31,7 +31,7 @@ const DocsSidebar: React.FC = () => {
                         to={`/docs/${article.path}`}
                         className={`flex items-center gap-2 px-3 py-2 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 ${
                           article.path.startsWith(category || "") 
-                            ? "bg-teal-50 dark:bg-teal-900/20 text-teal-600 dark:text-teal-400 font-medium"
+                            ? "bg-teal-50 dark:bg-teal-900/20 text-[#006FEE] dark:text-teal-400 font-medium"
                             : "text-gray-700 dark:text-gray-300"
                         }`}
                       >

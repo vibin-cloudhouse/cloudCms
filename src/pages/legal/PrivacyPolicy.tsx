@@ -23,7 +23,7 @@ const PrivacyPolicy = () => {
 
           <div className="bg-white dark:bg-slate-800 shadow-md rounded-2xl p-8 mb-8">
             <div className="flex items-center mb-6">
-              <Shield className="h-8 w-8 text-teal-600 mr-3" />
+              <Shield className="h-8 w-8 text-[#006FEE] mr-3" />
               <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Privacy Policy</h1>
             </div>
 

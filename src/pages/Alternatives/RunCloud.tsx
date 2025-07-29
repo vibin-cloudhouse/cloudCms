@@ -75,9 +75,9 @@ const RunCloudComparison = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="flex items-center space-x-2 mb-4">
-                <Link to="/" className="text-slate-500 hover:text-teal-600 transition-colors">Home</Link>
+                <Link to="/" className="text-slate-500 hover:text-[#006FEE] transition-colors">Home</Link>
                 <span className="text-slate-400">/</span>
-                <Link to="/alternatives" className="text-slate-500 hover:text-teal-600 transition-colors">Alternatives</Link>
+                <Link to="/alternatives" className="text-slate-500 hover:text-[#006FEE] transition-colors">Alternatives</Link>
                 <span className="text-slate-400">/</span>
                 <span className="text-slate-700 dark:text-slate-300">RunCloud</span>
               </div>
@@ -91,7 +91,7 @@ const RunCloudComparison = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-gradient-to-r from-teal-600 to-cyan-500 hover:from-teal-700 hover:to-cyan-600 text-white">
+                <Button className="bg-gradient-to-r from-[#006FEE] to-cyan-500 hover:from-teal-700 hover:to-cyan-600 text-white">
                   Try CloudStick Free
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -118,7 +118,7 @@ const RunCloudComparison = () => {
                 <TableHeader>
                   <TableRow>
                     <TableHead className="w-1/4 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold">Feature</TableHead>
-                    <TableHead className="w-1/3 bg-gradient-to-r from-teal-600 to-cyan-500 text-white font-semibold text-center">CloudStick</TableHead>
+                    <TableHead className="w-1/3 bg-gradient-to-r from-[#006FEE] to-cyan-500 text-white font-semibold text-center">CloudStick</TableHead>
                     <TableHead className="w-1/3 bg-blue-600 text-white font-semibold text-center">RunCloud</TableHead>
                   </TableRow>
                 </TableHeader>
@@ -130,7 +130,7 @@ const RunCloudComparison = () => {
                       </TableCell>
                       <TableCell className={`border-b border-slate-200 dark:border-slate-700 ${point.cloudstickBetter ? "bg-teal-50 dark:bg-teal-950/20" : ""}`}>
                         <div className="flex items-start gap-3">
-                          <div className={`flex-shrink-0 rounded-full p-1 ${point.cloudstickBetter ? "bg-teal-100 text-teal-600 dark:bg-teal-900/50 dark:text-teal-400" : "bg-slate-100 text-slate-400 dark:bg-slate-800 dark:text-slate-500"}`}>
+                          <div className={`flex-shrink-0 rounded-full p-1 ${point.cloudstickBetter ? "bg-teal-100 text-[#006FEE] dark:bg-teal-900/50 dark:text-teal-400" : "bg-slate-100 text-slate-400 dark:bg-slate-800 dark:text-slate-500"}`}>
                             <CheckIcon className="h-4 w-4" />
                           </div>
                           <span className={`text-sm ${point.cloudstickBetter ? "text-slate-900 dark:text-white font-medium" : "text-slate-600 dark:text-slate-400"}`}>
@@ -169,7 +169,7 @@ const RunCloudComparison = () => {
             
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               <div className="bg-white dark:bg-slate-900 p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold text-teal-600 dark:text-teal-500 mb-4">CloudStick Advantages</h3>
+                <h3 className="text-xl font-bold text-[#006FEE] dark:text-teal-500 mb-4">CloudStick Advantages</h3>
                 <ul className="space-y-3">
                   <li className="flex">
                     <CheckIcon className="h-5 w-5 text-teal-500 mt-0.5 mr-2 flex-shrink-0" />
@@ -220,7 +220,7 @@ const RunCloudComparison = () => {
         </section>
         
         {/* Final CTA - Updated Background Gradient */}
-        <section className="py-16 bg-gradient-to-r from-teal-600 to-cyan-500 text-white">
+        <section className="py-16 bg-gradient-to-r from-[#006FEE] to-cyan-500 text-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold mb-6">Ready to Try CloudStick?</h2>
             <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
@@ -228,7 +228,7 @@ const RunCloudComparison = () => {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link to="/signup">
-                <Button className="bg-white text-teal-600 hover:bg-slate-100 px-6 py-2">
+                <Button className="bg-white text-[#006FEE] hover:bg-slate-100 px-6 py-2">
                   Start Free Trial
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
