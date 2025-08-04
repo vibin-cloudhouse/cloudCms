@@ -9,6 +9,8 @@ import VideoTutorials from "./components/VideoTutorials";
 import AdditionalResources from "./components/AdditionalResources";
 
 const DocsPage: React.FC = () => {
+
+  
   return (
     <div className="min-h-screen flex flex-col">
       <Header />

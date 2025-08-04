@@ -13,7 +13,7 @@ const KnowledgeBaseCategoryDetail = () => {
 
       try {
         const res = await axios.get(
-          `https://strapiss.cloudstick.io/api/help-categories?populate[help_articles][fields]&populate[help_articles][populate]=media`
+          `https://strapnew.cloudstick.io/api/help-categories?populate[help_articles][fields]&populate[seo][fields]&populate[help_articles][populate]=media`
         );
 
         const data = res.data.data?.[0];

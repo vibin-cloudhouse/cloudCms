@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 interface Props {
   category: HelpCategory;
 }
-const baseUrl = import.meta.env.VITE_APP_DEV_URL || "https://strapiss.cloudstick.io";
+const baseUrl = import.meta.env.VITE_APP_DEV_URL || "https://strapnew.cloudstick.io";
 
 const KnowledgeBaseCategory: React.FC<Props> = ({ category }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);

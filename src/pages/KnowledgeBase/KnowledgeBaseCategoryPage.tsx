@@ -10,7 +10,8 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { HelpCategory } from "@/types/helpTypes";
 import axios from "axios";
-const baseUrl = import.meta.env.VITE_APP_DEV_URL || "https://strapiss.cloudstick.io";
+import Seo from "@/components/Seo";
+const baseUrl = import.meta.env.VITE_APP_DEV_URL || "https://strapnew.cloudstick.io";
 
 const KnowledgeBaseCategoryPage: React.FC = () => {
   const params = useParams()
@@ -28,7 +29,7 @@ console.log("category",category);
     setLoading(true);
     setError(null); // Clear previous errors
 
-axios.get("https://strapiss.cloudstick.io/api/help-categories?populate[icon]=true&populate[help_articles][fields]&populate[help_articles][populate][mediasection][populate]=infomedia")
+axios.get("https://strapnew.cloudstick.io/api/help-categories?populate[icon]=true&populate[help_articles][fields]&populate[help_articles][populate][mediasection][populate]=infomedia&populate[seo][fields]&sort=id:asc")
         .then((res) => {
             console.log("KnowledgeBaseHome: API response received.", res.data);
 
@@ -39,7 +40,7 @@ axios.get("https://strapiss.cloudstick.io/api/help-categories?populate[icon]=tru
                     const descriptionText = item?.description?.[0]?.children?.[0]?.text || "No description available.";
 
                     // Safely access media field
-                    const imageUrl = item?.media?.data?.attributes?.url ? `https://strapiss.cloudstick.io${item.media.data.attributes.url}` : null;
+                    const imageUrl = item?.media?.data?.attributes?.url ? `https://strapnew.cloudstick.io${item.media.data.attributes.url}` : null;
                     const imageAltText = item?.media?.data?.attributes?.alternativeText || "Category image";
 
                     // Safely map help_articles
@@ -62,6 +63,7 @@ axios.get("https://strapiss.cloudstick.io/api/help-categories?populate[icon]=tru
                         id: item.id,
                         title: item?.title || "Untitled",
                         slug: item?.slug,
+                        seo:item?.seo,
                         description: descriptionText,
                         imageUrl: imageUrl,
                         imageAltText: imageAltText,
@@ -126,6 +128,7 @@ axios.get("https://strapiss.cloudstick.io/api/help-categories?populate[icon]=tru
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo title={category?.seo?.metaTitle} description={category?.seo?.metaDescription} />
       <Header />
       
       <main className="flex-grow pt-24 pb-16">

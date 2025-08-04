@@ -18,7 +18,7 @@ const Index = () => {
     <div className="min-h-screen flex flex-col dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
       <Header />
       <HeroSection />
-      <FeatureSectionsContainer />
+      <FeaturesSection/>
       <HowItWorksSection />
       <PricingSection />
       <Footer />

@@ -163,7 +163,7 @@
 }
 
 .pricing-card.featured {
-  @apply bg-gradient-to-b from-cyan-50 to-white p-8 rounded-2xl shadow-xl border border-cyan-100 transform hover:scale-[1.02] transition-all duration-300 relative;
+  @apply bg-gradient-to-b from-cyan-50 to-white dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-900 p-8 rounded-2xl shadow-lg dark:shadow-[#06B5D2] border-2 border-[#bee2e9] transform hover:scale-[1.02] transition-all duration-300 relative;
 }
 
 #root {

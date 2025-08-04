@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Search, Book, ArrowRight } from "lucide-react";
@@ -24,7 +23,7 @@ const BlogHero: React.FC<BlogHeroProps> = ({ onSearch }) => {
       {/* Background elements */}
       <div className="gradient-blob w-96 h-96 -top-20 -right-20 opacity-10"></div>
       <div className="gradient-blob w-72 h-72 -bottom-10 -left-10 opacity-20"></div>
-      
+
       <div className="container px-4 mx-auto">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
@@ -35,13 +34,14 @@ const BlogHero: React.FC<BlogHeroProps> = ({ onSearch }) => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-slate-100 mb-6">
               <span className="gradient-heading">CloudStick</span> Blog
             </h1>
-            
+
             <p className="text-sm md:text-lg text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
-              Stay updated with the latest cloud storage insights, security tips, 
+              Stay updated with the latest cloud storage insights, security tips,
               and product updates from our team of experts.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              {/* These links would ideally be dynamic based on fetched categories */}
               <Link to="/blog/category/cloud-security" className="w-full sm:w-auto">
                 <Button className="w-full sm:w-auto" variant="outline">
                   <Book className="mr-2 h-4 w-4" />
@@ -62,8 +62,8 @@ const BlogHero: React.FC<BlogHeroProps> = ({ onSearch }) => {
               </Link>
             </div>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             className="relative max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

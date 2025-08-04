@@ -1,41 +1,40 @@
+
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { LucideIcon } from "lucide-react";
 
 interface FeatureCardProps {
-  iconUrl: string;
+  icon: LucideIcon;
   title: string;
   description: string;
   link: string;
   delay: number;
   isVisible: boolean;
- }
+}
 
-const FeatureCard = ({
-  iconUrl,
-  title,
-  description,
-  link,
-  delay,
-  isVisible,
+const FeatureCard = ({ 
+  icon: Icon, 
+  title, 
+  description, 
+  link, 
+  delay, 
+  isVisible 
 }: FeatureCardProps) => {
   return (
-    <div
-      className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-md hover:shadow-lg transition"
+    <motion.div 
+      className="feature-card dark:bg-gradient-to-br dark:from-slate-700 dark:to-slate-800 dark:border-slate-600"
+      initial={{ opacity: 0, y: 20 }}
+      animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ duration: 0.5, delay }}
     >
-      <img
-        src={iconUrl}
-        alt={title}
-        className="w-10 h-10 mb-4 object-contain"
-      />
-      <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
-        {title}
-      </h3>
-      <p className="text-sm text-slate-600 dark:text-slate-300 mb-4">
-        {description}
-      </p>
-      <a href={link} className="text-[#006FEE] font-medium">
-        Learn more →
-      </a>
-    </div>
+      <Icon className="w-12 h-12 text-teal-600 dark:text-teal-400 mb-4" />
+      <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">{title}</h3>
+      <p className="text-slate-600 dark:text-slate-300 mb-4">{description}</p>
+      <Link to={link} className="inline-flex items-center text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors font-medium">
+        Learn more <ArrowRight className="ml-1 w-4 h-4" />
+      </Link>
+    </motion.div>
   );
 };
 

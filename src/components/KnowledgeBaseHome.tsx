@@ -13,7 +13,7 @@ useEffect(() => {
     setLoading(true);
     setError(null); // Clear previous errors
 
-    axios.get("https://strapiss.cloudstick.io/api/help-categories?populate[icon]=true&populate[help_articles][fields]")
+    axios.get("https://strapnew.cloudstick.io/api/help-categories?populate[icon]=true&populate[help_articles][fields]&populate[seo][fields]&populate[help_articles][populate][seo][fields]&populate[help_articles][populate][seo][populate]=shareImage&sort=createdAt:asc")
         .then((res) => {
             console.log("KnowledgeBaseHome: API response received.", res.data);
 
@@ -24,7 +24,7 @@ useEffect(() => {
                     const descriptionText = item?.description?.[0]?.children?.[0]?.text || "No description available.";
 
                     // Safely access media field
-                    const imageUrl = item?.media?.data?.attributes?.url ? `https://strapiss.cloudstick.io${item.media.data.attributes.url}` : null;
+                    const imageUrl = item?.media?.data?.attributes?.url ? `https://strapnew.cloudstick.io${item.media.data.attributes.url}` : null;
                     const imageAltText = item?.media?.data?.attributes?.alternativeText || "Category image";
                     // Safely map help_articles
                     const helpArticles = item?.help_articles?.map((article: any) => ({

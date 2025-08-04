@@ -1,14 +1,16 @@
-
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { FileText, ArrowLeft, Calendar, Star, GitMerge, Zap } from "lucide-react";
+import { FileText, ArrowLeft, Calendar, Star, GitMerge, Zap, Megaphone, UserCheck, ListOrdered } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from "rehype-raw";
+import axios from "axios";
 
 // Type definitions for changelog entries
 interface ChangelogEntry {
@@ -17,92 +19,152 @@ interface ChangelogEntry {
   title: string;
   description: string;
   changes: {
-    type: "feature" | "improvement" | "fix";
+    type: "feature" | "improvement" | "fix" | "announcement" | "agent_released" | "enumeration";
     description: string;
   }[];
 }
 
-// Sample changelog data
-const changelogData: ChangelogEntry[] = [
-  {
-    date: "June 15, 2023",
-    version: "v2.4.0",
-    title: "Enhanced Security Features",
-    description: "This release focuses on improving security and adding new encryption options.",
-    changes: [
-      { type: "feature", description: "Added support for hardware security keys." },
-      { type: "feature", description: "Introduced client-side encryption settings." },
-      { type: "improvement", description: "Improved password policy enforcement.\n• Stronger password requirements\n• Password rotation policies\n• Failed login attempt tracking" },
-      { type: "fix", description: "Fixed an issue with expired session handling." }
-    ]
-  },
-  {
-    date: "May 2, 2023",
-    version: "v2.3.2",
-    title: "Performance Improvements",
-    description: "This update brings performance enhancements and bug fixes.",
-    changes: [
-      { type: "improvement", description: "Optimized file syncing for large files.\n• 50% faster uploads for files >1GB\n• Reduced bandwidth usage\n• Better handling of interrupted transfers" },
-      { type: "improvement", description: "Reduced memory usage during batch uploads.\n• Memory usage down by 30%\n• Parallel processing of uploads\n• Better queue management" },
-      { type: "fix", description: "Fixed thumbnail generation for certain file types." },
-      { type: "fix", description: "Addressed issues with WebDAV connectivity." }
-    ]
-  },
-  {
-    date: "March 10, 2023",
-    version: "v2.3.0",
-    title: "Collaboration Tools Update",
-    description: "New collaboration features and sharing improvements.",
-    changes: [
-      { type: "feature", description: "Introduced real-time document collaboration." },
-      { type: "feature", description: "Added commenting functionality to shared files." },
-      { type: "improvement", description: "Enhanced link sharing with expiration options.\n• Custom expiration dates\n• Password protection for links\n• View-only or edit permission options" },
-      { type: "improvement", description: "Updated the sharing UI for better usability.\n• Simplified sharing dialog\n• Quick access to recent shares\n• Improved permission management interface" },
-      { type: "fix", description: "Fixed permissions issues when sharing to external users." }
-    ]
-  }
-];
-
-// Function to get the icon based on change type
-const getChangeTypeIcon = (type: "feature" | "improvement" | "fix") => {
+// Helper function to get styling based on change type
+const getChangeTypeStyles = (type: "feature" | "improvement" | "fix" | "announcement" | "agent_released" | "enumeration") => {
   switch (type) {
     case "feature":
-      return <Star className="h-4 w-4" />;
+      return {
+        badgeClass: "bg-green-50 border-green-100 dark:bg-green-900/20 dark:border-green-800/30",
+        iconBg: "bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-400",
+        icon: <Star className="h-4 w-4" />,
+        title: "New Feature"
+      };
     case "improvement":
-      return <Zap className="h-4 w-4" />;
+      return {
+        badgeClass: "bg-blue-50 border-blue-100 dark:bg-blue-900/20 dark:border-blue-800/30",
+        iconBg: "bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-400",
+        icon: <Zap className="h-4 w-4" />,
+        title: "Improvement"
+      };
     case "fix":
-      return <GitMerge className="h-4 w-4" />;
+      return {
+        badgeClass: "bg-amber-50 border-amber-100 dark:bg-amber-900/20 dark:border-amber-800/30",
+        iconBg: "bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-400",
+        icon: <GitMerge className="h-4 w-4" />,
+        title: "Bug Fix"
+      };
+    case "announcement":
+      return {
+        badgeClass: "bg-purple-50 border-purple-100 dark:bg-purple-900/20 dark:border-purple-800/30",
+        iconBg: "bg-purple-100 text-purple-700 dark:bg-purple-900/50 dark:text-purple-400",
+        icon: <Megaphone className="h-4 w-4" />,
+        title: "Announcement"
+      };
+    case "agent_released":
+      return {
+        badgeClass: "bg-indigo-50 border-indigo-100 dark:bg-indigo-900/20 dark:border-indigo-800/30",
+        iconBg: "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/50 dark:text-indigo-400",
+        icon: <UserCheck className="h-4 w-4" />,
+        title: "Agent Released"
+      };
+    case "enumeration":
+      return {
+        badgeClass: "bg-cyan-50 border-cyan-100 dark:bg-cyan-900/20 dark:border-cyan-800/30",
+        iconBg: "bg-cyan-100 text-cyan-700 dark:bg-cyan-900/50 dark:text-cyan-400",
+        icon: <ListOrdered className="h-4 w-4" />,
+        title: "Enumeration"
+      };
   }
 };
 
-// Function to render the description with bullet points for improvements
-const renderDescription = (description: string) => {
-  if (!description.includes('\n')) {
-    return <p>{description}</p>;
+// Map Strapi type to local type
+const mapStrapiTypeToLocal = (strapiType: string) => {
+  switch (strapiType.toLowerCase()) {
+    case "bug fix":
+      return "fix";
+    case "new feature release":
+      return "feature";
+    case "improvement":
+      return "improvement";
+    case "announcement":
+      return "announcement";
+    case "agent released":
+      return "agent_released";
+    case "enumeration":
+      return "enumeration";
+    default:
+      return "fix"; // Default to fix if type is unknown
   }
-  
-  const lines = description.split('\n');
-  const mainText = lines[0];
-  const bulletPoints = lines.slice(1);
-  
-  return (
-    <div>
-      <p className="mb-2">{mainText}</p>
-      <ul className="list-disc pl-5 space-y-1 text-slate-600 dark:text-slate-300">
-        {bulletPoints.map((point, i) => (
-          <li key={i}>{point.startsWith('• ') ? point.substring(2) : point}</li>
-        ))}
-      </ul>
-    </div>
-  );
 };
 
 const ChangeLog: React.FC = () => {
-  // Sort the changes to put improvements at the end
+  const [changelogData, setChangelogData] = useState<ChangelogEntry[]>([]);
+  console.log("cahngelog",changelogData);
+  
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    setLoading(true);
+    setError(null);
+  
+    axios.get(
+      "https://strapnew.cloudstick.io/api/change-logs?populate[logs][fields]&populate[seo][populate]=shareImage"
+    )
+    .then(res => {
+      if (res.data && Array.isArray(res.data.data)) {
+        const formattedData: ChangelogEntry[] = res.data.data.map((item: any) => {
+          const date = new Date(item.createdAt).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          });
+
+          // Process changes from the 'logs' array
+          const changes = item.logs?.map((log: any) => ({
+            type: mapStrapiTypeToLocal(log.type),
+            description: log.content || "",
+          })) || [];
+
+          return {
+            date: date,
+            version: item.verison || "N/A",
+            title: item.heading || "Untitled Changelog",
+            description: item.description || "No description available.",
+            changes: changes,
+          };
+        });
+
+        setChangelogData(formattedData);
+      } else {
+        setError("Unexpected data format from API.");
+      }
+    })
+    .catch(err => {
+      console.error("Error fetching data:", err);
+      setError("Failed to fetch changelog data. Please try again later.");
+    })
+    .finally(() => {
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p className="text-xl text-slate-500 dark:text-slate-400">Loading changelog...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p className="text-xl text-red-500 dark:text-red-400">Error: {error}</p>
+      </div>
+    );
+  }
+  
+  // Sort the changes to put improvements and announcements at the end
   const sortChanges = (entry: ChangelogEntry) => {
     const sortedChanges = [...entry.changes].sort((a, b) => {
-      if (a.type === "improvement" && b.type !== "improvement") return 1;
-      if (a.type !== "improvement" && b.type === "improvement") return -1;
+      if ((a.type === "improvement" || a.type === "announcement") && (b.type !== "improvement" && b.type !== "announcement")) return 1;
+      if ((a.type !== "improvement" && a.type !== "announcement") && (b.type === "improvement" || b.type === "announcement")) return -1;
       return 0;
     });
     return sortedChanges;
@@ -180,41 +242,52 @@ const ChangeLog: React.FC = () => {
                     </p>
                     
                     <Separator className="my-4" />
-                    
-                    <div className="grid grid-cols-1 gap-4 mt-6">
-                      {sortChanges(entry).map((change, idx) => (
-                        <div 
-                          key={idx} 
-                          className={`flex items-start p-4 rounded-lg border ${
-                            change.type === 'feature' 
-                              ? 'bg-green-50 border-green-100 dark:bg-green-900/20 dark:border-green-800/30'
-                              : change.type === 'improvement'
-                                ? 'bg-blue-50 border-blue-100 dark:bg-blue-900/20 dark:border-blue-800/30 col-span-1 md:col-span-2'
-                                : 'bg-amber-50 border-amber-100 dark:bg-amber-900/20 dark:border-amber-800/30'
-                          }`}
-                        >
-                          <div className="mr-3 mt-0.5">
-                            <span className={`inline-flex items-center justify-center p-1.5 rounded-full ${
-                              change.type === 'feature' 
-                                ? 'bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-400'
-                                : change.type === 'improvement'
-                                  ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-400'
-                                  : 'bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-400'
-                            }`}>
-                              {getChangeTypeIcon(change.type)}
-                            </span>
-                          </div>
-                          <div className="flex-1">
-                            <div className="font-medium mb-1 text-sm uppercase text-slate-500 dark:text-slate-400">
-                              {change.type === 'feature' ? 'New Feature' : change.type === 'improvement' ? 'Improvement' : 'Bug Fix'}
+                    <article className="prose prose-slate dark:prose-invert max-w-none mb-16">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                      {sortChanges(entry).map((change, idx) => {
+                        const content = change?.description?.trim();
+                        const isIframe = content?.startsWith("<iframe");
+                        const styles = getChangeTypeStyles(change.type);
+
+                        return (
+                          <div 
+                            key={idx} 
+                            className={`flex items-start p-4 rounded-lg border ${styles.badgeClass} ${
+                                (change.type === 'improvement' || change.type === 'announcement') ? 'md:col-span-2' : ''
+                            }`}
+                          >
+                            <div className="mr-3 mt-0.5">
+                              <span className={`inline-flex items-center justify-center p-1.5 rounded-full ${styles.iconBg}`}>
+                                {styles.icon}
+                              </span>
                             </div>
-                            <div className="text-slate-700 dark:text-slate-300">
-                              {renderDescription(change.description)}
+                            <div>
+                              <div className="font-semibold text-slate-900 dark:text-white">
+                                {styles.title}
+                              </div>
+                              <div className="mt-1 text-slate-600 dark:text-slate-300">
+                                {isIframe ? (
+                                  <div
+                                    className="w-full max-w-5xl"
+                                    dangerouslySetInnerHTML={{
+                                      __html: content.replace(
+                                        /<iframe /,
+                                        `<iframe class="w-full h-[400px]" `
+                                      ),
+                                    }}
+                                  />
+                                ) : (
+                                  <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                                    {content}
+                                  </ReactMarkdown>
+                                )}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
+                    </article>
                   </div>
                 </motion.div>
               ))}

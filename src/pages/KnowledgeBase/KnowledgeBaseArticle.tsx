@@ -14,8 +14,10 @@ import { Badge } from "@/components/ui/badge";
 import axios from "axios";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import rehypeRaw from "rehype-raw";
+import { Helmet } from "react-helmet-async";
+import Seo from "@/components/Seo";
 
-const baseUrl = import.meta.env.VITE_APP_DEV_URL || "https://strapiss.cloudstick.io";
+const baseUrl = import.meta.env.VITE_APP_DEV_URL || "https://strapnew.cloudstick.io";
 
 const KnowledgeBaseArticle: React.FC = () => {
     const params = useParams()
@@ -29,9 +31,14 @@ const KnowledgeBaseArticle: React.FC = () => {
    const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
     const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+    const [seo, setSeo] = useState(null);
+    console.log("meta seo",seo);
+    
 
     const category = categories.find((item)=>item.slug==categorySlug)
     const article = category?.help_articles?.find((item)=>item.slug==articleSlug)
+    console.log("article",article);
+    
 
     console.log("category",category,"article",article);
 
@@ -61,7 +68,7 @@ const KnowledgeBaseArticle: React.FC = () => {
     setLoading(true);
     setError(null); // Clear previous errors
 
-    axios.get("https://strapiss.cloudstick.io/api/help-categories?populate[help_articles][fields]&populate[help_articles][populate][mediasection][populate]=infomedia")
+    axios.get("https://strapnew.cloudstick.io/api/help-categories?populate[help_articles][fields]&populate[help_articles][populate][mediasection][populate]=infomedia&populate[help_articles][populate][seo][fields]=metaDescription,metaTitle,keywords&populate[help_articles][populate][seo][populate]=shareImage")
         .then((res) => {
             console.log("KnowledgeBaseHome: API response received.", res.data);
 
@@ -72,7 +79,7 @@ const KnowledgeBaseArticle: React.FC = () => {
                     const descriptionText = item?.description?.[0]?.children?.[0]?.text || "No description available.";
 
                     // Safely access media field
-                    const imageUrl = item?.media?.data?.attributes?.url ? `https://strapiss.cloudstick.io${item.media.data.attributes.url}` : null;
+                    const imageUrl = item?.media?.data?.attributes?.url ? `https://strapnew.cloudstick.io${item.media.data.attributes.url}` : null;
                     const imageAltText = item?.media?.data?.attributes?.alternativeText || "Category image";
 
                     // Safely map help_articles
@@ -82,13 +89,16 @@ const KnowledgeBaseArticle: React.FC = () => {
                         slug: article.slug,
                         description:article.description,
                         mediaSection:article.mediasection,
-                        updateDate:article.updatedAt
+                        updateDate:article.updatedAt,
+                        seo: article?.seo || null,
                         // Add any other fields you expect from help_article here
                         // For example, if your help_article has a 'content' field:
                         // content: article.content || '',
                         // If 'description' on help_article is also rich text:
                         // description: article?.description?.[0]?.children?.[0]?.text || "No description available.",
                     })) || [];
+
+                    setSeo(article?.seo || null);
 
                     return {
                         id: item.id,
@@ -140,6 +150,9 @@ const KnowledgeBaseArticle: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+       
+        <Seo title={article?.seo?.metaTitle} description={article?.seo?.metaDescription}/>
+      
       <Header />
       
       <main className="flex-grow pt-24 pb-16">

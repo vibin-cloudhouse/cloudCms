@@ -23,6 +23,10 @@ export default {
       }
     },
     extend: {
+      backgroundImage: {
+        'my-custom-bg': "url('/img/my-custom-background.jpg')",
+        'another-bg': "url('/img/another-background.png')",
+      },
       fontFamily: {
         sans: ['Poppins', 'system-ui', 'sans-serif'],
         display: ['Poppins', 'Inter', 'system-ui', 'sans-serif'],

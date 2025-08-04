@@ -35,10 +35,12 @@ const KnowledgeBase: React.FC = () => {
       
       <main className="flex-grow pt-24 pb-16">
         {/* Hero section */}
-        <section className="bg-gradient-to-r from-[#006FEE] to-cyan-600 py-16 px-4 text-white">
+         <div className="gradient-blob w-96 h-96 -top-20 -right-20 opacity-10"></div>
+      <div className="gradient-blob w-72 h-72 -bottom-10 -left-10 opacity-20"></div>
+        <section className="2xl:my-[220px] my-14 py-16 px-4 text-white">
           <div className="container mx-auto max-w-5xl text-center">
-            <h1 className="text-3xl md:text-5xl font-bold mb-4">Knowledge Base</h1>
-            <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto opacity-90">
+            <h1 className="text-3xl md:text-7xl text-black dark:text-white font-bold mb-4"><span className="gradient-heading">Knowledge </span>Base</h1>
+            <p className="text-lg text-gray-700 dark:text-white/50 md:text-lg  my-8 max-w-2xl mx-auto opacity-90">
               Find answers to all your questions and learn how to make the most of CloudStick.
             </p>
             

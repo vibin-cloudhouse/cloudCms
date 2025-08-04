@@ -26,11 +26,17 @@ import CookieBanner from "./components/CookieBanner";
 import KnowledgeBasePage from "./pages/Knowledge";
 import KnowledgeBaseCategory from "./pages/KnowledgeBase/KnowledgeBaseCategory";
 import KnowledgeBaseCategoryPage from "./pages/KnowledgeBase/KnowledgeBaseCategoryPage";
-
+import { HelmetProvider } from 'react-helmet-async';
+import DefaultSeo from "./components/DefaultSeo";
+import Security from "./pages/Security";
 const queryClient = new QueryClient();
 
-const App = () => (
+const App = () => {
+  const helmetContext = {}; 
+  return(
   <QueryClientProvider client={queryClient}>
+    <HelmetProvider context={helmetContext}>
+       <DefaultSeo />
     <ThemeProvider>
       <TooltipProvider>
         <BrowserRouter>
@@ -54,6 +60,8 @@ const App = () => (
             <Route path="/legal/cookies" element={<CookiesPolicy />} />
             <Route path="/changelog" element={<ChangeLog />} />
             <Route path="/alternatives" element={<AlternativesPage />} />
+                        <Route path="/security" element={<Security />} />
+
             <Route path="/alternatives/runcloud" element={<RunCloudComparison />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
@@ -62,7 +70,8 @@ const App = () => (
         </BrowserRouter>
       </TooltipProvider>
     </ThemeProvider>
+    </HelmetProvider>
   </QueryClientProvider>
-);
+)};
 
 export default App;

@@ -26,8 +26,8 @@ const PricingSection = () => {
     },
     {
       name: "Basic",
-      price: "$80",
-      period: "/Yearly",
+      price: "$8.00",
+      period: "/month",
       description: "For startups and growing projects with more needs.", // Description based on common basic tier offerings, not explicitly in image
       features: [
         { text: "1 Server" },
@@ -50,8 +50,8 @@ const PricingSection = () => {
     },
     {
       name: "Pro",
-      price: "$150",
-      period: "/Yearly",
+      price: "$15.00",
+      period: "/month",
       description: "For growing businesses with multiple servers and advanced needs.", // Description based on common pro tier offerings, not explicitly in image
       features: [
         { text: "Unlimited" },
@@ -75,8 +75,8 @@ const PricingSection = () => {
     },
     {
       name: "Business",
-      price: "$450",
-      period: "/Yearly",
+      price: "$45.00",
+      period: "/month",
       description: "For organizations with large-scale infrastructure requirements.", // Description based on common business tier offerings, not explicitly in image
       features: [
         { text: "Unlimited Servers" },
