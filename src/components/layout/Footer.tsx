@@ -112,13 +112,28 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <Link to="/legal/privacy" className="text-slate-600 hover:text-[#006FEE] transition-colors">
+                <Link onClick={()=>{window.scrollTo(0,0)}} to="/legal/privacy" className="text-slate-600 hover:text-[#006FEE] transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link to="/legal/terms" className="text-slate-600 hover:text-[#006FEE] transition-colors">
+                <Link onClick={()=>{window.scrollTo(0,0)}} to="/legal/terms" className="text-slate-600 hover:text-[#006FEE] transition-colors">
                   Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link onClick={()=>{window.scrollTo(0,0)}} to="/legal/cookie" className="text-slate-600 hover:text-[#006FEE] transition-colors">
+                  Cookie Policy
+                </Link>
+              </li>
+              <li>
+                <Link onClick={()=>{window.scrollTo(0,0)}} to="/legal/GDPR" className="text-slate-600 hover:text-[#006FEE] transition-colors">
+                  GDPR
+                </Link>
+              </li>
+              <li>
+                <Link onClick={()=>{window.scrollTo(0,0)}} to="/legal/Refund" className="text-slate-600 hover:text-[#006FEE] transition-colors">
+                  Refund Policy
                 </Link>
               </li>
             </ul>

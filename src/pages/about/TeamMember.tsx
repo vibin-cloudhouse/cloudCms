@@ -20,7 +20,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({ id, name, title, photo }) => {
               <AvatarImage src={photo} alt={name} />
             ) : (
               <AvatarFallback className="bg-teal-100 text-teal-800 dark:bg-teal-800 dark:text-teal-100 text-xl">
-                {name.split(' ').map(n => n[0]).join('')}
+                {name?.split(' ').map(n => n[0]).join('')}
               </AvatarFallback>
             )}
           </Avatar>

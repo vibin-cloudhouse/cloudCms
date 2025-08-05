@@ -29,6 +29,8 @@ import KnowledgeBaseCategoryPage from "./pages/KnowledgeBase/KnowledgeBaseCatego
 import { HelmetProvider } from 'react-helmet-async';
 import DefaultSeo from "./components/DefaultSeo";
 import Security from "./pages/Security";
+import GDPRPolicy from "./pages/legal/GdprPolicy";
+import RefundPolicy from "./pages/legal/RefundPolicy";
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -57,7 +59,9 @@ const App = () => {
             <Route path="/server-migration" element={<ServerMigration />} />
             <Route path="/legal/privacy" element={<PrivacyPolicy />} />
             <Route path="/legal/terms" element={<TermsOfService />} />
-            <Route path="/legal/cookies" element={<CookiesPolicy />} />
+            <Route path="/legal/cookie" element={<CookiesPolicy />} />
+            <Route path="/legal/GDPR" element={<GDPRPolicy />} />
+            <Route path="/legal/refund" element={<RefundPolicy />} />
             <Route path="/changelog" element={<ChangeLog />} />
             <Route path="/alternatives" element={<AlternativesPage />} />
                         <Route path="/security" element={<Security />} />
