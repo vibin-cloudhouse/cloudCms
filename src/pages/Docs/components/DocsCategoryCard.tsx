@@ -27,6 +27,7 @@ export interface CategoryProps {
     keywords: string[];
   };
   slug: string;
+  ispopular:boolean;
 }
 
 const DocsCategoryCard: React.FC<CategoryProps> = ({ id, heading, description, icon, sub_docs,slug }) => {

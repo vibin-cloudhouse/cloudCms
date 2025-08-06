@@ -3,7 +3,6 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import BlogHero from "./BlogHero";
 import BlogList from "./BlogList";
-// import { blogPosts } from "./data/blogPosts"; // No longer needed, BlogList fetches its own data
 
 const Blog: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -12,9 +11,6 @@ const Blog: React.FC = () => {
     setSearchTerm(term);
   };
 
-  // filteredPosts logic is now handled inside BlogList component
-  // as it fetches and filters its own data based on category and search term.
-
   return (
     <>
       <Header />
@@ -22,7 +18,7 @@ const Blog: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-16">
             <BlogHero onSearch={handleSearch} />
-            <BlogList searchTerm={searchTerm} /> {/* Pass searchTerm to BlogList */}
+            <BlogList searchTerm={searchTerm} />
           </div>
         </div>
       </main>

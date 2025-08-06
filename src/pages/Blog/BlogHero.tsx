@@ -41,7 +41,6 @@ const BlogHero: React.FC<BlogHeroProps> = ({ onSearch }) => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              {/* These links would ideally be dynamic based on fetched categories */}
               <Link to="/blog/category/cloud-security" className="w-full sm:w-auto">
                 <Button className="w-full sm:w-auto" variant="outline">
                   <Book className="mr-2 h-4 w-4" />

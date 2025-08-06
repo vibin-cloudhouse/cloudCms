@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { HelpCategory } from "../types/helpTypes";
 import KnowledgeBaseCategory from "@/pages/KnowledgeBase/KnowledgeBaseCategory";
+import { Loader2 } from "lucide-react";
 
 const KnowledgeBaseHome: React.FC = () => {
   const [categories, setCategories] = useState<HelpCategory[]>([]);
@@ -88,7 +89,9 @@ useEffect(() => {
 }, []);
 
   if (loading) {
-    return <div className="text-white text-center mt-10">Loading categories...</div>;
+    return <div className="flex justify-center items-center gap-2 h-40">
+          <span>loading </span><Loader2 className="h-6 w-6 animate-spin text-gray-500" />
+        </div>;
   }
 
   if (error) {

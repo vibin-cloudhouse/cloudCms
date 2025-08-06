@@ -134,13 +134,13 @@ const Security = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-5xl 2xl:my-[200px] my-2 mx-auto text-center">
             <div className="flex items-center justify-center w-full">
-              <div className="mb-6 w-[300px] flex items-center justify-center rounded-full font-semibold px-6 py-2 text-sm hover:bg-teal-400/10 text-black border-white/20 animate-fade-in">
+              <div className="mb-6 w-[300px] flex items-center justify-center rounded-full font-semibold px-6 py-2 text-sm hover:bg-teal-400/10 text-black dark:text-white/60 border-white/20 animate-fade-in">
               <Shield className="w-5 h-5 mr-2" />
               Next-Generation Security
             </div>
             </div>
             
-            <h1 className="text-5xl md:text-7xl py-4 font-bold text-black mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <h1 className="text-5xl md:text-7xl py-4 font-bold text-black dark:text-white mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
               Security That
               <span className="block pt-4 gradient-heading text-transparent">
                 Thinks Ahead

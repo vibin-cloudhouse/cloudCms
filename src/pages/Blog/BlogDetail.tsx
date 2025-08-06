@@ -17,14 +17,14 @@ import {
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"; // Removed AvatarImage as it's not used directly from props
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import axios from "axios";
-import { FormattedBlog } from "./types"; // Import the updated interface
+import { FormattedBlog } from "./types";
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from "rehype-raw";
-import backgroundImage from "../../../public/lovable-uploads/40454896_8851051.jpg"; // Adjust the path as necessary
+import backgroundImage from "../../../public/lovable-uploads/40454896_8851051.jpg";
 import Seo from "@/components/Seo";
 
 
@@ -33,12 +33,12 @@ const BASE_STRAPI_URL = "https://strapnew.cloudstick.io";
 
 const BlogDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  
+
   const { toast } = useToast();
 
   const [post, setPost] = useState<FormattedBlog | null>(null);
   console.log("post",post?.seo?.metaTitle,post);
-  
+
   const [relatedPosts, setRelatedPosts] = useState<FormattedBlog[]>([]);
   const [commentText, setCommentText] = useState("");
   const [comments, setComments] = useState<{
@@ -79,7 +79,7 @@ const BlogDetail: React.FC = () => {
       )
       .then(res => {
         if (res.data && Array.isArray(res.data.data) && res.data.data.length > 0) {
-          const item = res.data.data[0]; // Get the first matching item
+          const item = res.data.data[0];
           const formattedItem: FormattedBlog = {
             id: item.id,
             documentId: item.documentId,
@@ -105,12 +105,11 @@ const BlogDetail: React.FC = () => {
           };
           setPost(formattedItem);
 
-          // Fetch related posts (same category, excluding current post)
           return axios.get(
             `${BASE_STRAPI_URL}/api/blogs?filters[category][$eq]=${formattedItem.category}&filters[id][$ne]=${formattedItem.id}&populate[banner]=true&pagination[limit]=3`
           );
         } else {
-          setPost(null); // No post found
+          setPost(null);
           setLoading(false);
           setError("Blog post not found.");
           console.warn("BlogDetail: No post found for slug:", slug, res.data);
@@ -128,7 +127,7 @@ const BlogDetail: React.FC = () => {
             username: item?.Username,
             bannerUrl: item?.banner?.url ? `${BASE_STRAPI_URL}${item.banner.url}` : null,
             bannerAltText: item?.banner?.alternativeText || "Blog banner image",
-            blogContent: [], // No need for full content for related posts in this context
+            blogContent: [],
             createdAt: item?.createdAt,
           }));
           setRelatedPosts(formattedRelated);
@@ -140,7 +139,7 @@ const BlogDetail: React.FC = () => {
       })
       .finally(() => {
         setLoading(false);
-        window.scrollTo(0, 0); // Scroll to top after fetching
+        window.scrollTo(0, 0);
       });
     }
   }, [slug]);
@@ -178,7 +177,7 @@ const BlogDetail: React.FC = () => {
 
   const handleShare = (platform: string) => {
     const url = window.location.href;
-    const title = post?.heading || "Blog post"; // Use post.heading
+    const title = post?.heading || "Blog post";
 
     let shareUrl = "";
 
@@ -215,7 +214,6 @@ const BlogDetail: React.FC = () => {
     setLiked(!liked);
   };
 
-  // Helper to format date
   const formatDate = (dateString: string | undefined) => {
     if (!dateString) return "N/A";
     try {
@@ -229,7 +227,6 @@ const BlogDetail: React.FC = () => {
     }
   };
 
-  // Helper to estimate read time
   const estimateReadTime = (content: FormattedBlog['blogContent']) => {
     const wordsPerMinute = 200;
     const totalWords = content.reduce((acc, block) => acc + (block.content ? block.content.split(/\s+/).length : 0), 0);
@@ -286,7 +283,6 @@ const BlogDetail: React.FC = () => {
       <Header />
       <main className="pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Navigation back to all blogs */}
           <div className="mb-8">
             <Button variant="ghost" asChild className="pl-0">
               <Link to="/blog">
@@ -296,21 +292,20 @@ const BlogDetail: React.FC = () => {
             </Button>
           </div>
 
-          {/* Article header */}
           <div className="mb-8">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">{post.heading}</h1> {/* Use heading */}
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">{post.heading}</h1>
             <div className="flex flex-wrap items-center gap-6 text-gray-500 dark:text-gray-400 mb-6">
               <div className="flex items-center gap-2">
                 <User size={16} />
-                <span>{post.username}</span> {/* Use username */}
+                <span>{post.username}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Calendar size={16} />
-                <span>{formatDate(post.createdAt)}</span> {/* Use createdAt for date */}
+                <span>{formatDate(post.createdAt)}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Clock size={16} />
-                <span>{estimateReadTime(post.blogContent)} min read</span> {/* Calculate read time */}
+                <span>{estimateReadTime(post.blogContent)} min read</span>
               </div>
               {post.category && (
                 <div className="flex items-center gap-1 bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-400 px-2 py-1 rounded-full text-xs">
@@ -320,18 +315,16 @@ const BlogDetail: React.FC = () => {
             </div>
           </div>
 
-          {/* Featured image */}
           {post.bannerUrl && (
             <div className="rounded-xl overflow-hidden mb-10">
               <img
-                src={post.bannerUrl} // Use bannerUrl
+                src={post.bannerUrl}
                 alt={post.bannerAltText || post.heading}
                 className="w-full h-auto object-cover max-h-[500px]"
               />
             </div>
           )}
 
-          {/* Article content - dynamically render from blogContent array */}
           <article className="prose prose-slate dark:prose-invert max-w-none mb-16">
             {post.blogContent.map((block,index) => {
                 const content = block.content?.trim();
@@ -346,7 +339,7 @@ const BlogDetail: React.FC = () => {
                             dangerouslySetInnerHTML={{
                               __html: block.content.replace(
                                 /<iframe /,
-                                `<iframe class="w-full h-[400px]" ` // you can adjust height as needed
+                                `<iframe class="w-full h-[400px]" `
                               ),
                             }}
                           />
@@ -362,27 +355,11 @@ const BlogDetail: React.FC = () => {
                   </div>))}
               </div>
             )})}
-             {/* Fallback for general description if blogContent is empty or minimal */}
              {post.blogContent.length === 0 && post.description && (
                 <p>{post.description}</p>
              )}
           </article>
 
-          {/* Tags - The new structure doesn't have a direct 'tags' array.
-              You might need to derive them from categories or add a new field in Strapi.
-              For now, this section is commented out or can display category as a "tag". */}
-          {/* <div className="flex flex-wrap gap-2 mb-8">
-            {post.tags.map((tag, index) => (
-              <span
-                key={index}
-                className="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 rounded-full"
-              >
-                #{tag}
-              </span>
-            ))}
-          </div> */}
-
-          {/* Share and engagement */}
           <div className="flex items-center justify-between py-6 border-t border-b border-slate-200 dark:border-slate-800 mb-10">
             <div className="flex items-center gap-6">
               <button
@@ -429,11 +406,9 @@ const BlogDetail: React.FC = () => {
             </div>
           </div>
 
-          {/* Comments section */}
           <div className="mb-16">
             <h3 className="text-2xl font-bold mb-6">Comments ({comments.length})</h3>
 
-            {/* Comment form */}
             <div className="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-xl mb-8">
               <h4 className="text-lg font-semibold mb-4">Leave a comment</h4>
               <form onSubmit={handleCommentSubmit}>
@@ -475,7 +450,6 @@ const BlogDetail: React.FC = () => {
               </form>
             </div>
 
-            {/* Comment list */}
             <div className="space-y-6">
               {comments.map((comment) => (
                 <div key={comment.id} className="flex gap-4 p-4 rounded-lg border border-slate-200 dark:border-slate-800">
@@ -494,7 +468,6 @@ const BlogDetail: React.FC = () => {
             </div>
           </div>
 
-          {/* Related articles */}
           {relatedPosts.length > 0 && (
             <div>
               <h3 className="text-2xl font-bold mb-6">Related Articles</h3>
@@ -507,16 +480,16 @@ const BlogDetail: React.FC = () => {
                   >
                     <div className="h-40 overflow-hidden rounded-lg mb-3">
                       <img
-                        src={relatedPost.bannerUrl || 'placeholder-image-url.jpg'} // Use bannerUrl
-                        alt={relatedPost.bannerAltText || relatedPost.heading} // Use bannerAltText or heading
+                        src={relatedPost.bannerUrl || 'placeholder-image-url.jpg'}
+                        alt={relatedPost.bannerAltText || relatedPost.heading}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                     <h4 className="font-semibold group-hover:text-[#006FEE] dark:group-hover:text-teal-400 transition-colors">
-                      {relatedPost.heading} {/* Use heading */}
+                      {relatedPost.heading}
                     </h4>
                     <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
-                      {relatedPost.description.substring(0, 80)}... {/* Use description */}
+                      {relatedPost.description.substring(0, 80)}...
                     </p>
                   </Link>
                 ))}
