@@ -32,6 +32,7 @@ import Security from "./pages/Security";
 import GDPRPolicy from "./pages/legal/GdprPolicy";
 import RefundPolicy from "./pages/legal/RefundPolicy";
 import DataManagementPage from "./pages/Features/DataManagementPage";
+import ServerManagementPage from "./pages/Features/ServerManagement";
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -67,6 +68,7 @@ const App = () => {
                 <Route path="/alternatives" element={<AlternativesPage />} />
                 <Route path="/security" element={<Security />} />
                 <Route path="/data" element={<DataManagementPage/>} />
+                <Route path="/servermanagement" element={<ServerManagementPage/>} />
 
                 <Route path="/alternatives/runcloud" element={<RunCloudComparison />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

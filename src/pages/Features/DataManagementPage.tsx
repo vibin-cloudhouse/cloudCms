@@ -2,6 +2,11 @@ import React from 'react';
 import { Cloud, Database, BarChart2, Shield, Lock, Globe, Code, UserCheck, ArrowRight } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import Database1 from '../../../public/lovable-uploads/database-img-1.svg'
+import Database2 from '../../../public/lovable-uploads/database-img-2.svg'
+import Database3 from '../../../public/lovable-uploads/database-img-3.svg'
+import Database4 from '../../../public/lovable-uploads/database-img-4.svg'
+import Database5 from '../../../public/lovable-uploads/database-img-5.svg'
 
 // Navbar Component - Adapted from previous immersive to match new screenshot
 const Navbar = () => {
@@ -119,22 +124,8 @@ const DataManagementPage = () => {
                             imageSide="right"
                         >
                             {/* Placeholder for illustration from Screenshot from 2025-08-06 15-28-53.png */}
-                            <div className="w-full max-w-sm h-64 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 text-xl font-bold opacity-80">
-                                <svg width="465" height="433" viewBox="0 0 465 433" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#clip0_223_2)">
-        <mask id="mask0_223_2" style={{ maskType: 'luminance' }} maskUnits="userSpaceOnUse" x="0" y="0" width="465" height="433">
-            <path d="M0 0H465V433H0V0Z" fill="white" />
-        </mask>
-        <g mask="url(#mask0_223_2)">
-            {/* ... rest of your SVG paths ... */}
-        </g>
-    </g>
-    <defs>
-        <clipPath id="clip0_223_2">
-            <rect width="465" height="433" fill="white" />
-        </clipPath>
-    </defs>
-</svg>
+                            <div className="w-full max-w-sm h-64  rounded-xl flex items-center justify-center text-blue-600 text-xl font-bold opacity-80">
+                               <img src={Database1} alt="Database1" />
 
                             </div>
                         </FeatureSection>
@@ -145,15 +136,8 @@ const DataManagementPage = () => {
                             imageSide="left"
                         >
                             {/* Placeholder for illustration from Screenshot from 2025-08-06 15-29-01.png (top) */}
-                            <div className="w-full max-w-sm h-64 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 text-xl font-bold opacity-80">
-                                <svg width="100%" height="100%" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    {/* Abstract shapes for person on laptop at a desk */}
-                                    <rect x="50" y="120" width="200" height="50" rx="5" fill="#B0BEC5" /> {/* Desk */}
-                                    <rect x="120" y="70" width="80" height="50" rx="5" fill="#90A4AE" /> {/* Laptop base */}
-                                    <rect x="125" y="50" width="70" height="20" rx="3" fill="#607D8B" /> {/* Laptop screen */}
-                                    <circle cx="160" cy="100" r="25" fill="#81C784" /> {/* Person's body */}
-                                    <rect x="150" y="125" width="20" height="20" fill="#81C784" /> {/* Person's legs */}
-                                </svg>
+                            <div className="w-full max-w-sm h-64  rounded-xl flex items-center justify-center text-blue-600 text-xl font-bold opacity-80">
+                                <img src={Database2} alt="Database2" />
                             </div>
                         </FeatureSection>
 
@@ -163,15 +147,8 @@ const DataManagementPage = () => {
                             imageSide="right"
                         >
                             {/* Placeholder for illustration from Screenshot from 2025-08-06 15-29-01.png (bottom) */}
-                            <div className="w-full max-w-sm h-64 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 text-xl font-bold opacity-80">
-                                <svg width="100%" height="100%" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    {/* Abstract shapes for person with locks and document */}
-                                    <circle cx="150" cy="100" r="30" fill="#81C784" />
-                                    <rect x="130" y="130" width="40" height="50" fill="#81C784" />
-                                    <Lock size={48} className="text-blue-600 absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2" />
-                                    <Lock size={48} className="text-blue-600 absolute top-1/2 right-1/4 -translate-x-1/2 -translate-y-1/2" />
-                                    <rect x="100" y="150" width="100" height="30" rx="5" fill="#B0BEC5" />
-                                </svg>
+                            <div className="w-full max-w-sm h-64  rounded-xl flex items-center justify-center text-blue-600 text-xl font-bold opacity-80">
+                               <img src={Database3} alt="Database3" />
                             </div>
                         </FeatureSection>
 
@@ -181,15 +158,8 @@ const DataManagementPage = () => {
                             imageSide="left"
                         >
                             {/* Placeholder for illustration from Screenshot from 2025-08-06 15-29-09.png */}
-                            <div className="w-full max-w-sm h-64 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 text-xl font-bold opacity-80">
-                                <svg width="100%" height="100%" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    {/* Abstract shapes for person with world map and data visualization */}
-                                    <circle cx="150" cy="100" r="30" fill="#81C784" />
-                                    <rect x="130" y="130" width="40" height="50" fill="#81C784" />
-                                    <Globe size={64} className="text-blue-600 absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2" />
-                                    <Code size={48} className="text-blue-600 absolute bottom-1/4 right-1/4 -translate-x-1/2 -translate-y-1/2" />
-                                    <BarChart2 size={48} className="text-blue-600 absolute top-1/2 right-1/4 -translate-x-1/2 -translate-y-1/2" />
-                                </svg>
+                            <div className="w-full max-w-sm h-64  rounded-xl flex items-center justify-center text-blue-600 text-xl font-bold opacity-80">
+                                <img src={Database4} alt="Database4" />
                             </div>
                         </FeatureSection>
 
@@ -199,14 +169,8 @@ const DataManagementPage = () => {
                             imageSide="right"
                         >
                             {/* Placeholder for illustration from Screenshot from 2025-08-06 15-29-20.png */}
-                            <div className="w-full max-w-sm h-64 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 text-xl font-bold opacity-80">
-                                <svg width="100%" height="100%" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    {/* Abstract shapes for person with charts */}
-                                    <circle cx="150" cy="100" r="30" fill="#81C784" />
-                                    <rect x="130" y="130" width="40" height="50" fill="#81C784" />
-                                    <BarChart2 size={64} className="text-blue-600 absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2" />
-                                    <Database size={48} className="text-blue-600 absolute top-1/2 right-1/4 -translate-x-1/2 -translate-y-1/2" />
-                                </svg>
+                            <div className="w-full max-w-sm h-64  rounded-xl flex items-center justify-center text-blue-600 text-xl font-bold opacity-80">
+                               <img src={Database5} alt="Database5" />
                             </div>
                         </FeatureSection>
 
